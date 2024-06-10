@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 
     public int Score { get; private set; } = 0;
 
-    public GameObject canvasVictory;
+    // A screen that will be displayed when the player wins
+    //public GameObject canvasVictory;
     
     // Start is called before the first frame update
     void Awake()
@@ -17,8 +18,8 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(this.gameObject);
-            DontDestroyOnLoad(canvasVictory);
-            canvasVictory.SetActive(false);
+           // DontDestroyOnLoad(canvasVictory);
+           // canvasVictory.SetActive(false);
         }
         else
         {

@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using UnityEngine.SceneManagement;
+using System;
+using JetBrains.Annotations;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -14,7 +16,8 @@ public class PlayerManager : MonoBehaviour
     public GameOverScreen GameOverScreen;
 
     void Start()
-    {
+    {   
+    
         if (PlayerPrefs.GetInt("IsContinuing", 0) == 1)
         {
             LoadPlayerData(); // Load health if continuing the game or changing levels
@@ -22,11 +25,10 @@ public class PlayerManager : MonoBehaviour
         else
         {
             ResetHealth(); // Reset health for a new game
-            SavePlayerData(); // Initial save for a new game
+            SavePlayerData(null); // Initial save for a new game
         }
         PlayerPrefs.SetInt("IsContinuing", 1); // Ensure that further level changes are considered as continuing
         PlayerPrefs.Save();
-        UpdateHealthUI();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -46,47 +48,44 @@ public class PlayerManager : MonoBehaviour
     {
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        UpdateHealthUI();
-
         if (currentHealth <= 0)
         {
             Die();
         }
         else
         {
-            SavePlayerData();
+            SavePlayerData(null);
         }
     }
 
-    void UpdateHealthUI()
-    {
-        if (healthText != null)
-        {
-            healthText.text = "Health: " + currentHealth;
-        }
-    }
 
     void Die()
     {
         Debug.Log("Player died");
         GameOverScreen.Setup();
         ResetHealth(); // Reset health upon death
-        SavePlayerData(); // Save the reset health
+        SavePlayerData(null); // Save the reset health
     }
 
-    public void SavePlayerData()
+    public void SavePlayerData([CanBeNull] string lvl)
     {
+        
         Debug.Log("Saving player data");
+
+        if (lvl == null)
+        {
+            lvl = SceneManager.GetActiveScene().name;
+        }
+
         Level level = new Level
         {
-            level = SceneManager.GetActiveScene().name,
-            
+            level = lvl,
             lifePoints = currentHealth
         };
-        Debug.Log("Saving health: " + level.lifePoints);
-        Debug.Log("Saving level: " + level.level);
-        Debug.Log("Active Scene: " + SceneManager.GetActiveScene().name);
-        Debug.Log("----------------------------------------------------");
+        //Debug.Log("Saving health: " + level.lifePoints);
+        //Debug.Log("Saving level: " + level.level);
+        //Debug.Log("Active Scene: " + SceneManager.GetActiveScene().name);
+        //Debug.Log("----------------------------------------------------");
         string data = JsonUtility.ToJson(level);
         string filePath = Path.Combine(Application.persistentDataPath, "levelData.json");
         Debug.Log("Saving to: " + filePath);
@@ -103,17 +102,18 @@ public class PlayerManager : MonoBehaviour
             Level loadedLevel = JsonUtility.FromJson<Level>(json);
             currentHealth = loadedLevel.lifePoints;
             Debug.Log("Loaded health: " + currentHealth);
+            Debug.Log("Loaded level: " + loadedLevel.level);
         }
         else
         {
             currentHealth = maxHealth;
         }
-        UpdateHealthUI();
+        
     }
 
     public void ResetHealth()
     {
         currentHealth = maxHealth;
-        UpdateHealthUI();
+        
     }
 }

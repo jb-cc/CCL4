@@ -25,13 +25,14 @@ public class GameManager : MonoBehaviour
         {
             
 
+            
+
             SceneManager.LoadScene(level.level);
 
             if (playerManager != null)
             {
-            playerManager.SavePlayerData();
+                playerManager.SavePlayerData(level.level);
             }
-            Debug.Log(level.level + "Wurde geladen");
         }
     }
 

@@ -48,11 +48,11 @@ public class MainMenu : MonoBehaviour
         if (playerManager != null)
         {
             playerManager.ResetHealth();
-            playerManager.SavePlayerData();
+            playerManager.SavePlayerData(null);
         }
         //Change to actual scene in game
         SceneManager.LoadScene("SceneHud");
-        playerManager.SavePlayerData();
+        playerManager.SavePlayerData(null);
     }
 
     public void QuitGame()

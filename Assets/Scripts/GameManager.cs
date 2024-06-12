@@ -23,17 +23,17 @@ public class GameManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            SaveToJson();
+            
 
             SceneManager.LoadScene(level.level);
+
+            if (playerManager != null)
+            {
+            playerManager.SavePlayerData();
+            }
+            Debug.Log(level.level + "Wurde geladen");
         }
     }
 
-    public void SaveToJson()
-    {
-        if (playerManager != null)
-        {
-            playerManager.SavePlayerData();
-        }
-    }
+    
 }

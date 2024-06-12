@@ -15,16 +15,17 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        // Initialize the health correctly based on whether it's a new game or a continuation
         if (PlayerPrefs.GetInt("IsContinuing", 0) == 1)
         {
-            LoadPlayerData(); // Load health if continuing the game
+            LoadPlayerData(); // Load health if continuing the game or changing levels
         }
         else
         {
             ResetHealth(); // Reset health for a new game
             SavePlayerData(); // Initial save for a new game
         }
+        PlayerPrefs.SetInt("IsContinuing", 1); // Ensure that further level changes are considered as continuing
+        PlayerPrefs.Save();
         UpdateHealthUI();
     }
 
@@ -75,12 +76,17 @@ public class PlayerManager : MonoBehaviour
 
     public void SavePlayerData()
     {
+        Debug.Log("Saving player data");
         Level level = new Level
         {
             level = SceneManager.GetActiveScene().name,
+            
             lifePoints = currentHealth
         };
-
+        Debug.Log("Saving health: " + level.lifePoints);
+        Debug.Log("Saving level: " + level.level);
+        Debug.Log("Active Scene: " + SceneManager.GetActiveScene().name);
+        Debug.Log("----------------------------------------------------");
         string data = JsonUtility.ToJson(level);
         string filePath = Path.Combine(Application.persistentDataPath, "levelData.json");
         Debug.Log("Saving to: " + filePath);

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
@@ -48,7 +50,9 @@ public class MainMenu : MonoBehaviour
             playerManager.ResetHealth();
             playerManager.SavePlayerData();
         }
+        //Change to actual scene in game
         SceneManager.LoadScene("SceneHud");
+        playerManager.SavePlayerData();
     }
 
     public void QuitGame()

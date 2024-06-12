@@ -1,21 +1,30 @@
 using UnityEngine;
-using UnityEngine.UI; // Only if you are using UI to display health
+using UnityEngine.UI;
+using System.IO;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField]
-    public int maxHealth = 100;
+    public int maxHealth = 3;
     public int currentHealth;
     [SerializeField]
-    public int damageAmount = 10; // Amount of health to decrease on collision
-    public Text healthText; // Only if you are using UI to display health
-
+    public int damageAmount = 1;
+    public Text healthText;
     public GameOverScreen GameOverScreen;
-
 
     void Start()
     {
-        currentHealth = maxHealth;
+        // Initialize the health correctly based on whether it's a new game or a continuation
+        if (PlayerPrefs.GetInt("IsContinuing", 0) == 1)
+        {
+            LoadPlayerData(); // Load health if continuing the game
+        }
+        else
+        {
+            ResetHealth(); // Reset health for a new game
+            SavePlayerData(); // Initial save for a new game
+        }
         UpdateHealthUI();
     }
 
@@ -30,18 +39,21 @@ public class PlayerManager : MonoBehaviour
         {
             Die();
         }
-        
     }
 
     void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Ensure health doesn't go below 0 or above max
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthUI();
 
         if (currentHealth <= 0)
         {
             Die();
+        }
+        else
+        {
+            SavePlayerData();
         }
     }
 
@@ -55,8 +67,47 @@ public class PlayerManager : MonoBehaviour
 
     void Die()
     {
-        // Handle player death (e.g., restart level, show game over screen, etc.)
         Debug.Log("Player died");
         GameOverScreen.Setup();
+        ResetHealth(); // Reset health upon death
+        SavePlayerData(); // Save the reset health
+    }
+
+    public void SavePlayerData()
+    {
+        Level level = new Level
+        {
+            level = SceneManager.GetActiveScene().name,
+            lifePoints = currentHealth
+        };
+
+        string data = JsonUtility.ToJson(level);
+        string filePath = Path.Combine(Application.persistentDataPath, "levelData.json");
+        Debug.Log("Saving to: " + filePath);
+        File.WriteAllText(filePath, data);
+        Debug.Log("Saved json data: " + data);
+    }
+
+    public void LoadPlayerData()
+    {
+        string filePath = Path.Combine(Application.persistentDataPath, "levelData.json");
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            Level loadedLevel = JsonUtility.FromJson<Level>(json);
+            currentHealth = loadedLevel.lifePoints;
+            Debug.Log("Loaded health: " + currentHealth);
+        }
+        else
+        {
+            currentHealth = maxHealth;
+        }
+        UpdateHealthUI();
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
+        UpdateHealthUI();
     }
 }

@@ -1,40 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+[System.Serializable]
+public class Level
+{
+    public string level;
+    public int lifePoints;
+}
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    [SerializeField]
+    public Level level = new Level();
+    private PlayerManager playerManager;
 
-    public int Score { get; private set; } = 0;
-
-    // A screen that will be displayed when the player wins
-    //public GameObject canvasVictory;
-    
-    // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
-        if (Instance == null)
+        playerManager = FindObjectOfType<PlayerManager>();
+    }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-           // DontDestroyOnLoad(canvasVictory);
-           // canvasVictory.SetActive(false);
-        }
-        else
-        {
-            Destroy(this.gameObject);
+            SaveToJson();
+
+            SceneManager.LoadScene(level.level);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SaveToJson()
     {
-        
-    }
-
-    public void LoadScene(string sceneName)
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        if (playerManager != null)
+        {
+            playerManager.SavePlayerData();
+        }
     }
 }

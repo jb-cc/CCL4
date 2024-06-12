@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
         else
         {
             ResetHealth(); // Reset health for a new game
-            SavePlayerData(null); // Initial save for a new game
+            SavePlayerData(); // Initial save for a new game
         }
         PlayerPrefs.SetInt("IsContinuing", 1); // Ensure that further level changes are considered as continuing
         PlayerPrefs.Save();
@@ -54,7 +54,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            SavePlayerData(null);
+            SavePlayerData();
         }
     }
 
@@ -64,17 +64,26 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Player died");
         GameOverScreen.Setup();
         ResetHealth(); // Reset health upon death
-        SavePlayerData(null); // Save the reset health
+        SavePlayerData(); // Save the reset health
     }
 
-    public void SavePlayerData([CanBeNull] string lvl)
+    /// <summary>
+    /// Saves the current level and PlayerHealth. If you call this directly after a Levelchange [SceneManager.LoadScene()], you need to pass the next level as a parameter.
+    /// </summary>
+    /// <param name="lvl">The name of the Unity Scene (Level) that should be loaded</param>
+    public void SavePlayerData(string lvl = null)
     {
         
         Debug.Log("Saving player data");
 
         if (lvl == null)
         {
+            Debug.Log("lvl is null, getting active scene name");
             lvl = SceneManager.GetActiveScene().name;
+        }
+        else
+        {
+            Debug.Log("lvl is not null, using: " + lvl);
         }
 
         Level level = new Level

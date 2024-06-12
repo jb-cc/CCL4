@@ -23,12 +23,8 @@ public class GameManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            
-
-            
-
             SceneManager.LoadScene(level.level);
-
+            
             if (playerManager != null)
             {
                 playerManager.SavePlayerData(level.level);

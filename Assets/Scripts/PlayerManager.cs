@@ -26,6 +26,11 @@ public class PlayerManager : MonoBehaviour
             TakeDamage(damageAmount);
             Debug.Log("Ouch!");
         }
+        if (collision.gameObject.CompareTag("DeathZone"))
+        {
+            Die();
+        }
+        
     }
 
     void TakeDamage(int amount)

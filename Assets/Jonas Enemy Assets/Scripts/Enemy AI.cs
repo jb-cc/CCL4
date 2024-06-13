@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
+    private Animator _animator;
 
     // Patroling
     public Vector3 walkPoint;
@@ -26,6 +27,7 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -58,6 +60,9 @@ public class EnemyAI : MonoBehaviour
 
     private void Patroling()
     {
+        _animator.SetBool("isChasing", false);
+        _animator.SetBool("isStanding", false);
+        _animator.SetBool("isWalking", true);
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -67,7 +72,12 @@ public class EnemyAI : MonoBehaviour
 
         // Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
+        {
+            _animator.SetBool("isChasing", false);
+            _animator.SetBool("isWalking", false);
+            _animator.SetBool("isStanding", true);
             walkPointSet = false;
+        }
     }
 
     private void SearchWalkPoint()
@@ -91,11 +101,18 @@ public class EnemyAI : MonoBehaviour
 
     private void ChasePlayer()
     {
+        _animator.SetBool("isStanding", false);
+        _animator.SetBool("isWalking", true);
+        _animator.SetBool("isChasing", true);
+        
         agent.SetDestination(player.position);
     }
 
     private void AttackPlayer()
     {
+        _animator.SetBool("isChasing", false);
+        _animator.SetBool("isWalking", false);
+        _animator.SetBool("isPunching", true);
         agent.SetDestination(transform.position);
         
         // Calculate direction to look at

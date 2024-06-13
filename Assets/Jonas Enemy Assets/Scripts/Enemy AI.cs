@@ -103,7 +103,7 @@ public class EnemyAI : MonoBehaviour
         direction.y = 0; // Keep the y component zero to avoid tilting up/down
 
         // Make the enemy look towards the player
-        transform.rotation = Quaternion.LookRotation(direction);
+        //transform.rotation = Quaternion.LookRotation(direction);
 
         // Check if the enemy has already attacked
         if (!alreadyAttacked)

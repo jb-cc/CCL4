@@ -5,78 +5,99 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    public NavMeshAgent agent;
-    public Transform player;
-    public LayerMask whatIsGround, whatIsPlayer;
+    // Components
+    [SerializeField]
+    private NavMeshAgent agent;
+    [SerializeField]
+    private Transform player;
+    [SerializeField]
+    private LayerMask whatIsGround, whatIsPlayer;
     private Animator _animator;
+    
+    // Visuals
+    private GameObject _angryFace;
+    private GameObject _neutralFace;
+    private GameObject _deadFace;
 
     // Patroling
-    public Vector3 walkPoint;
-    bool walkPointSet;
-    public float walkPointRange;
+    [SerializeField]
+    private Vector3 walkPoint;
+    [SerializeField]
+    private float walkPointRange;
+    private bool _isWalkPointSet;
 
     // Attacking
-    public float timeBetweenAttacks;
-    bool alreadyAttacked;
+    [SerializeField]
+    private float timeBetweenAttacks = 0.5f;
+    private bool _alreadyAttacked;
 
     // States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    [SerializeField]
+    private float sightRange, attackRange;
+    private bool _isPlayerInSightRange, _isPlayerInAttackRange;
+    private float _standardSpeed;
 
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
+        _standardSpeed = agent.speed;
+        _angryFace = gameObject.transform.Find("FaceAngry").gameObject;
+        _neutralFace = gameObject.transform.Find("FaceNeutral").gameObject;
+        _deadFace = gameObject.transform.Find("FaceDead").gameObject;
     }
 
     private void Update()
     {
         // Check for sight and attack range
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        _isPlayerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+        _isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         
-        if (!playerInSightRange && !playerInAttackRange)
-        {
-            Debug.Log("Player not in sight range");
+        if (!_isPlayerInSightRange && !_isPlayerInAttackRange)
             Patroling();
-        }
         
-        if (playerInSightRange && !playerInAttackRange)
-        {
-            Debug.Log("Player in sight range");
+        if (_isPlayerInSightRange && !_isPlayerInAttackRange)
             ChasePlayer();
-        }
-
         
-        if (playerInSightRange && playerInAttackRange)
-        {
-            Debug.Log("Player in attack range");
+        if (_isPlayerInSightRange && _isPlayerInAttackRange)
             AttackPlayer();
-        }
-
-        
     }
 
     private void Patroling()
     {
+        // Visuals
         _animator.SetBool("isChasing", false);
         _animator.SetBool("isStanding", false);
         _animator.SetBool("isWalking", true);
-        if (!walkPointSet) SearchWalkPoint();
-
-        if (walkPointSet)
+        _angryFace.SetActive(false);
+        _neutralFace.SetActive(true);
+        _deadFace.SetActive(false);
+        
+        
+        // When patrolling, the enemy should walk at standard speed
+        agent.speed = _standardSpeed;
+        
+        
+        // Enemy selects a random point to walk to (patroling behaviour)
+        if (!_isWalkPointSet) SearchWalkPoint();
+        
+        if (_isWalkPointSet)
             agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
+        
         // Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
         {
-            _animator.SetBool("isChasing", false);
+            // Visuals
             _animator.SetBool("isWalking", false);
             _animator.SetBool("isStanding", true);
-            walkPointSet = false;
+            _animator.SetInteger("chosenStandingAnimation", Random.Range(1, 3));            
+            
+            // Idle for a while, then search for a new walk point
+            Invoke(nameof(ForgetWalkPoint), 20f);
         }
     }
 
@@ -90,7 +111,7 @@ public class EnemyAI : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
         {
-            walkPointSet = true;
+            _isWalkPointSet = true;
             Debug.Log("Walk point found: " + walkPoint);
         }
         else
@@ -98,43 +119,70 @@ public class EnemyAI : MonoBehaviour
             Debug.Log("No walk point found.");
         }
     }
+    
+    private void ForgetWalkPoint()
+    {
+        _isWalkPointSet = false;
+    }
 
     private void ChasePlayer()
     {
+        // Visuals
         _animator.SetBool("isStanding", false);
-        _animator.SetBool("isWalking", true);
+        _animator.SetBool("isWalking", false);
         _animator.SetBool("isChasing", true);
+        _angryFace.SetActive(true);
+        _neutralFace.SetActive(false);
+        _deadFace.SetActive(false);
+        
+        // When chasing, the enemy should walk at double speed
+        agent.speed = 2 * _standardSpeed;
         
         agent.SetDestination(player.position);
     }
 
     private void AttackPlayer()
     {
+        // Visuals
+        _animator.SetBool("isStanding", false);
         _animator.SetBool("isChasing", false);
         _animator.SetBool("isWalking", false);
-        _animator.SetBool("isPunching", true);
-        agent.SetDestination(transform.position);
+        _angryFace.SetActive(true);
+        _neutralFace.SetActive(false);
+        _deadFace.SetActive(false);
         
-        // Calculate direction to look at
+        
+        // Make the enemy stop moving and reset speed in case the player dies
+        agent.SetDestination(transform.position);
+        agent.speed = _standardSpeed;
+        
+        
+        // Calculate direction to look at and look at the player
         Vector3 direction = (player.position - transform.position).normalized;
         direction.y = 0; // Keep the y component zero to avoid tilting up/down
+        transform.rotation = Quaternion.LookRotation(direction);
 
-        // Make the enemy look towards the player
-        //transform.rotation = Quaternion.LookRotation(direction);
-
-        // Check if the enemy has already attacked
-        if (!alreadyAttacked)
+        
+        // Check if the enemy has already attacked, if not, attack. If yes, wait for the next attack
+        if (!_alreadyAttacked)
         {
-            // TODO: Attack Animation
+            _alreadyAttacked = true;
+
             
-            alreadyAttacked = true;
+            // Visuals again
+            // randomize punch animation
+            _animator.SetBool("isAttacking", true);
+            _animator.SetInteger("chosenAttackAnimation", Random.Range(1, 3));
+            
+            
+            // add a delay between attacks
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
     private void ResetAttack()
     {
-        alreadyAttacked = false;
+        _alreadyAttacked = false;
     }
 
     private void OnDrawGizmosSelected()

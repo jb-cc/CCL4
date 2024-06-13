@@ -7,33 +7,52 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject continueButton; // Assign the Continue button in the Inspector
+    public GameObject continueButton;
+    private PlayerManager playerManager;
 
     void Start()
     {
-        // Initially hide the Continue button
+        playerManager = FindObjectOfType<PlayerManager>();
         continueButton.SetActive(false);
 
-        // Check if there is saved data
         if (IsLevelSaved())
         {
-            // Show the Continue button
             continueButton.SetActive(true);
         }
 
-        // Add onClick listener for the Continue button
         continueButton.GetComponent<Button>().onClick.AddListener(ContinueGame);
     }
 
     bool IsLevelSaved()
     {
         string filePath = Path.Combine(Application.persistentDataPath, "levelData.json");
-        return File.Exists(filePath);
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            if (!string.IsNullOrEmpty(json))
+            {
+                Level level = JsonUtility.FromJson<Level>(json);
+                if (!string.IsNullOrEmpty(level.level))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public void PlayGame()
     {
+        PlayerPrefs.SetInt("IsContinuing", 0); // Set flag to indicate new game
+        PlayerPrefs.Save();
+        if (playerManager != null)
+        {
+            playerManager.ResetHealth();
+            playerManager.SavePlayerData();
+        }
+        //Change to actual scene in game
         SceneManager.LoadScene("SceneHud");
+        playerManager.SavePlayerData();
     }
 
     public void QuitGame()
@@ -41,18 +60,17 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    void ContinueGame()
+    public void ContinueGame()
     {
-        // Load the saved level or handle the continue logic
+        PlayerPrefs.SetInt("IsContinuing", 1); // Set flag to indicate continuing game
+        PlayerPrefs.Save();
+
         string filePath = Path.Combine(Application.persistentDataPath, "levelData.json");
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
             Level level = JsonUtility.FromJson<Level>(json);
-            // Load the level using the saved data
             SceneManager.LoadScene(level.level);
         }
     }
 }
-
-

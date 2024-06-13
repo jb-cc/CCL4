@@ -2398,7 +2398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85fab7e54a1b99844b60ef4bfa322bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneHud: SceneHud 2
   level:
     level: SceneHud 2
 --- !u!65 &2065301702

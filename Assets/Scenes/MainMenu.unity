@@ -439,7 +439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85fab7e54a1b99844b60ef4bfa322bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneHud: SceneHud
   level:
     level: SceneHud
 --- !u!1 &301707546
@@ -528,7 +527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85fab7e54a1b99844b60ef4bfa322bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneHud: SceneHud
   level:
     level: SceneHud
 --- !u!114 &553359760
@@ -640,7 +638,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1947959613}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: ContinueGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

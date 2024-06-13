@@ -26,6 +26,7 @@ public class TurretControl : MonoBehaviour
     private float _nextShoot;
     [SerializeField]
     private float _fireRate;
+    [SerializeField] ForceMode _forceMode;
     void Start()
     {
         //_nextShoot = Time.time + 1.0f;
@@ -53,7 +54,7 @@ public class TurretControl : MonoBehaviour
     {
         GameObject clone = Instantiate(_projectile, _shootBarrel.position, _canonHead.rotation);
 
-        clone.GetComponent<Rigidbody>().AddForce(_canonHead.forward * _projectileSpeed);
+        clone.GetComponent<Rigidbody>().AddForce(_canonHead.forward * _projectileSpeed, _forceMode);
         Destroy(clone, 3);
     }
 }

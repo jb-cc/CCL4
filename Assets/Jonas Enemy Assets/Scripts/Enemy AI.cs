@@ -32,7 +32,6 @@ public class EnemyAI : MonoBehaviour
     private bool _alreadyAttacked;
     [SerializeField] private GameObject leftHand, leftForeArm, rightHand, rightForeArm;
     private CapsuleCollider _leftHandCollider, _leftForeArmCollider, _rightHandCollider, _rightForeArmCollider;
-    private bool _weaponCollidersActive = false;
     
     // States
     [SerializeField]
@@ -69,7 +68,10 @@ public class EnemyAI : MonoBehaviour
             ChasePlayer();
         
         if (_isPlayerInSightRange && _isPlayerInAttackRange)
-            AttackPlayer();
+            if (!_alreadyAttacked)
+            {
+                AttackPlayer();
+            }
     }
 
     private void Patroling()
@@ -85,11 +87,6 @@ public class EnemyAI : MonoBehaviour
         
         // When patrolling, the enemy should walk at standard speed
         agent.speed = _standardSpeed;
-        
-        
-        // Deactivate weapon colliders if active
-        if (_weaponCollidersActive)
-            DeactivateWeaponColliders();
         
         
         // Enemy selects a random point to walk to (patroling behaviour)
@@ -151,15 +148,15 @@ public class EnemyAI : MonoBehaviour
         // When chasing, the enemy should walk at double speed
         agent.speed = 2 * _standardSpeed;
         
-        // Deactivate weapon colliders if active, should only be active when attacking
-        if (_weaponCollidersActive)
-            DeactivateWeaponColliders();
         
         agent.SetDestination(player.position);
     }
 
     private void AttackPlayer()
     {
+        // Attack only once
+        _alreadyAttacked = true;
+
         // Visuals
         _animator.SetBool("isStanding", false);
         _animator.SetBool("isChasing", false);
@@ -178,28 +175,18 @@ public class EnemyAI : MonoBehaviour
         Vector3 direction = (player.position - transform.position).normalized;
         direction.y = 0; // Keep the y component zero to avoid tilting up/down
         transform.rotation = Quaternion.LookRotation(direction);
-
         
-        // Activate weapon colliders if not already active(are not always activated because Enemy would be OP)
-        if (!_weaponCollidersActive)
-            ActivateWeaponColliders();
+            
+        // Visuals again
+        // randomize punch animation
+        int chosenAttackAnimation = Random.Range(1, 3);
+        _animator.SetInteger("chosenAttackAnimation", chosenAttackAnimation);
+        _animator.SetBool("isAttacking", true);
         
+            
+        // add a delay between attacks
+        Invoke(nameof(ResetAttack), timeBetweenAttacks);
         
-        // Check if the enemy has already attacked, if not, attack. If yes, wait for the next attack
-        if (!_alreadyAttacked)
-        {
-            _alreadyAttacked = true;
-
-            
-            // Visuals again
-            // randomize punch animation
-            _animator.SetBool("isAttacking", true);
-            _animator.SetInteger("chosenAttackAnimation", Random.Range(1, 3));
-            
-            
-            // add a delay between attacks
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        }
     }
 
     private void ResetAttack()
@@ -207,20 +194,24 @@ public class EnemyAI : MonoBehaviour
         _alreadyAttacked = false;
     }
 
-    private void ActivateWeaponColliders()
+    public void ActivateWeaponCollidersLeft()
     {
-        _weaponCollidersActive = true;
-        
         _leftHandCollider.enabled = true;
         _leftForeArmCollider.enabled = true;
+        _rightHandCollider.enabled = false;
+        _rightForeArmCollider.enabled = false;
+    }
+    
+    public void ActivateWeaponCollidersRight()
+    {
+        _leftHandCollider.enabled = false;
+        _leftForeArmCollider.enabled = false;
         _rightHandCollider.enabled = true;
         _rightForeArmCollider.enabled = true;
     }
     
-    private void DeactivateWeaponColliders()
+    public void DeactivateWeaponColliders()
     {
-        _weaponCollidersActive = false;
-        
         _leftHandCollider.enabled = false;
         _leftForeArmCollider.enabled = false;
         _rightHandCollider.enabled = false;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class NewBehaviourScript : MonoBehaviour
+public class ThirdPersonMovement : MonoBehaviour
 {
     [SerializeField] private CharacterController characterController;
 
@@ -16,6 +16,7 @@ public class NewBehaviourScript : MonoBehaviour
     private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
 
+    public Animator animator;
     public Transform cam;
     private Rigidbody _player;
 
@@ -58,6 +59,12 @@ public class NewBehaviourScript : MonoBehaviour
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             _player.AddForce(moveDirection.normalized * speed, _forceMode);
             //characterController.Move(moveDirection.normalized * speed * Time.deltaTime);
+
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
         }
 
         if (Input.GetButtonDown("Jump") && isGrounded) //&& isGrounded

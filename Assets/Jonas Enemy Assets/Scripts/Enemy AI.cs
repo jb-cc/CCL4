@@ -30,7 +30,10 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private float timeBetweenAttacks = 0.5f;
     private bool _alreadyAttacked;
-
+    [SerializeField] private GameObject leftHand, leftForeArm, rightHand, rightForeArm;
+    private CapsuleCollider _leftHandCollider, _leftForeArmCollider, _rightHandCollider, _rightForeArmCollider;
+    private bool _weaponCollidersActive = false;
+    
     // States
     [SerializeField]
     private float sightRange, attackRange;
@@ -46,6 +49,11 @@ public class EnemyAI : MonoBehaviour
         _angryFace = gameObject.transform.Find("FaceAngry").gameObject;
         _neutralFace = gameObject.transform.Find("FaceNeutral").gameObject;
         _deadFace = gameObject.transform.Find("FaceDead").gameObject;
+        _leftHandCollider = leftHand.GetComponent<CapsuleCollider>();
+        _leftForeArmCollider = leftForeArm.GetComponent<CapsuleCollider>();
+        _rightHandCollider = rightHand.GetComponent<CapsuleCollider>();
+        _rightForeArmCollider = rightForeArm.GetComponent<CapsuleCollider>();
+        DeactivateWeaponColliders();
     }
 
     private void Update()
@@ -77,6 +85,11 @@ public class EnemyAI : MonoBehaviour
         
         // When patrolling, the enemy should walk at standard speed
         agent.speed = _standardSpeed;
+        
+        
+        // Deactivate weapon colliders if active
+        if (_weaponCollidersActive)
+            DeactivateWeaponColliders();
         
         
         // Enemy selects a random point to walk to (patroling behaviour)
@@ -138,6 +151,10 @@ public class EnemyAI : MonoBehaviour
         // When chasing, the enemy should walk at double speed
         agent.speed = 2 * _standardSpeed;
         
+        // Deactivate weapon colliders if active, should only be active when attacking
+        if (_weaponCollidersActive)
+            DeactivateWeaponColliders();
+        
         agent.SetDestination(player.position);
     }
 
@@ -163,6 +180,11 @@ public class EnemyAI : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(direction);
 
         
+        // Activate weapon colliders if not already active(are not always activated because Enemy would be OP)
+        if (!_weaponCollidersActive)
+            ActivateWeaponColliders();
+        
+        
         // Check if the enemy has already attacked, if not, attack. If yes, wait for the next attack
         if (!_alreadyAttacked)
         {
@@ -185,6 +207,26 @@ public class EnemyAI : MonoBehaviour
         _alreadyAttacked = false;
     }
 
+    private void ActivateWeaponColliders()
+    {
+        _weaponCollidersActive = true;
+        
+        _leftHandCollider.enabled = true;
+        _leftForeArmCollider.enabled = true;
+        _rightHandCollider.enabled = true;
+        _rightForeArmCollider.enabled = true;
+    }
+    
+    private void DeactivateWeaponColliders()
+    {
+        _weaponCollidersActive = false;
+        
+        _leftHandCollider.enabled = false;
+        _leftForeArmCollider.enabled = false;
+        _rightHandCollider.enabled = false;
+        _rightForeArmCollider.enabled = false;
+    }
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

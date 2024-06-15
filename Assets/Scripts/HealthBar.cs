@@ -1,30 +1,29 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// TODO: Rewrite the Healthbar
 public class HealthBar : MonoBehaviour
 {
-    public PlayerManager playerManager;
     public Image[] healthImgs; // 0-2 0left 1middle 2right   
+    private GameManager _gameManager;
 
     void Start()
     {
-        if (playerManager == null)
+        if (_gameManager == null)
         {
-            playerManager = FindObjectOfType<PlayerManager>();
+            _gameManager = FindObjectOfType<GameManager>();
         }
-
         UpdateHealthBar();
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void Update()
     {
-        UpdateHealthBar();
     }
 
-    void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
-        int health = playerManager.currentHealth;
-
+        int health = _gameManager.playerData.playerHealth;
         for (int i = 0; i < healthImgs.Length; i++)
         {
             healthImgs[i].enabled = i < health;

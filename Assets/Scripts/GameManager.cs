@@ -1,36 +1,98 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[System.Serializable]
-public class Level
-{
-    public string level;
-    public int lifePoints;
-}
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    public Level level = new Level();
-    private PlayerManager playerManager;
-
-    void Start()
+    // player data class, this is how the saved JSON data will be structured
+    public class PlayerData
     {
-        playerManager = FindObjectOfType<PlayerManager>();
+        // level is the name of the scene
+        public string level;
+        public int playerHealth;
+        // public Vector3 playerPosition;
     }
 
-    void OnTriggerEnter(Collider collision)
+    // variables
+    public PlayerData playerData { get; private set; }
+    private int _playerHealth;
+    // private Vector3 _playerPosition;
+    [SerializeField]
+    private int maxHealth = 10;
+    [SerializeField]
+    private bool _gameWon = false;
+    private bool _gameOver = false;
+    public bool saveExists {get; private set;}
+    public string firstLevel {get; private set;}
+    public string gameOverScene {get; private set;}
+    [SerializeField]
+    private GameObject gameOverScreen;
+
+
+    private void Awake()
     {
-        if (collision.gameObject.CompareTag("Player"))
+        
+        playerData = LoadPlayerData();
+        if (playerData != null)
         {
-            SceneManager.LoadScene(level.level);
-            
-            if (playerManager != null)
-            {
-                playerManager.SavePlayerData(level.level);
-            }
+            saveExists = true;
+            playerData.playerHealth = Math.Min(maxHealth, playerData.playerHealth);
+        }
+        else
+        {
+            saveExists = false;
+            playerData = new PlayerData();
+            playerData.playerHealth = maxHealth;
+            playerData.level = firstLevel;
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void SavePlayerData(string lvl = null)
+    {
+        // if lvl is null, use the one stored in _level
+        if (lvl != null)
+        {
+            playerData.level = lvl;
+        };
+        
+        string json = JsonUtility.ToJson(playerData);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/playerData.json", json);
+        saveExists = true;
+    }
+    
+    private PlayerData LoadPlayerData()
+    {
+        string filePath = Application.persistentDataPath + "/playerData.json";
+        if (System.IO.File.Exists(filePath))
+        {
+            string json = System.IO.File.ReadAllText(filePath);
+            return JsonUtility.FromJson<PlayerData>(json);
+        }
+        return null;
+    }
+    
+    public void DecreasePlayerHealth(int amount)
+    {
+        playerData.playerHealth -= amount;
+        playerData.playerHealth = Math.Max(0, playerData.playerHealth);
+        if (playerData.playerHealth <= 0)
+        {
+            GameOver();
         }
     }
-
     
+    public void ContinueGame()
+    {
+        playerData = LoadPlayerData();
+        SceneManager.LoadScene(playerData.level);
+    }
+    
+    public void GameOver()
+    {
+        _gameOver = true;
+        gameOverScreen.SetActive(true);
+        // SceneManager.LoadScene(gameOverScene);
+    }
 }

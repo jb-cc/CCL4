@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 225448196}
   - component: {fileID: 225448198}
   - component: {fileID: 225448197}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Eye1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 748240607}
   - component: {fileID: 748240606}
   - component: {fileID: 748240605}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1564,7 +1564,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1876,7 +1876,7 @@ GameObject:
   - component: {fileID: 1220738085}
   - component: {fileID: 1220738086}
   - component: {fileID: 1220738087}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2193,7 +2193,7 @@ GameObject:
   - component: {fileID: 1285139013}
   - component: {fileID: 1285139015}
   - component: {fileID: 1285139014}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: Eye2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3365,6 +3365,14 @@ PrefabInstance:
     - target: {fileID: 8186648523479672119, guid: 9b3cb79498be83049950ff5ca6376d0e, type: 3}
       propertyPath: timeBetweenAttacks
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186648523479672119, guid: 9b3cb79498be83049950ff5ca6376d0e, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186648523479672119, guid: 9b3cb79498be83049950ff5ca6376d0e, type: 3}
+      propertyPath: whatIsPlayer.m_Bits
+      value: 4096
       objectReference: {fileID: 0}
     - target: {fileID: 8850237076656752151, guid: 9b3cb79498be83049950ff5ca6376d0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

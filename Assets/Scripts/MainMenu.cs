@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using System.IO;
-using UnityEditor.ShaderKeywordFilter;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
@@ -11,25 +6,23 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject continueButton;
     private GameManager _gameManager;
 
-    void Start()
+    void Awake()
     {
-        _gameManager = FindObjectOfType<GameManager>();
-        continueButton.SetActive(false);
+        if (_gameManager == null)
+            _gameManager = FindObjectOfType<GameManager>();
 
-        if (_gameManager.saveExists)
-        {
-            continueButton.SetActive(true);
-        }
+        continueButton.SetActive(false);
+        _gameManager.AdjustContinueButton();
 
         continueButton.GetComponent<Button>().onClick.AddListener(ContinueGame);
     }
 
 
+    
+    
     public void PlayGame()
     {
-        //Change to actual scene in game
-        _gameManager.SavePlayerData(_gameManager.firstLevel);
-        SceneManager.LoadScene(_gameManager.firstLevel);
+        _gameManager.StartGame();
     }
 
     public void QuitGame()
@@ -41,4 +34,5 @@ public class MainMenu : MonoBehaviour
     {
         _gameManager.ContinueGame();
     }
+    
 }

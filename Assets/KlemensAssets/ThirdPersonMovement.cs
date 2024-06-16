@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.UI.ScrollRect;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-    [SerializeField] private CharacterController characterController;
+    //[SerializeField] private CharacterController characterController;
 
     [SerializeField] private float speed;
     [SerializeField] private float jumpSpeed;
@@ -18,6 +19,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public Animator animator;
     public Transform cam;
+    public Transform balanceObj;
     private Rigidbody _player;
 
     [SerializeField] Transform groundCheck;
@@ -26,8 +28,15 @@ public class ThirdPersonMovement : MonoBehaviour
 
     bool isGrounded;
 
+    internal enum MovementType
+    {
+        TransformBased,
+        PhysicsBased
+    }
+
     [SerializeField] private ForceMode _forceMode;
-    
+    [SerializeField] private MovementType movementType;
+
 
     void Start()
     {
@@ -55,9 +64,18 @@ public class ThirdPersonMovement : MonoBehaviour
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            balanceObj.rotation = Quaternion.Euler(0f, angle, 0f);
+
 
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            _player.AddForce(moveDirection.normalized * speed, _forceMode);
+            if(movementType == MovementType.TransformBased)
+            {
+                transform.Translate(moveDirection.normalized * speed);
+            }else if(movementType == MovementType.PhysicsBased)
+            {
+                _player.AddForce(moveDirection.normalized * speed, _forceMode);
+            }
+            
             //characterController.Move(moveDirection.normalized * speed * Time.deltaTime);
 
             animator.SetBool("isWalking", true);
@@ -70,7 +88,7 @@ public class ThirdPersonMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded) //&& isGrounded
         {
             downVelocity.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
-            _player.AddForce(downVelocity * jumpSpeed, ForceMode.VelocityChange);
+            _player.AddForce(downVelocity * jumpSpeed, ForceMode.Impulse);
             //_player.AddForce(Vector3.up * jumpSpeed, ForceMode.VelocityChange);
 
         }
@@ -82,6 +100,6 @@ public class ThirdPersonMovement : MonoBehaviour
             //characterController.Move(downVelocity * Time.deltaTime);
         }
 
-
+        
     }
 }

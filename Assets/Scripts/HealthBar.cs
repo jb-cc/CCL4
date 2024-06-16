@@ -1,38 +1,31 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// TODO: Rewrite the Healthbar
 public class HealthBar : MonoBehaviour
 {
-    public PlayerManager playerManager;
-    public Image[] healthImgs; // 0-2 0left 1middle 2right   
+    private GameManager _gameManager;
+    [SerializeField]
+    private Slider slider;
 
-    void Start()
+    void Awake()
     {
-        if (playerManager == null)
+        if (_gameManager == null)
         {
-            playerManager = FindObjectOfType<PlayerManager>();
+            _gameManager = FindObjectOfType<GameManager>();
         }
-
+        SetMaxHealth(_gameManager.maxHealth);
         UpdateHealthBar();
     }
 
-    void Update()
+    public void UpdateHealthBar()
     {
-        UpdateHealthBar();
+        slider.value = _gameManager.playerData.playerHealth;
     }
-
-    void UpdateHealthBar()
+    
+    private void SetMaxHealth(int health)
     {
-        int health = playerManager.currentHealth;
-
-        for (int i = 0; i < healthImgs.Length; i++)
-        {
-            healthImgs[i].enabled = i < health;
-        }
-
-        if (health == 0)
-        {
-            Debug.Log("Player died all Img Gone");
-        }
+        slider.maxValue = health;
+        slider.value = health;
     }
 }

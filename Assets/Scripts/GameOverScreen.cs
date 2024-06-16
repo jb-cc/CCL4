@@ -1,22 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
-    public void Setup(){
-        gameObject.SetActive(true);
+    private GameManager _gameManager;
+    
+    void Awake()
+    {
+        _gameManager = FindObjectOfType<GameManager>();
     }
-
     public void RestartGame(){
         Debug.Log("Restarting game...");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        _gameManager.StartGame();
     }
 
     public void MainMenu(){
         Debug.Log("Returning to main menu...");
-        SceneManager.LoadScene("MainMenu");
+        _gameManager.ReturnToMainMenu();
     }
 }

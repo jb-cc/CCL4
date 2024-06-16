@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneHud 3.unity
     guid: b55fa0c191029dc48816362a07b65356
+  - enabled: 1
+    path: Assets/Scenes/Game Manager Rewrite.unity
+    guid: 5d7226e79a5dc3548b246aadfe93af1e
+  - enabled: 1
+    path: Assets/Scenes/Game Manager Rewrite 1.unity
+    guid: 9c9b63590a4c6184c877beb9925d8ffd
+  - enabled: 1
+    path: Assets/Scenes/Game Manager Rewrite 2.unity
+    guid: 4d2641db95e621849ad5bd5ba753a877
   m_configObjects: {}

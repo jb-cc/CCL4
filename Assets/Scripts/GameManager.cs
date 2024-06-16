@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
     
     // the name of first level to be loaded, accessible from other scripts and in the Unity Editor
     public string firstLevel = "Game Manager Rewrite";
+
+    // a flag to check if the game is paused
+    public bool _pauseGame = false;
     
     // the game over scene to be loaded, not used yet
     // public string gameOverScene {get; private set;}
@@ -80,6 +83,24 @@ public class GameManager : MonoBehaviour
             playerData = new PlayerData();
             playerData.playerHealth = maxHealth;
             playerData.level = firstLevel;
+        }
+    }
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name != "MainMenu"){
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Debug.Log("Esc key was pressed");
+                if (_pauseGame)
+                {
+                    ResumeGame();
+                }
+                else
+                {
+                    PauseGame();
+                }
+            }
         }
     }
 
@@ -178,6 +199,7 @@ public class GameManager : MonoBehaviour
         // in case we have a game over scene, load it
         // SceneManager.LoadScene(gameOverScene);
     }
+
     
     // called on clicking the main menu button in the game over screen
     public void ReturnToMainMenu()
@@ -206,11 +228,13 @@ public class GameManager : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
+        _pauseGame = true;
     }
     
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+        _pauseGame = false;
     }
 }

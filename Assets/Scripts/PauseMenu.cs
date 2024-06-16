@@ -3,19 +3,13 @@ using UnityEngine.UI;
 
 public class Pause : MonoBehaviour
 {
-    
     private GameManager _gameManager;
 
     void Awake()
     {
         if (_gameManager == null)
             _gameManager = FindObjectOfType<GameManager>();
-
-
     }
-
-
-    
     
     public void Continue()
     {
@@ -26,7 +20,6 @@ public class Pause : MonoBehaviour
     {
         Application.Quit();
         _gameManager.ResumeGame();
-
     }
 
     public void MainMenu()
@@ -35,7 +28,4 @@ public class Pause : MonoBehaviour
         _gameManager.ResumeGame();
 
     }
-    
-   
-
 }

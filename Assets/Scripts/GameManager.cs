@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public string firstLevel = "Game Manager Rewrite";
 
     // a flag to check if the game is paused
-    public bool _pauseGame = false;
+    private bool _pauseGame = false;
     
     // the game over scene to be loaded, not used yet
     // public string gameOverScene {get; private set;}

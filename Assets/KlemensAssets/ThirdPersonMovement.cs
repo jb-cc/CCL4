@@ -71,26 +71,27 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-            balanceObj.rotation = Quaternion.Euler(0f, angle, 0f);
+            transform.rotation = Quaternion.Euler(transform.eulerAngles.x, angle, transform.eulerAngles.z);
+            //Quaternion targetRotation = Quaternion.Euler(transform.eulerAngles.x, angle, 0f);
+            //transform.rotation = targetRotation;
 
-
+            // Move the character using Rigidbody
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            if(movementType == MovementType.TransformBased)
+            if (movementType == MovementType.PhysicsBased)
             {
-                float strength = Vector3.Magnitude(moveDirection); 
-                transform.Translate(new Vector3(0f,0f,1f) * speed * strength);
-            }else if(movementType == MovementType.PhysicsBased)
-            {
-                _player.AddForce(moveDirection.normalized * speed, _forceMode);
+                _player.AddForce(moveDirection.normalized * speed * Time.deltaTime, _forceMode);
             }
-            
-            //characterController.Move(moveDirection.normalized * speed * Time.deltaTime);
+            else if (movementType == MovementType.TransformBased)
+            {
+                float strength = Vector3.Magnitude(moveDirection);
+                transform.Translate(new Vector3(0,0,1f) * speed * strength * Time.deltaTime);
+            }
 
             animator.SetBool("isWalking", true);
         }
         else
         {
+            //transform.rotation = Quaternion.Euler(12.136f, transform.rotation.y, transform.rotation.z);
             animator.SetBool("isWalking", false);
         }
 

@@ -2,15 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.UI.ScrollRect;
 
 public class ThirdPersonMovement : MonoBehaviour
 {
-    [SerializeField] private CharacterController characterController;
+    //[SerializeField] private CharacterController characterController;
 
     [SerializeField] private float speed;
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float gravity = -9.81f;
     Vector3 downVelocity;
+
+    [SerializeField]
+    private float jumpingMaxHeight;
+    [SerializeField]
+    private float fallFactor = .9f;
+    private bool isOnGround = false;
+    private bool isJumping = false;
 
 
     private float turnSmoothTime = 0.1f;
@@ -18,6 +26,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
     public Animator animator;
     public Transform cam;
+    public Transform balanceObj;
     private Rigidbody _player;
 
     [SerializeField] Transform groundCheck;
@@ -26,14 +35,22 @@ public class ThirdPersonMovement : MonoBehaviour
 
     bool isGrounded;
 
+    internal enum MovementType
+    {
+        TransformBased,
+        PhysicsBased
+    }
+
     [SerializeField] private ForceMode _forceMode;
-    
+    [SerializeField] private MovementType movementType;
+
 
     void Start()
     {
         _player = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
-        Physics.gravity = new Vector3(0f, gravity, 0f);
+        //Physics.gravity = new Vector3(0f, gravity, 0f);
+        StartCoroutine(FallControlFlow());
     }
 
     // Update is called once per frame
@@ -55,9 +72,19 @@ public class ThirdPersonMovement : MonoBehaviour
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            balanceObj.rotation = Quaternion.Euler(0f, angle, 0f);
+
 
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            _player.AddForce(moveDirection.normalized * speed, _forceMode);
+            if(movementType == MovementType.TransformBased)
+            {
+                float strength = Vector3.Magnitude(moveDirection); 
+                transform.Translate(new Vector3(0f,0f,1f) * speed * strength);
+            }else if(movementType == MovementType.PhysicsBased)
+            {
+                _player.AddForce(moveDirection.normalized * speed, _forceMode);
+            }
+            
             //characterController.Move(moveDirection.normalized * speed * Time.deltaTime);
 
             animator.SetBool("isWalking", true);
@@ -70,18 +97,64 @@ public class ThirdPersonMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded) //&& isGrounded
         {
             downVelocity.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
-            _player.AddForce(downVelocity * jumpSpeed, ForceMode.VelocityChange);
-            //_player.AddForce(Vector3.up * jumpSpeed, ForceMode.VelocityChange);
+            //_player.AddForce(downVelocity * jumpSpeed, ForceMode.Impulse);
+            //wrong _player.AddForce(Vector3.up * jumpSpeed, ForceMode.VelocityChange); wrong
+            StartCoroutine(JumpControlFlow());
+
+
 
         }
         if (!isGrounded)
         {
             downVelocity.y += gravity * Time.deltaTime;
-            _player.AddForce(downVelocity * Time.deltaTime, ForceMode.VelocityChange);
+            //_player.AddForce(downVelocity * Time.deltaTime, ForceMode.VelocityChange);
             
             //characterController.Move(downVelocity * Time.deltaTime);
         }
 
-
+        
     }
+
+    private IEnumerator JumpControlFlow()
+    {
+        isJumping = true;
+        float jumpHeight = transform.position.y + jumpingMaxHeight;
+        _player.AddForce(Vector3.up * jumpSpeed, _forceMode);
+        while (transform.position.y < jumpHeight)
+        {
+        
+
+            yield return null;
+
+
+        }
+        _player.AddForce(Vector3.up * jumpSpeed * -1 * fallFactor * Time.deltaTime, _forceMode);
+        isJumping = false;
+    }
+    private IEnumerator FallControlFlow()
+    {
+        //RaycastHit hit;
+        //float prevY;
+        float currentY = transform.position.y;
+        while (true)
+        {
+            //bool raycastSuccess = Physics.Raycast(transform.position, transform.up * -1, out hit);
+            //if (raycastSuccess && hit.collider.gameObject.CompareTag("Ground") && hit.distance <= 0.50001f)
+            if(isGrounded)
+            {
+                isJumping = false;
+                StopCoroutine(JumpControlFlow());
+                isOnGround = true;
+            }
+            else
+            {
+                isJumping = true;
+
+                isOnGround = false;
+            }
+            yield return null;
+
+        }
+    }
+
 }

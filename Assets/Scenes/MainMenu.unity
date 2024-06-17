@@ -379,8 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85fab7e54a1b99844b60ef4bfa322bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: Game Manager Rewrite
-  _pauseGame: 0
+  firstLevel: Level 1
   canvas: {fileID: 1844601276}
   mainMenu: {fileID: 1394713828}
   healthBar: {fileID: 1605566601}

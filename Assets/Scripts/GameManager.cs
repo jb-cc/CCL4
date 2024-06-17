@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!mainMenu.gameObject.activeSelf || !gameOverScreen.gameObject.activeSelf){
+        if (!mainMenu.gameObject.activeSelf && !gameOverScreen.gameObject.activeSelf){
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Debug.Log("Esc key was pressed");

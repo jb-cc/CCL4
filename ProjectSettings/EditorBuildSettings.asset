@@ -5,33 +5,33 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 908964869e7f2bb4db8fbdc8928616c5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scene1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: cf6c6aebab72f7843aad4c5812cbca36
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SceneHud.unity
     guid: 05748098ca3a4e94ca34982017074d00
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SceneHud 2.unity
     guid: d7935d51a6903d347aff34a65d8c43a9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SceneHud 3.unity
     guid: b55fa0c191029dc48816362a07b65356
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game Manager Rewrite.unity
     guid: 5d7226e79a5dc3548b246aadfe93af1e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game Manager Rewrite 1.unity
-    guid: 9c9b63590a4c6184c877beb9925d8ffd
-  - enabled: 1
+    guid: b6cacc10dee614d4d9b2deadf8bf445a
+  - enabled: 0
     path: Assets/Scenes/Game Manager Rewrite 2.unity
-    guid: 4d2641db95e621849ad5bd5ba753a877
+    guid: 8f25712cbbb91534d915ec094f7ef3ce
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 30d19ff706f693a4d98fd10e4b74dcf4

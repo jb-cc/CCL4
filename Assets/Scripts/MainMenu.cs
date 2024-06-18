@@ -1,38 +1,47 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject continueButton;
+    [SerializeField] private GameObject muteButton;
+    [SerializeField] private GameObject unmuteButton;
     private GameManager _gameManager;
 
     void Awake()
     {
         if (_gameManager == null)
             _gameManager = FindObjectOfType<GameManager>();
+    }
 
-        continueButton.SetActive(false);
+    private void Update()
+    {
         _gameManager.AdjustContinueButton();
-
-        continueButton.GetComponent<Button>().onClick.AddListener(ContinueGame);
     }
 
-
-    
-    
-    public void PlayGame()
-    {
-        _gameManager.StartGame();
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
 
     public void ContinueGame()
     {
         _gameManager.ContinueGame();
+    }
+    
+    public void StartGame()
+    {
+        _gameManager.StartGame();
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void ToggleMute()
+    {
+        _gameManager.muted = !_gameManager.muted;
+        muteButton.SetActive(!_gameManager.muted);
+        unmuteButton.SetActive(_gameManager.muted);
+        Debug.Log("Muted: " + _gameManager.muted);
     }
     
 }

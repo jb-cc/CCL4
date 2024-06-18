@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 // The GameManager is a Script that manages the game state, and main game logic
@@ -30,6 +31,9 @@ public class GameManager : MonoBehaviour
     // a flag to check if the game has been won, not used yet
     private bool _gameWon = false;
     
+    // Muted Flag
+    public bool muted = false;
+    
     // a flag to check if a save exists
     public bool saveExists {get; private set;}
     
@@ -57,14 +61,27 @@ public class GameManager : MonoBehaviour
     private GameObject pauseMenu;
     [SerializeField]
     private GameObject continueButton;
-
+    private EventSystem _eventSystem;
     
     // ================== METHODS ==================
-    private void Awake()
+
+    void Start()
     {
+        gameOverScreen.gameObject.SetActive(false);
+        healthBar.gameObject.SetActive(false);
+        mainMenu.gameObject.SetActive(true);
+        SceneManager.LoadScene("MainMenu");
+    }
+    private void Awake()
+    {   if (_eventSystem == null)
+        {
+            _eventSystem = FindObjectOfType<EventSystem>();
+        }
+        
         // Make sure the GameManager and UI Canvas persist between scenes
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(canvas.gameObject);
+        DontDestroyOnLoad(_eventSystem.gameObject);
         
         // Load the player data into the playerData variable
         playerData = LoadPlayerData();
@@ -193,6 +210,7 @@ public class GameManager : MonoBehaviour
     {
         // Update the active UI Elements
         Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
         gameOverScreen.gameObject.SetActive(true);
         healthBar.gameObject.SetActive(false);
         
@@ -208,6 +226,10 @@ public class GameManager : MonoBehaviour
         gameOverScreen.gameObject.SetActive(false);
         healthBar.gameObject.SetActive(false);
         mainMenu.gameObject.SetActive(true);
+        pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+
+        SceneManager.LoadScene("MainMenu");
         AdjustContinueButton();
     }
     
@@ -227,6 +249,8 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         pauseMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+
         Time.timeScale = 0;
         _pauseGame = true;
     }
@@ -234,7 +258,19 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+
         Time.timeScale = 1;
         _pauseGame = false;
+    }
+    
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    
+    public void ToggleMute()
+    {
+        muted = !muted;
     }
 }

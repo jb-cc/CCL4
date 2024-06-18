@@ -17,4 +17,9 @@ public class GameOverScreen : MonoBehaviour
         Debug.Log("Returning to main menu...");
         _gameManager.ReturnToMainMenu();
     }
+    
+    public void QuitGame(){
+        Debug.Log("Quitting game...");
+        Application.Quit();
+    }
 }

@@ -72,6 +72,7 @@ public class ThirdPersonMovement : MonoBehaviour
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(transform.eulerAngles.x, angle, transform.eulerAngles.z);
+            balanceObj.rotation = Quaternion.Euler(0, angle, 0); 
             //Quaternion targetRotation = Quaternion.Euler(transform.eulerAngles.x, angle, 0f);
             //transform.rotation = targetRotation;
 

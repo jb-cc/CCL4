@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// TODO: Rewrite the Healthbar
 public class HealthBar : MonoBehaviour
 {
     private GameManager _gameManager;
     [SerializeField]
     private Slider slider;
+    public Gradient gradient;
+    public Image fill;
 
     void Awake()
     {
@@ -21,11 +22,13 @@ public class HealthBar : MonoBehaviour
     public void UpdateHealthBar()
     {
         slider.value = _gameManager.playerData.playerHealth;
+        fill.color = gradient.Evaluate(slider.normalizedValue);
     }
     
     private void SetMaxHealth(int health)
     {
         slider.maxValue = health;
         slider.value = health;
+        fill.color = gradient.Evaluate(1f);
     }
 }

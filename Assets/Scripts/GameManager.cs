@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     public bool saveExists {get; private set;}
     
     // the name of first level to be loaded, accessible from other scripts and in the Unity Editor
-    public string firstLevel = "Game Manager Rewrite";
+    public string firstLevel = "Level 1";
 
     // a flag to check if the game is paused
     private bool _pauseGame = false;
@@ -172,11 +172,14 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        SceneManager.LoadScene(firstLevel);
+        Debug.Log("is in start game");
         // Set the player data to the first level and max health, then save it
         playerData = new PlayerData();
         playerData.level = firstLevel;
         playerData.playerHealth = maxHealth;
         SavePlayerData();
+        
         
         // Update the active UI Elements
         healthBar.gameObject.SetActive(true);
@@ -185,8 +188,10 @@ public class GameManager : MonoBehaviour
         healthBar.UpdateHealthBar();
         
         // Load the first level
+        Debug.Log("Loading first level");
+
         Time.timeScale = 1;
-        SceneManager.LoadScene(firstLevel);
+        
     }
     
     public void ContinueGame()

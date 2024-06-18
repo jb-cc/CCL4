@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
     
     public void StartGame()
     {
+        Debug.Log("Starting game...");
         _gameManager.StartGame();
     }
 

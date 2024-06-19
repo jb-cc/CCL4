@@ -5,10 +5,9 @@ using UnityEngine.AI;
 public class BanjoAI : MonoBehaviour
 {
     // Components
-    [SerializeField]
     private NavMeshAgent agent;
     [SerializeField]
-    private Transform player;
+    private Transform playerHip;
     [SerializeField]
     private LayerMask whatIsGround, whatIsPlayer;
     [SerializeField]
@@ -18,25 +17,25 @@ public class BanjoAI : MonoBehaviour
     [SerializeField]
     private GameObject fireballPrefab;
     [SerializeField]
-    private float shootForce;
+    private float shootForce = 200f;
     private Animator _animator;
     
     [SerializeField]
     private Vector3 walkPoint;
     [SerializeField]
-    private float walkPointRange;
+    private float walkPointRange = 20f;
     private bool _isWalkPointSet;
     
     // Attacking
     [SerializeField]
-    private float timeBetweenAttacks = 0.5f;
+    private float timeBetweenAttacks = 5f;
     private bool _alreadyAttacked;
     private Vector3 _attackPoint;
     
     
     // States
     [SerializeField]
-    private float sightRange;
+    private float sightRange = 15f;
     private bool _isPlayerInSightRange;
     private float _standardSpeed;
 
@@ -45,7 +44,6 @@ public class BanjoAI : MonoBehaviour
     
     private void Awake()
     {
-        player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
         _standardSpeed = agent.speed;
@@ -63,6 +61,11 @@ public class BanjoAI : MonoBehaviour
             if (!_alreadyAttacked)
             {
                 AttackPlayer();
+            }
+            else
+            {
+                _animator.SetBool("isAttacking", false);
+                _animator.SetBool("isIdle", true);
             }
         
         
@@ -144,13 +147,9 @@ public class BanjoAI : MonoBehaviour
         
         
         // Calculate direction to look at and look at the player
-        Vector3 direction = (player.position - transform.position).normalized;
+        Vector3 direction = (playerHip.position - transform.position).normalized;
         direction.y = 0; // Keep the y component zero to avoid tilting up/down
         transform.rotation = Quaternion.LookRotation(direction);
-        
-            
-        // Visuals again
-        _animator.SetBool("isAttacking", true);
         
         
             
@@ -169,28 +168,34 @@ public class BanjoAI : MonoBehaviour
     public void ShootUpFlare()
     {
         upFlare.Play();
-        _attackPoint = player.transform.position;
-        
+        _attackPoint = playerHip.transform.position;
+        _alreadyAttacked = true;
+        StartCoroutine(ShootDownFlare(_attackPoint, 0.5f));
+        StartCoroutine(ShootFireball(_attackPoint, 1.5f));
     }
     
-    public void ShootDownFlare()
+    
+    IEnumerator ShootDownFlare(Vector3 attackPoint, float time)
     {
-        Vector3 flareStart = _attackPoint + Vector3.up * 25f;
-        Debug.Log("player position: " + player.position);
-        Debug.Log("Attack point: " + _attackPoint);
-        Debug.Log("Flare start: " + flareStart);
-        Debug.Log("Down flare position: " + downFlare.transform.position);
-        
+        yield return new WaitForSeconds(time);
+        Vector3 flareStart = attackPoint + Vector3.up * 20f;
         downFlare.transform.position = flareStart;
         downFlare.Play();
-        StartCoroutine(ShootFireball(0.5f));
     }
     
-    void ShootFireball()
+    IEnumerator ShootFireball(Vector3 shootPosition, float time)
     {
+        yield return new WaitForSeconds(time);
+        shootPosition = shootPosition + Vector3.up * 20f;
+
+        GameObject ball = Instantiate(fireballPrefab, shootPosition, Quaternion.identity);
+        Rigidbody rb = ball.GetComponent<Rigidbody>();
+        rb.AddForce(Vector3.down * shootForce, ForceMode.Impulse);
+        
+        StartCoroutine(DestroyFireball(ball, 1f));
+        
         
     }
-    
     
     IEnumerator DestroyFireball(GameObject ball, float time)
     {
@@ -198,24 +203,7 @@ public class BanjoAI : MonoBehaviour
         Destroy(ball);
     }
     
-    IEnumerator ShootFireball(float time)
-    {
-        // Calculate the starting position 5 units above the player
-        Vector3 shootPosition = player.position + Vector3.up * 20f;
-
-        // Instantiate the ball at the shoot position
-        GameObject ball = Instantiate(fireballPrefab, shootPosition, Quaternion.identity);
-
-        // Get the Rigidbody component of the ball
-        Rigidbody rb = ball.GetComponent<Rigidbody>();
-
-        // Apply a downward force to the ball
-        rb.AddForce(Vector3.down * shootForce, ForceMode.Impulse);
-        
-        StartCoroutine(DestroyFireball(ball, 1f));
-        yield return new WaitForSeconds(time);
-        
-    }
+   
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

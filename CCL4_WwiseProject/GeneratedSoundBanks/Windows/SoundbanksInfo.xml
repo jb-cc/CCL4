@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="145">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{986487A9-2683-E47A-8688-3D0FE6FDB954}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+			<SwitchGroups>
+				<SwitchGroup Id="63790334" Name="SurfaceType">
+					<Switches>
+						<Switch Id="2058049674" Name="Wood"/>
+						<Switch Id="4248645337" Name="Grass"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="3626155605" Type="User" Language="SFX" Hash="{1AA67ECF-5815-51AD-F07D-428C70150481}">
+			<ShortName>Game_Soundbank</ShortName>
+			<Path>Game_Soundbank.bnk</Path>
+			<Media>
+				<File Id="263984777" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Footsteps while running on wood.wav</ShortName>
+					<CachePath>SFX/Footsteps while running on wood_10C4C929.wem</CachePath>
+				</File>
+				<File Id="283539879" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Jump Sound 3(2).wav</ShortName>
+					<CachePath>SFX/Jump Sound 3(2)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="297182579" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>walk grass night 1.wav</ShortName>
+					<CachePath>SFX/walk grass night 1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="477687770" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Footsteps while running on wood(5).wav</ShortName>
+					<CachePath>SFX/Footsteps while running on wood(5)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="536428748" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Footsteps while running on wood(3).wav</ShortName>
+					<CachePath>SFX/Footsteps while running on wood(3)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="809632719" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>walk grass night 3.wav</ShortName>
+					<CachePath>SFX/walk grass night 3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="906190129" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Footsteps while running on wood(4).wav</ShortName>
+					<CachePath>SFX/Footsteps while running on wood(4)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="922791905" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Jump_C_05.wav</ShortName>
+					<CachePath>SFX/Jump_C_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="947404950" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Heal.wav</ShortName>
+					<CachePath>SFX/Heal_10C4C929.wem</CachePath>
+				</File>
+				<File Id="953919205" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>walk grass night 2.wav</ShortName>
+					<CachePath>SFX/walk grass night 2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="996085023" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Huge Explosion.wav</ShortName>
+					<CachePath>SFX/Huge Explosion_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1050348954" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Footsteps while running on wood(2).wav</ShortName>
+					<CachePath>SFX/Footsteps while running on wood(2)_10C4C929.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="3450844999" Name="Play_CanonShot" DurationType="OneShot" DurationMin="1.5407552" DurationMax="1.5407552">
+					<MediaRefs>
+						<MediaRef Id="996085023"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1602358412" Name="Play_Footstep" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="63790334" Id="2058049674"/>
+							<MediaRefs>
+								<MediaRef Id="263984777"/>
+								<MediaRef Id="477687770"/>
+								<MediaRef Id="536428748"/>
+								<MediaRef Id="906190129"/>
+								<MediaRef Id="1050348954"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="63790334" Id="4248645337" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="297182579"/>
+								<MediaRef Id="809632719"/>
+								<MediaRef Id="953919205"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="2639148008" Name="Play_Heal" DurationType="OneShot" DurationMin="0.6939271" DurationMax="0.6939271">
+					<MediaRefs>
+						<MediaRef Id="947404950"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3689126666" Name="Play_Jump" DurationType="OneShot" DurationMin="0.23763537" DurationMax="0.23763537">
+					<MediaRefs>
+						<MediaRef Id="283539879"/>
+						<MediaRef Id="922791905"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+			<SwitchGroups>
+				<SwitchGroup Id="63790334" Name="SurfaceType">
+					<Switches>
+						<Switch Id="2058049674" Name="Wood"/>
+						<Switch Id="4248645337" Name="Grass"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{51637E86-F27A-F199-0ED1-0C2CCA51E769}</FileHash>
+</SoundBanksInfo>

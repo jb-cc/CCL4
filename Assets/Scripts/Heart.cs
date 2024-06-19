@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class Heart : MonoBehaviour
 {
-    private GameManager _gameManager;
-    
+    //private GameManager _gameManager;
+
     void Awake()
     {
-        _gameManager = FindObjectOfType<GameManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+       // _gameManager = FindObjectOfType<GameManager>();
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("ik habe dein hearz gebobben!");
-            _gameManager.IncreasePlayerHealth(1);
+            Debug.Log("Ich habe dein Herz gebobben!");
+            
+
+            // Wwise Event auslösen
+            
             Destroy(gameObject);
+            AkSoundEngine.PostEvent("Play_Heal", gameObject);
+            //_gameManager.IncreasePlayerHealth(1);
+            
         }
     }
 }

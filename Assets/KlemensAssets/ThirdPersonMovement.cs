@@ -93,6 +93,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 }
 
                 animator.SetBool("isWalking", true);
+                PlayFootstep();
             }
             else
             {
@@ -102,6 +103,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
             if (Input.GetButtonDown("Jump") && isGrounded) //&& isGrounded
             {
+                PlayJump();
                 downVelocity.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
 
                 //_player.AddForce(downVelocity * jumpSpeed, ForceMode.Impulse);
@@ -179,6 +181,16 @@ public class ThirdPersonMovement : MonoBehaviour
     public void LockMovement(bool locking)
     {
         _lockMovement = locking;
+    }
+
+    void PlayJump()
+    {
+        AkSoundEngine.PostEvent("Play_Jump", gameObject);
+    }
+
+    void PlayFootstep()
+    {
+        AkSoundEngine.PostEvent("Play_Footstep", gameObject);
     }
 
 }

@@ -83,8 +83,9 @@ public class TurretControl : MonoBehaviour
 
     void Shoot()
     {
+        AkSoundEngine.PostEvent("Play_CanonShot", gameObject);
         GameObject clone = Instantiate(_projectile, _shootBarrel.position, _canonHead.rotation);
-
+        
         clone.GetComponent<Rigidbody>().AddForce(_canonHead.forward * _projectileSpeed, _forceMode);
         Destroy(clone, 3);
     }

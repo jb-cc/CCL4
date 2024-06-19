@@ -27,6 +27,8 @@ public class TurretControl : MonoBehaviour
     [SerializeField]
     private float _fireRate;
     [SerializeField] ForceMode _forceMode;
+
+
     void Start()
     {
         //_nextShoot = Time.time + 1.0f;
@@ -39,6 +41,7 @@ public class TurretControl : MonoBehaviour
         if(distance <= _activeDistance) 
         {
             _canonHead.LookAt(_player);
+            LimitRotation();
 
             if(Time.time >= _nextShoot) {
                 _nextShoot = Time.time + 1f/_fireRate;
@@ -47,6 +50,34 @@ public class TurretControl : MonoBehaviour
             }
             
         }
+
+    }
+
+    void LimitRotation()
+    {
+        Vector3 canonEulerAngles = _canonHead.rotation.eulerAngles;
+        //Debug.Log("test" + canonEulerAngles.y);
+        //240 300
+        
+
+        if (canonEulerAngles.y > 240 && canonEulerAngles.y < 300)
+        {
+            //Debug.Log("between" + canonEulerAngles.y);
+
+            if (canonEulerAngles.y <= 270)
+            {
+                canonEulerAngles.y = 239.9f;
+                //Debug.Log("" + canonEulerAngles.y);
+            }
+            else
+            {
+                canonEulerAngles.y = 300.1f;
+                //Debug.Log("" + canonEulerAngles.y);
+            }
+        }
+        
+
+        _canonHead.rotation = Quaternion.Euler(canonEulerAngles);
 
     }
 

@@ -10,13 +10,14 @@ public class ThirdPersonMovement : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private float jumpSpeed;
+    [SerializeField] private float jumpMultiplier;
     [SerializeField] private float gravity = -9.81f;
     Vector3 downVelocity;
 
     [SerializeField]
     private float jumpingMaxHeight;
     [SerializeField]
-    private float fallFactor = .9f;
+    private float fallFactor;
     private bool isOnGround = false;
     private bool isJumping = false;
 
@@ -50,7 +51,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         _player = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
-        //Physics.gravity = new Vector3(0f, gravity, 0f);
+        Physics.gravity = new Vector3(0f, gravity, 0f);
         StartCoroutine(FallControlFlow());
     }
 
@@ -136,16 +137,18 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         isJumping = true;
         float jumpHeight = transform.position.y + jumpingMaxHeight;
-        _player.AddForce(Vector3.up * jumpSpeed, _forceMode);
+        //Debug.Log(jumpHeight);
+        _player.AddForce((Vector3.up * jumpSpeed * jumpMultiplier) * Time.deltaTime, _forceMode);
         while (transform.position.y < jumpHeight)
         {
-        
+            //Debug.Log("Jonas " + transform.position.y);
+
 
             yield return null;
 
 
         }
-        _player.AddForce(Vector3.up * jumpSpeed * -1 * fallFactor * Time.deltaTime, _forceMode);
+        _player.AddForce((Vector3.up * jumpSpeed * jumpMultiplier * fallFactor * -1) * Time.deltaTime, _forceMode);
         isJumping = false;
     }
     private IEnumerator FallControlFlow()

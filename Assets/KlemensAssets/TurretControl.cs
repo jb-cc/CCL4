@@ -29,11 +29,6 @@ public class TurretControl : MonoBehaviour
     [SerializeField] ForceMode _forceMode;
 
 
-    [SerializeField] private float xMaxRotation = 30f;
-    [SerializeField] private float xMinRotation = -60f;
-    [SerializeField] private float yMaxRotation = 200f;
-    [SerializeField] private float yMinRotation = -50f;
-
     void Start()
     {
         //_nextShoot = Time.time + 1.0f;
@@ -46,7 +41,7 @@ public class TurretControl : MonoBehaviour
         if(distance <= _activeDistance) 
         {
             _canonHead.LookAt(_player);
-            //LimitRotation();
+            LimitRotation();
 
             if(Time.time >= _nextShoot) {
                 _nextShoot = Time.time + 1f/_fireRate;
@@ -61,16 +56,26 @@ public class TurretControl : MonoBehaviour
     void LimitRotation()
     {
         Vector3 canonEulerAngles = _canonHead.rotation.eulerAngles;
-
-        //canonEulerAngles.y = (canonEulerAngles.y > 180) ? canonEulerAngles.y - 360 : canonEulerAngles.y;
-        //canonEulerAngles.x = (canonEulerAngles.x > 180) ? canonEulerAngles.x - 360 : canonEulerAngles.x;
-
-        
+        //Debug.Log("test" + canonEulerAngles.y);
+        //240 300
         
 
-        //canonEulerAngles.y = Mathf.Clamp(canonEulerAngles.y,yMinRotation,yMaxRotation);
-        //canonEulerAngles.x = Mathf.Clamp(canonEulerAngles.x, xMinRotation, xMaxRotation);
-        Debug.Log("" + canonEulerAngles.y);
+        if (canonEulerAngles.y > 240 && canonEulerAngles.y < 300)
+        {
+            //Debug.Log("between" + canonEulerAngles.y);
+
+            if (canonEulerAngles.y <= 270)
+            {
+                canonEulerAngles.y = 239.9f;
+                //Debug.Log("" + canonEulerAngles.y);
+            }
+            else
+            {
+                canonEulerAngles.y = 300.1f;
+                //Debug.Log("" + canonEulerAngles.y);
+            }
+        }
+        
 
         _canonHead.rotation = Quaternion.Euler(canonEulerAngles);
 

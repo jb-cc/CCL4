@@ -21,6 +21,7 @@ public class SmallBoiAI : MonoBehaviour
     private float _standardSpeed;
     private Animator _animator;
     private GameManager _gameManager;
+    private bool _alreadyAttacked = false;
     private void Awake()
     {
         _gameManager = FindObjectOfType<GameManager>();
@@ -46,8 +47,11 @@ public class SmallBoiAI : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            if (_alreadyAttacked) return;
             _gameManager.DecreasePlayerHealth(1);
             Debug.Log("Player hit by small boi");
+            _alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), 1f);
         }
     }
 
@@ -91,6 +95,11 @@ public class SmallBoiAI : MonoBehaviour
         // When chasing, the enemy should walk at double speed
         agent.speed = 1.5f * _standardSpeed;
         agent.SetDestination(playerHip.position);
+    }
+    
+    private void ResetAttack()
+    {
+        _alreadyAttacked = false;
     }
     
     private void OnDrawGizmosSelected()

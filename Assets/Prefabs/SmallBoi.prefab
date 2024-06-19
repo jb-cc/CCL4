@@ -1083,7 +1083,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4096
   walkPointRange: 20
-  sightRange: 15
+  sightRange: 10
 --- !u!136 &7831669067155573196
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1103,8 +1103,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.33
+  m_Radius: 0.3
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.51, z: 0}
 --- !u!195 &8379540312988119668
@@ -1117,7 +1117,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

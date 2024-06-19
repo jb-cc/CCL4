@@ -154,6 +154,8 @@ public class GameManager : MonoBehaviour
     
     public void DecreasePlayerHealth(int amount)
     {
+        // GA IMPLEMENTATION
+        AkSoundEngine.PostEvent("Play_Hurt", gameObject);
         playerData.playerHealth -= amount;
         playerData.playerHealth = Math.Max(0, playerData.playerHealth);
         healthBar.UpdateHealthBar();

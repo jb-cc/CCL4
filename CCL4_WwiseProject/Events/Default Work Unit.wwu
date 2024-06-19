@@ -58,6 +58,28 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Play_Hurt" ID="{CA4E4E1A-6E04-4B8A-86DF-D628447439F5}">
+					<ChildrenList>
+						<Action Name="" ID="{6E4C72B7-6F50-460E-84A8-2A5EAF379E22}" ShortID="196701287">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Player_Hurt" ID="{BE06FCB8-91AB-477F-83FB-6B9E1FEA76D1}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_EnvironmentAmbient" ID="{E475E032-B78D-426F-811B-D571845DDB04}">
+					<ChildrenList>
+						<Action Name="" ID="{9D6692AC-B8B5-494C-98FF-323F9EACE5CB}" ShortID="56983676">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Random_Ambients" ID="{4DA2882B-F4B1-4801-8C5F-85F4C34963BF}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

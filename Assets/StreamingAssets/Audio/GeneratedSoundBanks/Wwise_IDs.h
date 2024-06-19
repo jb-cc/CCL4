@@ -14,8 +14,10 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID PLAY_CANONSHOT = 3450844999U;
+        static const AkUniqueID PLAY_ENVIRONMENTAMBIENT = 437902151U;
         static const AkUniqueID PLAY_FOOTSTEP = 1602358412U;
         static const AkUniqueID PLAY_HEAL = 2639148008U;
+        static const AkUniqueID PLAY_HURT = 2955259529U;
         static const AkUniqueID PLAY_JUMP = 3689126666U;
     } // namespace EVENTS
 

@@ -1,6 +1,8 @@
 Event	ID	Name			Wwise Object Path	Notes
+	437902151	Play_EnvironmentAmbient			\Default Work Unit\Play_EnvironmentAmbient	
 	1602358412	Play_Footstep			\Default Work Unit\Play_Footstep	
 	2639148008	Play_Heal			\Default Work Unit\Play_Heal	
+	2955259529	Play_Hurt			\Default Work Unit\Play_Hurt	
 	3450844999	Play_CanonShot			\Default Work Unit\Play_CanonShot	
 	3689126666	Play_Jump			\Default Work Unit\Play_Jump	
 
@@ -12,16 +14,25 @@ Switch	ID	Name	Switch Group			Notes
 	4248645337	Grass	SurfaceType			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	183220283	Hurt2	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Hurt2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Hurt\Hurt2		39324
+	212462516	Hurt3	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Hurt3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Hurt\Hurt3		27416
 	263984777	Footsteps while running on wood	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Footsteps while running on wood_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Sequence_Footstep_Wood\Footsteps while running on wood		17756
 	283539879	Jump_voice	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Jump Sound 3(2)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jump_Sequence\Jump_voice		31768
 	297182579	walk grass night 1	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\walk grass night 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Sequence_Footstep_Grass\walk grass night 1		64260
+	401105733	bird chirps	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\bird chirps_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Random_Ambients\bird chirps		7278376
 	477687770	Footsteps while running on wood(5)	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Footsteps while running on wood(5)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Sequence_Footstep_Wood\Footsteps while running on wood(5)		30372
+	499709267	Hurt5	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Hurt5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Hurt\Hurt5		33488
 	536428748	Footsteps while running on wood(3)	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Footsteps while running on wood(3)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Sequence_Footstep_Wood\Footsteps while running on wood(3)		34156
+	586493654	Hurt4	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Hurt4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Hurt\Hurt4		31970
+	709940732	Hurt	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Hurt_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Hurt\Hurt		51704
 	809632719	walk grass night 3	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\walk grass night 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Sequence_Footstep_Grass\walk grass night 3		98204
 	906190129	Footsteps while running on wood(4)	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Footsteps while running on wood(4)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Sequence_Footstep_Wood\Footsteps while running on wood(4)		29952
+	908925036	bird chirps3	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\bird chirps3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Random_Ambients\bird chirps3		5740856
 	922791905	Jump_8bit	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Jump_C_05_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Jump_Sequence\Jump_8bit		13878
+	944002525	bird chirps4	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\bird chirps4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Random_Ambients\bird chirps4		28653452
 	947404950	Player_Heal	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Heal_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Heal		133328
 	953919205	walk grass night 2	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\walk grass night 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Sequence_Footstep_Grass\walk grass night 2		91548
 	996085023	Canon_Shoot	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Huge Explosion_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Canon_Shoot		276636
+	1011564176	bird chirps2	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\bird chirps2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Random_Ambients\bird chirps2		2870476
 	1050348954	Footsteps while running on wood(2)	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Windows\SFX\Footsteps while running on wood(2)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Sequence_Footstep_Wood\Footsteps while running on wood(2)		32056
 

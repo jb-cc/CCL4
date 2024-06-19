@@ -46,6 +46,9 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] private ForceMode _forceMode;
     [SerializeField] private MovementType movementType;
 
+    //Footsteps
+     [SerializeField] private float footstepInterval = 0.5f; // Intervall zwischen Fußschritten
+    private float footstepTimer;
 
     void Start()
     {
@@ -190,7 +193,37 @@ public class ThirdPersonMovement : MonoBehaviour
 
     void PlayFootstep()
     {
-        AkSoundEngine.PostEvent("Play_Footstep", gameObject);
+        if (footstepTimer <= 0f && isGrounded)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, groundDistance))
+            {
+                string surfaceType = "Default";
+                if (hit.collider.CompareTag("Grass"))
+                {
+                    surfaceType = "Grass";
+                }
+                else if (hit.collider.CompareTag("Wood"))
+                {
+                    surfaceType = "Wood";
+                }
+
+                AkSoundEngine.SetSwitch("SurfaceType", surfaceType, gameObject);
+                AkSoundEngine.PostEvent("Play_Footstep", gameObject);
+            }
+
+            footstepTimer = footstepInterval; // Timer zurücksetzen
+        }
+        else
+        {
+            footstepTimer -= Time.deltaTime;
+        }
+    }
+
+    void PlayDeath()
+    {
+        Debug.Log("Death");
+       // AkSoundEngine.PostEvent("Play_Death", gameObject);
     }
 
 }

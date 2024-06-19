@@ -5,8 +5,10 @@
 			<ChildrenList>
 				<SoundBank Name="Game_Soundbank" ID="{2CA4AF2F-5B84-4564-B9E0-A24D2A2D8E0C}">
 					<ObjectInclusionList>
+						<ObjectRef Name="Play_EnvironmentAmbient" ID="{E475E032-B78D-426F-811B-D571845DDB04}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Footstep" ID="{F6FFBD28-D206-47C5-A177-57F7CD906B0B}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_CanonShot" ID="{45858508-31E3-4AB0-9164-434AAF73BC13}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Hurt" ID="{CA4E4E1A-6E04-4B8A-86DF-D628447439F5}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Jump" ID="{F5D5870B-602C-4C5E-A97B-2172A6D450AC}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Heal" ID="{44DBEFCD-20DB-4C87-9815-249E44A4C2D9}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>

@@ -474,6 +474,235 @@
 						<ItemRef Name="Jump_8bit" ID="{D724E8AA-7BE2-42A4-B56A-0521F7F889BB}"/>
 					</Playlist>
 				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Player_Hurt" ID="{BE06FCB8-91AB-477F-83FB-6B9E1FEA76D1}" ShortID="889326253">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Hurt2" ID="{977E7569-5F92-4E5B-B864-97595C50DC1B}" ShortID="577998196">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Hurt2" ID="{2AEFCD08-BD05-480D-A939-1C0FEB558B57}">
+									<Language>SFX</Language>
+									<AudioFile>Hurt2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="183220283"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Hurt2" ID="{2AEFCD08-BD05-480D-A939-1C0FEB558B57}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Hurt3" ID="{34F2B488-6FD6-4AB0-8B99-025927C6F360}" ShortID="893489622">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Hurt3" ID="{0A3334B6-97EF-428B-B40D-6D3C47201641}">
+									<Language>SFX</Language>
+									<AudioFile>Hurt3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="212462516"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Hurt3" ID="{0A3334B6-97EF-428B-B40D-6D3C47201641}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Hurt4" ID="{44E1382B-14DB-4621-836A-767E5D22685B}" ShortID="89603357">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Hurt4" ID="{CEE1A541-8D00-4BFA-88F3-A2CB7A40D999}">
+									<Language>SFX</Language>
+									<AudioFile>Hurt4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="586493654"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Hurt4" ID="{CEE1A541-8D00-4BFA-88F3-A2CB7A40D999}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Hurt5" ID="{3A7AA787-218E-4340-B532-362305D93F9F}" ShortID="216968162">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Hurt5" ID="{24D70380-108D-4A93-821C-18BB2DDC0E82}">
+									<Language>SFX</Language>
+									<AudioFile>Hurt5.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="499709267"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Hurt5" ID="{24D70380-108D-4A93-821C-18BB2DDC0E82}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Hurt" ID="{D08034CA-3594-4029-B6B2-C93B14B3AA21}" ShortID="130619718">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Hurt" ID="{1466FD9B-43D4-4E50-B59A-E4D1D21B4FD6}">
+									<Language>SFX</Language>
+									<AudioFile>Hurt.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="709940732"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Hurt" ID="{1466FD9B-43D4-4E50-B59A-E4D1D21B4FD6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Random_Ambients" ID="{4DA2882B-F4B1-4801-8C5F-85F4C34963BF}" ShortID="289279686">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="bird chirps2" ID="{52D2A628-0E78-4C1D-82C9-713F4E078554}" ShortID="1028653119">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="bird chirps2" ID="{5B1804B3-5DDF-4A39-A48C-1AEC798C0732}">
+									<Language>SFX</Language>
+									<AudioFile>bird chirps2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1011564176"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="bird chirps2" ID="{5B1804B3-5DDF-4A39-A48C-1AEC798C0732}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="bird chirps3" ID="{FA658A53-0923-4724-89B9-45A7E1485997}" ShortID="41719915">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="bird chirps3" ID="{EC5DD26C-F1ED-438D-84D5-BDD2B0EC296C}">
+									<Language>SFX</Language>
+									<AudioFile>bird chirps3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="908925036"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="bird chirps3" ID="{EC5DD26C-F1ED-438D-84D5-BDD2B0EC296C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="bird chirps4" ID="{C9FE7E66-C58B-481C-8F91-446F738721D8}" ShortID="707101120">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="bird chirps4" ID="{D134A8E8-7483-4F79-8A2E-B4B3CF1ED499}">
+									<Language>SFX</Language>
+									<AudioFile>bird chirps4.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="944002525"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="bird chirps4" ID="{D134A8E8-7483-4F79-8A2E-B4B3CF1ED499}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="bird chirps" ID="{5F7611EB-3B76-4B43-862D-9163EA690575}" ShortID="380561753">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="bird chirps" ID="{BCE7FE72-EA88-4837-97B8-7F606F5B3181}">
+									<Language>SFX</Language>
+									<AudioFile>bird chirps.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="401105733"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="bird chirps" ID="{BCE7FE72-EA88-4837-97B8-7F606F5B3181}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

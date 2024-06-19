@@ -19,15 +19,19 @@ public class SmallBoiAI : MonoBehaviour
     private float sightRange = 15f;
     private bool _isPlayerInSightRange;
     private float _standardSpeed;
+    private float _standardAnimationSpeed = 2f;
     private Animator _animator;
     private GameManager _gameManager;
     private bool _alreadyAttacked = false;
+//    private CapsuleCollider _collider;
     private void Awake()
     {
         _gameManager = FindObjectOfType<GameManager>();
         agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
+     //   _collider = GetComponent<CapsuleCollider>();
         _standardSpeed = agent.speed;
+        _animator.speed = _standardAnimationSpeed;
     }
 
     // Update is called once per frame
@@ -40,7 +44,15 @@ public class SmallBoiAI : MonoBehaviour
             Patroling();
         
         if (_isPlayerInSightRange)
-            ChasePlayer();
+            if (!_alreadyAttacked)
+            {
+  //              _collider.enabled = true;
+                ChasePlayer();
+            }
+            else
+            {
+                Patroling();
+            }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -49,15 +61,16 @@ public class SmallBoiAI : MonoBehaviour
         {
             if (_alreadyAttacked) return;
             _gameManager.DecreasePlayerHealth(1);
-            Debug.Log("Player hit by small boi");
             _alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), 1f);
+//             _collider.enabled = false;
+            Invoke(nameof(ResetAttack), 4f);
         }
     }
 
     private void Patroling()
     {
         agent.speed = _standardSpeed;
+        _animator.speed = _standardAnimationSpeed;
 
         if (!_isWalkPointSet)
             SearchWalkPoint();
@@ -69,7 +82,7 @@ public class SmallBoiAI : MonoBehaviour
         
         // Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
-            Invoke(nameof(ForgetWalkPoint), 2f);
+            ForgetWalkPoint();
 
     }
     
@@ -93,13 +106,15 @@ public class SmallBoiAI : MonoBehaviour
     private void ChasePlayer()
     {
         // When chasing, the enemy should walk at double speed
-        agent.speed = 1.5f * _standardSpeed;
+        agent.speed = 2f * _standardSpeed;
+        _animator.speed = 2f * _standardAnimationSpeed;
         agent.SetDestination(playerHip.position);
     }
     
     private void ResetAttack()
     {
         _alreadyAttacked = false;
+        
     }
     
     private void OnDrawGizmosSelected()

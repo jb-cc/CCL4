@@ -5,7 +5,6 @@ using UnityEngine.AI;
 public class BanjoAI : MonoBehaviour
 {
     // Components
-    [SerializeField]
     private NavMeshAgent agent;
     [SerializeField]
     private Transform playerHip;
@@ -18,25 +17,25 @@ public class BanjoAI : MonoBehaviour
     [SerializeField]
     private GameObject fireballPrefab;
     [SerializeField]
-    private float shootForce;
+    private float shootForce = 200f;
     private Animator _animator;
     
     [SerializeField]
     private Vector3 walkPoint;
     [SerializeField]
-    private float walkPointRange;
+    private float walkPointRange = 20f;
     private bool _isWalkPointSet;
     
     // Attacking
     [SerializeField]
-    private float timeBetweenAttacks = 0.5f;
+    private float timeBetweenAttacks = 5f;
     private bool _alreadyAttacked;
     private Vector3 _attackPoint;
     
     
     // States
     [SerializeField]
-    private float sightRange;
+    private float sightRange = 15f;
     private bool _isPlayerInSightRange;
     private float _standardSpeed;
 
@@ -172,7 +171,7 @@ public class BanjoAI : MonoBehaviour
         _attackPoint = playerHip.transform.position;
         _alreadyAttacked = true;
         StartCoroutine(ShootDownFlare(_attackPoint, 0.5f));
-        StartCoroutine(ShootFireball(_attackPoint, 1.3f));
+        StartCoroutine(ShootFireball(_attackPoint, 1.5f));
     }
     
     

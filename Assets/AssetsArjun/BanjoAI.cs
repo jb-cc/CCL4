@@ -47,6 +47,10 @@ public class BanjoAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
         _standardSpeed = agent.speed;
+        playerHip = GameObject.Find("Player").transform;
+        playerHip = playerHip.transform.Find("Armature");
+        playerHip = playerHip.transform.Find("Main");
+        playerHip = playerHip.transform.Find("Hip");
     }
 
     private void Update()

@@ -23,15 +23,17 @@ public class SmallBoiAI : MonoBehaviour
     private Animator _animator;
     private GameManager _gameManager;
     private bool _alreadyAttacked = false;
-//    private CapsuleCollider _collider;
     private void Awake()
     {
         _gameManager = FindObjectOfType<GameManager>();
         agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
-     //   _collider = GetComponent<CapsuleCollider>();
         _standardSpeed = agent.speed;
         _animator.speed = _standardAnimationSpeed;
+        playerHip = GameObject.Find("Player").transform;
+        playerHip = playerHip.transform.Find("Armature");
+        playerHip = playerHip.transform.Find("Main");
+        playerHip = playerHip.transform.Find("Hip");
     }
 
     // Update is called once per frame
@@ -46,7 +48,6 @@ public class SmallBoiAI : MonoBehaviour
         if (_isPlayerInSightRange)
             if (!_alreadyAttacked)
             {
-  //              _collider.enabled = true;
                 ChasePlayer();
             }
             else
@@ -62,7 +63,6 @@ public class SmallBoiAI : MonoBehaviour
             if (_alreadyAttacked) return;
             _gameManager.DecreasePlayerHealth(1);
             _alreadyAttacked = true;
-//             _collider.enabled = false;
             Invoke(nameof(ResetAttack), 4f);
         }
     }

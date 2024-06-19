@@ -6,8 +6,9 @@ public class EnemyAI : MonoBehaviour
     // Components
     [SerializeField]
     private NavMeshAgent agent;
-    [SerializeField]
-    private Transform player;
+    [SerializeField] private Transform player;
+
+    
     [SerializeField]
     private LayerMask whatIsGround, whatIsPlayer;
     private Animator _animator;
@@ -40,6 +41,9 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
+        player = player.transform.Find("Armature");
+        player = player.transform.Find("Main");
+        player = player.transform.Find("Hip");
         agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
         _standardSpeed = agent.speed;

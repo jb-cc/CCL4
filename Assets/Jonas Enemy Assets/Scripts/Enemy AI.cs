@@ -120,11 +120,11 @@ public class EnemyAI : MonoBehaviour
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
         {
             _isWalkPointSet = true;
-            Debug.Log("Walk point found: " + walkPoint);
+            //Debug.Log("Walk point found: " + walkPoint);
         }
         else
         {
-            Debug.Log("No walk point found.");
+            //Debug.Log("No walk point found.");
         }
     }
     

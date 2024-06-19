@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
 public class Movement : MonoBehaviour
 {
@@ -11,7 +12,10 @@ public class Movement : MonoBehaviour
     
     [SerializeField]
     private float moveSpeed = 5f;
+    [SerializeField]
+    private ParticleSystem flare;
     // Start is called before the first frame update
+    
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -22,6 +26,11 @@ public class Movement : MonoBehaviour
     void Update()
     {
         MovePlayer();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Esc key was pressed");
+            flare.Play();
+        }
     }
 
 

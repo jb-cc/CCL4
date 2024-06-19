@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,6 +11,14 @@ public class BanjoAI : MonoBehaviour
     private Transform player;
     [SerializeField]
     private LayerMask whatIsGround, whatIsPlayer;
+    [SerializeField]
+    private ParticleSystem upFlare;
+    [SerializeField]
+    private ParticleSystem downFlare;
+    [SerializeField]
+    private GameObject fireballPrefab;
+    [SerializeField]
+    private float shootForce;
     private Animator _animator;
     
     [SerializeField]
@@ -22,6 +31,7 @@ public class BanjoAI : MonoBehaviour
     [SerializeField]
     private float timeBetweenAttacks = 0.5f;
     private bool _alreadyAttacked;
+    private Vector3 _attackPoint;
     
     
     // States
@@ -95,7 +105,7 @@ public class BanjoAI : MonoBehaviour
     
     private void SearchWalkPoint()
     {
-        Debug.Log("Searching for walk point...");
+        //Debug.Log("Searching for walk point...");
         // Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
@@ -105,11 +115,11 @@ public class BanjoAI : MonoBehaviour
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
         {
             _isWalkPointSet = true;
-            Debug.Log("Walk point found: " + walkPoint);
+            //Debug.Log("Walk point found: " + walkPoint);
         }
         else
         {
-            Debug.Log("No walk point found.");
+            //Debug.Log("No walk point found.");
         }
     }
     
@@ -128,7 +138,6 @@ public class BanjoAI : MonoBehaviour
         _animator.SetBool("isAttacking", true);
         _animator.SetBool("isWalking", false);
         
-        
         // Make the enemy stop moving and reset speed in case the player dies
         agent.SetDestination(transform.position);
         agent.speed = _standardSpeed;
@@ -141,13 +150,14 @@ public class BanjoAI : MonoBehaviour
         
             
         // Visuals again
-        // randomize punch animation
         _animator.SetBool("isAttacking", true);
+        
         
             
         // add a delay between attacks
-        Invoke(nameof(ResetAttack), timeBetweenAttacks);
         
+        Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
     }
 
     private void ResetAttack()
@@ -155,6 +165,57 @@ public class BanjoAI : MonoBehaviour
         _alreadyAttacked = false;
     }
     
+    
+    public void ShootUpFlare()
+    {
+        upFlare.Play();
+        _attackPoint = player.transform.position;
+        
+    }
+    
+    public void ShootDownFlare()
+    {
+        Vector3 flareStart = _attackPoint + Vector3.up * 25f;
+        Debug.Log("player position: " + player.position);
+        Debug.Log("Attack point: " + _attackPoint);
+        Debug.Log("Flare start: " + flareStart);
+        Debug.Log("Down flare position: " + downFlare.transform.position);
+        
+        downFlare.transform.position = flareStart;
+        downFlare.Play();
+        StartCoroutine(ShootFireball(0.5f));
+    }
+    
+    void ShootFireball()
+    {
+        
+    }
+    
+    
+    IEnumerator DestroyFireball(GameObject ball, float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(ball);
+    }
+    
+    IEnumerator ShootFireball(float time)
+    {
+        // Calculate the starting position 5 units above the player
+        Vector3 shootPosition = player.position + Vector3.up * 20f;
+
+        // Instantiate the ball at the shoot position
+        GameObject ball = Instantiate(fireballPrefab, shootPosition, Quaternion.identity);
+
+        // Get the Rigidbody component of the ball
+        Rigidbody rb = ball.GetComponent<Rigidbody>();
+
+        // Apply a downward force to the ball
+        rb.AddForce(Vector3.down * shootForce, ForceMode.Impulse);
+        
+        StartCoroutine(DestroyFireball(ball, 1f));
+        yield return new WaitForSeconds(time);
+        
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

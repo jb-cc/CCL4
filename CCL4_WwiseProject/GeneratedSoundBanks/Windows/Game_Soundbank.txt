@@ -1,7 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
 	311910498	Play_Click			\Default Work Unit\UI\Play_Click	
 	356695360	Play_RobotDead			\Default Work Unit\Play_RobotDead	
-	437902151	Play_EnvironmentAmbient			\Default Work Unit\Play_EnvironmentAmbient	
+	437902151	Play_EnvironmentAmbient			\Default Work Unit\BGMusic\Play_EnvironmentAmbient	
 	958343367	Play_BanjoWalk			\Default Work Unit\Play_BanjoWalk	
 	1061019819	Play_RobotInitiate			\Default Work Unit\Play_RobotInitiate	
 	1266153785	Play_RobotHit			\Default Work Unit\Play_RobotHit	

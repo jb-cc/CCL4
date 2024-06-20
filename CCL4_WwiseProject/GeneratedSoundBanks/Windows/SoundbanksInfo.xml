@@ -33,7 +33,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3626155605" Type="User" Language="SFX" Hash="{27F22E58-BD0A-81CD-FB8F-ABFD3FE237C6}">
+		<SoundBank Id="3626155605" Type="User" Language="SFX" Hash="{E4E707DE-0863-CFBF-C62F-245C87297442}">
 			<ShortName>Game_Soundbank</ShortName>
 			<Path>Game_Soundbank.bnk</Path>
 			<Media>
@@ -257,7 +257,7 @@
 						<MediaRef Id="905076452"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="437902151" Name="Play_EnvironmentAmbient" DurationType="OneShot" DurationMin="16.271996" DurationMax="162.43399">
+				<Event Id="437902151" Name="Play_EnvironmentAmbient" DurationType="Infinite">
 					<MediaRefs>
 						<MediaRef Id="401105733"/>
 						<MediaRef Id="908925036"/>
@@ -366,5 +366,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{0999BB0B-832D-64BD-CE75-38E16379B653}</FileHash>
+	<FileHash>{6C427EA3-7E55-7E49-17D8-FD0E08F69784}</FileHash>
 </SoundBanksInfo>

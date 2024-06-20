@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameWon : MonoBehaviour
 {
@@ -34,11 +35,15 @@ public class GameWon : MonoBehaviour
         transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
 
     }
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             _gameManager.gameWon = true;
+            Cursor.lockState = CursorLockMode.None;
+            SceneManager.LoadScene("WinScene");
+            Cursor.lockState = CursorLockMode.None;
+
         }
     }
 }

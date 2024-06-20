@@ -475,6 +475,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrel (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5034431504587143022, guid: e545f16f9892c2141875b4cee3d9d545, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5662771216675761620, guid: e545f16f9892c2141875b4cee3d9d545, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -5963,7 +5967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084069330881354234, guid: 0c5002e31980c9e43ad8896329c0218a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.63
+      value: 10.42
       objectReference: {fileID: 0}
     - target: {fileID: 4084069330881354234, guid: 0c5002e31980c9e43ad8896329c0218a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9239,6 +9243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RockPlainGrey1
       objectReference: {fileID: 0}
+    - target: {fileID: 1704913577010202, guid: 8aa5390f31df8524ab5e28ae2346ba7e, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4734208427753802, guid: 8aa5390f31df8524ab5e28ae2346ba7e, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -11220,7 +11228,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1970145037857861989}
-  m_LocalRotation: {x: 0.122183256, y: -0.000000114046756, z: 0.000000014039796, w: 0.9925076}
+  m_LocalRotation: {x: 0.122183256, y: -0.00000012258548, z: 0.000000015090963, w: 0.9925076}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

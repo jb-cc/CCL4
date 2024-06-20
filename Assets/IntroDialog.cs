@@ -14,16 +14,11 @@ public class IntroDialog : MonoBehaviour
     private int currentDialog = 0;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        currentDialog = 0;
         // Ensure only the first dialog is active at the start
-        if (dialogs.Length > 0)
-        {
-            for (int i = 0; i < dialogs.Length; i++)
-            {
-                dialogs[i].SetActive(i == currentDialog);
-            }
-        }
+        ResetDialogs();
     }
 
     // Update is called once per frame
@@ -33,6 +28,18 @@ public class IntroDialog : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             NextDialog();
+        }
+    }
+    
+    public void ResetDialogs()
+    {
+        currentDialog = 0;
+        if (dialogs.Length > 0)
+        {
+            for (int i = 0; i < dialogs.Length; i++)
+            {
+                dialogs[i].SetActive(i == currentDialog);
+            }
         }
     }
 

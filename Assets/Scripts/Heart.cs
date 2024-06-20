@@ -22,7 +22,7 @@ public class Heart : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("ik habe dein hearz gebobben!");
-            _gameManager.IncreasePlayerHealth(1);
+            _gameManager.IncreasePlayerHealth(15);
             Destroy(gameObject);
         }
     }

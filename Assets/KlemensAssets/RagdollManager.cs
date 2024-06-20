@@ -14,8 +14,10 @@ public class RagdollManager : MonoBehaviour
     [SerializeField] private GameObject leftLowerArmEnd;
     [SerializeField] private GameObject _rig;
 
+    private GameObject lockedObject;
 
-
+    private bool triesToGrab = false;
+    public bool hasKey = false;
     private float[] _previousJointSprings;
     private bool _isActiveRagdoll;
     private Rigidbody _hipRigid;
@@ -39,10 +41,33 @@ public class RagdollManager : MonoBehaviour
         thirdPersonMovement = hipObj.GetComponent<ThirdPersonMovement>();
 
     }
+    public void Update()
+    {
+        if (Input.GetKey(KeyCode.E))
+        {
+            triesToGrab = true;
+            
+        }
+        else
+        {
+            triesToGrab = false;
+        }
+
+        if (Input.GetKey(KeyCode.G))
+        {
+            if (hasKey)
+            {
+                ReleaseFromHand();
+            }
+        }
+
+    }
 
     public void turnRagdoll()
     {
         //Debug.Log(ragdollGameObjects[0].gameObject.GetComponent<ConfigurableJoint>().slerpDrive.positionSpring);
+        
+        ReleaseFromHand();
         _hitsTaken++;
         if (_hitsTaken > 2)
         {
@@ -146,6 +171,43 @@ public class RagdollManager : MonoBehaviour
 
     }
 
+    public void LockToHand(GameObject otherObj)
+    {
+        if (!hasKey)
+        {
+            if (triesToGrab)
+            {
+                hasKey = true;
+
+                lockedObject = otherObj;
+                otherObj.GetComponent<Rigidbody>().isKinematic = true;
+                otherObj.GetComponent<BoxCollider>().enabled = false;
+                otherObj.transform.rotation = Quaternion.Euler(leftLowerArmEnd.transform.rotation.eulerAngles.x - 90, leftLowerArmEnd.transform.rotation.eulerAngles.y, leftLowerArmEnd.transform.rotation.eulerAngles.z);
+
+                otherObj.transform.position = new Vector3(leftLowerArmEnd.transform.position.x, leftLowerArmEnd.transform.position.y, leftLowerArmEnd.transform.position.z);
+                otherObj.transform.position = new Vector3(otherObj.transform.position.x-0.4f, otherObj.transform.position.y+0.3f, otherObj.transform.position.z);
+                otherObj.transform.SetParent(leftLowerArmEnd.transform);
+            }
+        }
+        
+    }
+
+    public void ReleaseFromHand()
+    {
+        if(hasKey)
+        {
+            hasKey = false;
+
+            lockedObject.GetComponent<Rigidbody>().isKinematic = false;
+            lockedObject.GetComponent<BoxCollider>().enabled = true;
+            lockedObject.transform.SetParent(null);
+        }
+        
+
+
+
+    }
+    /*
     public void SetHandPosition(GameObject otherObj, Transform handTransform)
     {
         Ray ray = new Ray(handTransform.position, handTransform.forward);
@@ -156,6 +218,7 @@ public class RagdollManager : MonoBehaviour
             //handTransform.rotation = Quaternion.LookRotation(hit.normal);
         }
     }
+    */
 
 
 

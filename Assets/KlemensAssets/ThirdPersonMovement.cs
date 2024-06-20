@@ -53,7 +53,7 @@ public class ThirdPersonMovement : MonoBehaviour
     {
         _player = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
-        Physics.gravity = new Vector3(0f, gravity, 0f);
+        //Physics.gravity = new Vector3(0f, gravity, 0f);
         //StartCoroutine(FallControlFlow());
     }
 
@@ -99,10 +99,17 @@ public class ThirdPersonMovement : MonoBehaviour
                 animator.SetBool("isWalking", false);
             }
 
+            if(Input.GetMouseButtonDown(0))
+            {
+                animator.SetTrigger("punchTrigger");
+            }
+
 
             if (Input.GetButtonDown("Jump") && isGrounded) 
             {
                 animator.SetBool("isJumping", true);
+                animator.SetBool("isWalking", false);
+
                 Jump();
 
                 //downVelocity.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
@@ -118,6 +125,12 @@ public class ThirdPersonMovement : MonoBehaviour
                 animator.SetBool("isJumping", false);
 
             }
+            if (!isGrounded)
+            {
+                animator.SetBool("isJumping", true);
+                animator.SetBool("isWalking", false);
+
+            }
 
             /*
             if (!isGrounded)
@@ -129,7 +142,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 //characterController.Move(downVelocity * Time.deltaTime);
             }
             */
-            
+
         }
         HandleGravity();
 

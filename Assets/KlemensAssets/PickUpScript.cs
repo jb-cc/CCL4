@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class BoxScript : MonoBehaviour
+public class PickUpScript : MonoBehaviour
 {
     private RagdollManager ragdollManager;
     private GameObject _player;
@@ -14,18 +13,14 @@ public class BoxScript : MonoBehaviour
         ragdollManager = FindObjectOfType<RagdollManager>();
         _player = ragdollManager.hipObj;
     }
-    private void Update()
+
+    // Update is called once per frame
+    void Update()
     {
         distance = Vector3.Distance(_player.transform.position, transform.position);
-        if (distance <= 3.5)
+        if (distance <= 3)
         {
-            ragdollManager.AttachHands(gameObject);
-        }
-        else
-        {
-            ragdollManager.DetachHands(gameObject);
-
+            ragdollManager.LockToHand(gameObject);
         }
     }
-
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2945437545122712797}
   - component: {fileID: 2948378731514940846}
   - component: {fileID: 2310945822863264918}
-  m_Layer: 27
+  m_Layer: 6
   m_Name: Crate_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &5458697800587279450
 MeshFilter:

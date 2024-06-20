@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,11 +13,13 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private LayerMask whatIsGround, whatIsPlayer;
     private Animator _animator;
+    public bool endOfAttackAnimation = true;
     
     // Visuals
     private GameObject _angryFace;
     private GameObject _neutralFace;
     private GameObject _deadFace;
+    private int _chosenAttackAnimation = 1;
 
     // Patroling
     [SerializeField]
@@ -27,7 +30,7 @@ public class EnemyAI : MonoBehaviour
 
     // Attacking
     [SerializeField]
-    private float timeBetweenAttacks = 0.5f;
+    private float timeBetweenAttacks = 0f;
     private bool _alreadyAttacked;
     [SerializeField] private GameObject leftHand, leftForeArm, rightHand, rightForeArm;
     private CapsuleCollider _leftHandCollider, _leftForeArmCollider, _rightHandCollider, _rightForeArmCollider;
@@ -55,25 +58,29 @@ public class EnemyAI : MonoBehaviour
         _rightHandCollider = rightHand.GetComponent<CapsuleCollider>();
         _rightForeArmCollider = rightForeArm.GetComponent<CapsuleCollider>();
         DeactivateWeaponColliders();
+        StartCoroutine(ForgetWalkPointLoop());
+        StartCoroutine(RandomizeAttackAnimation());
     }
 
     private void Update()
     {
         // Check for sight and attack range
         _isPlayerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        _isPlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        bool _isPlayerInSmallAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        bool _isPlayerInBigAttackRange = Physics.CheckSphere(transform.position, attackRange+ 0.2f, whatIsPlayer);
+        _isPlayerInAttackRange = _isPlayerInSmallAttackRange | _isPlayerInBigAttackRange;
         
         if (!_isPlayerInSightRange && !_isPlayerInAttackRange)
-            Patroling();
+            if (endOfAttackAnimation)
+                Patroling();
         
         if (_isPlayerInSightRange && !_isPlayerInAttackRange)
-            ChasePlayer();
+            if (endOfAttackAnimation)
+                ChasePlayer();
         
         if (_isPlayerInSightRange && _isPlayerInAttackRange)
-            if (!_alreadyAttacked)
-            {
                 AttackPlayer();
-            }
+            
     }
 
     private void Patroling()
@@ -109,7 +116,7 @@ public class EnemyAI : MonoBehaviour
             _animator.SetInteger("chosenStandingAnimation", Random.Range(1, 3));            
             
             // Idle for a while, then search for a new walk point
-            Invoke(nameof(ForgetWalkPoint), 20f);
+            StartCoroutine(ForgetWalkPoint(10));
         }
     }
 
@@ -132,9 +139,19 @@ public class EnemyAI : MonoBehaviour
         }
     }
     
-    private void ForgetWalkPoint()
+    private IEnumerator ForgetWalkPoint(float time)
     {
+        yield return new WaitForSeconds(time);
         _isWalkPointSet = false;
+    }
+
+    private IEnumerator ForgetWalkPointLoop()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(20f);
+            _isWalkPointSet = false;
+        }
     }
 
     private void ChasePlayer()
@@ -148,7 +165,7 @@ public class EnemyAI : MonoBehaviour
         _deadFace.SetActive(false);
         
         // When chasing, the enemy should walk at double speed
-        agent.speed = 2 * _standardSpeed;
+        agent.speed = 2.5f * _standardSpeed;
         
         
         agent.SetDestination(player.position);
@@ -156,6 +173,7 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackPlayer()
     {
+        if (!endOfAttackAnimation) return;
         // Attack only once
         _alreadyAttacked = true;
 
@@ -163,6 +181,8 @@ public class EnemyAI : MonoBehaviour
         _animator.SetBool("isStanding", false);
         _animator.SetBool("isChasing", false);
         _animator.SetBool("isWalking", false);
+        _animator.SetInteger("chosenAttackAnimation", _chosenAttackAnimation);
+        _animator.SetBool("isAttacking", true);
         _angryFace.SetActive(true);
         _neutralFace.SetActive(false);
         _deadFace.SetActive(false);
@@ -181,19 +201,34 @@ public class EnemyAI : MonoBehaviour
             
         // Visuals again
         // randomize punch animation
-        int chosenAttackAnimation = Random.Range(1, 3);
-        _animator.SetInteger("chosenAttackAnimation", chosenAttackAnimation);
-        _animator.SetBool("isAttacking", true);
+        
         
             
         // add a delay between attacks
-        Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        
+        StartCoroutine(ResetAttack());
+    }
+    
+    public void EndOfAttackAnimation()
+    {
+        endOfAttackAnimation = true;
+    }
+    
+    public void StartOfAttackAnimation()
+    {
+        endOfAttackAnimation = false;
     }
 
-    private void ResetAttack()
+    private IEnumerator ResetAttack()
     {
+        yield return new WaitForSeconds(timeBetweenAttacks);
         _alreadyAttacked = false;
+        _animator.SetBool("isAttacking", false);
+    }
+    
+    private IEnumerator RandomizeAttackAnimation()
+    {
+        yield return new WaitForSeconds(2f);
+        _chosenAttackAnimation = Random.Range(1, 3);
     }
 
     public void ActivateWeaponCollidersLeft()
@@ -227,4 +262,5 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
+    
 }

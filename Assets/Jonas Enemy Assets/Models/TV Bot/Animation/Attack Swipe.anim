@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mutant Swiping
+  m_Name: Attack Swipe
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -49483,6 +49483,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: StartOfAttackAnimation
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.7
     functionName: ActivateWeaponCollidersLeft
     data: 
@@ -49492,6 +49499,13 @@ AnimationClip:
     messageOptions: 0
   - time: 2.6666667
     functionName: DeactivateWeaponColliders
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 4.6
+    functionName: EndOfAttackAnimation
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

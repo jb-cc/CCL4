@@ -40,7 +40,9 @@ public class EnemyAI : MonoBehaviour
     private float sightRange, attackRange;
     private bool _isPlayerInSightRange, _isPlayerInAttackRange;
     private float _standardSpeed;
-
+    [SerializeField]
+    private int _health = 10;
+    
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -64,6 +66,17 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (_health <= 0)
+        {
+            _animator.SetTrigger("isDead");
+            _angryFace.SetActive(false);
+            _neutralFace.SetActive(false);
+            _deadFace.SetActive(true);
+            agent.SetDestination(transform.position);
+            StartCoroutine(DestroyTVBot());
+            return;
+        }
+        
         // Check for sight and attack range
         _isPlayerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         bool _isPlayerInSmallAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -253,6 +266,17 @@ public class EnemyAI : MonoBehaviour
         _leftForeArmCollider.enabled = false;
         _rightHandCollider.enabled = false;
         _rightForeArmCollider.enabled = false;
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        _health -= damage;
+    }
+    
+    private IEnumerator DestroyTVBot()
+    {
+        yield return new WaitForSeconds(7f);
+        Destroy(gameObject);
     }
     
     private void OnDrawGizmosSelected()

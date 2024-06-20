@@ -7,7 +7,7 @@
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-3</Value>
+								<Value>-10</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -257,8 +257,75 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<BlendTrackList>
+								<BlendTrack Name="WalkWood" ID="{BC6263BF-D892-4F5E-A90F-8705CA20D32E}" ShortID="837859880">
+									<ObjectLists>
+										<ObjectList Name="RTPC">
+											<Reference>
+												<Local>
+													<RTPC Name="" ID="{37C372E1-4C20-4A3C-8A47-6758BD3D74D7}" ShortID="700922115">
+														<PropertyList>
+															<Property Name="PropertyName" Type="string" Value="Volume"/>
+														</PropertyList>
+														<ReferenceList>
+															<Reference Name="ControlInput">
+																<ObjectRef Name="MovementSpeed" ID="{5A91C5C6-415A-490B-ADB4-E6364D1E2BE0}" WorkUnitID="{8DF72ADD-90C0-436E-A3BB-E1135369684D}"/>
+															</Reference>
+															<Reference Name="Curve">
+																<Custom>
+																	<Curve Name="" ID="{0AE3EC2B-7BD8-4E98-8CFD-1E1A6BCCA958}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-200</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</RTPC>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+									<BlendTrackAssocList>
+										<BlendTrackAssoc>
+											<ItemRef Name="Footsteps while running on wood" ID="{2A89EBF3-8D13-4B75-A76E-4498DAF24D92}"/>
+										</BlendTrackAssoc>
+										<BlendTrackAssoc>
+											<ItemRef Name="Footsteps while running on wood(2)" ID="{3C876EAD-FDB8-491F-8D19-91AADBE08D42}"/>
+										</BlendTrackAssoc>
+										<BlendTrackAssoc>
+											<ItemRef Name="Footsteps while running on wood(3)" ID="{6436D9B8-0AE5-43E7-9657-15C27F8F20BF}"/>
+										</BlendTrackAssoc>
+										<BlendTrackAssoc>
+											<ItemRef Name="Footsteps while running on wood(4)" ID="{FEC457F4-0C0C-4519-AC37-7BEE3C449B3C}"/>
+										</BlendTrackAssoc>
+										<BlendTrackAssoc>
+											<ItemRef Name="Footsteps while running on wood(5)" ID="{EB34F117-DA45-4CB6-901E-9DABC2BB0881}"/>
+										</BlendTrackAssoc>
+									</BlendTrackAssocList>
+								</BlendTrack>
+							</BlendTrackList>
 						</BlendContainer>
 						<BlendContainer Name="Sequence_Footstep_Grass" ID="{2DBDC67B-B939-4260-BEFD-B61FD9FB72BD}" ShortID="279882725">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
@@ -269,6 +336,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="walk grass night 1" ID="{0BCAD3F4-D56C-46C8-AF76-39E940B4B3DB}" ShortID="202372684">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
@@ -291,6 +365,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="walk grass night 2" ID="{1866E09C-8FED-45ED-9B5F-34DB1DD81A0E}" ShortID="333830869">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
@@ -313,6 +394,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="walk grass night 3" ID="{3CC27041-6A7E-4E92-BB21-1F751374FB60}" ShortID="177307519">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
@@ -335,7 +423,282 @@
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
+							<BlendTrackList>
+								<BlendTrack Name="WalkPlayer" ID="{870AF793-C0C5-4348-BAAA-7B703D66B39B}" ShortID="450904186">
+									<ObjectLists>
+										<ObjectList Name="RTPC">
+											<Reference>
+												<Local>
+													<RTPC Name="" ID="{5CB2AFE3-EE9D-4677-8C47-DE02DDB820A0}" ShortID="996016781">
+														<PropertyList>
+															<Property Name="PropertyName" Type="string" Value="Volume"/>
+														</PropertyList>
+														<ReferenceList>
+															<Reference Name="ControlInput">
+																<ObjectRef Name="MovementSpeed" ID="{5A91C5C6-415A-490B-ADB4-E6364D1E2BE0}" WorkUnitID="{8DF72ADD-90C0-436E-A3BB-E1135369684D}"/>
+															</Reference>
+															<Reference Name="Curve">
+																<Custom>
+																	<Curve Name="" ID="{FC8846B6-8DEC-4CA0-93A9-C727AA2C087E}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-200</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>0</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</RTPC>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+									<BlendTrackAssocList>
+										<BlendTrackAssoc>
+											<ItemRef Name="walk grass night 1" ID="{0BCAD3F4-D56C-46C8-AF76-39E940B4B3DB}"/>
+										</BlendTrackAssoc>
+										<BlendTrackAssoc>
+											<ItemRef Name="walk grass night 2" ID="{1866E09C-8FED-45ED-9B5F-34DB1DD81A0E}"/>
+										</BlendTrackAssoc>
+										<BlendTrackAssoc>
+											<ItemRef Name="walk grass night 3" ID="{3CC27041-6A7E-4E92-BB21-1F751374FB60}"/>
+										</BlendTrackAssoc>
+									</BlendTrackAssocList>
+								</BlendTrack>
+							</BlendTrackList>
 						</BlendContainer>
+						<RandomSequenceContainer Name="Footstep_Grass" ID="{EED9DE9A-BB37-4520-97DD-DEF84B7518AE}" ShortID="2118595">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="walk grass night 1" ID="{0281B0AE-CCE8-431C-A46C-E8F7982C46DC}" ShortID="167509959">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="walk grass night 1" ID="{50BAE83F-E4D1-4665-A185-4B2403D70090}">
+											<Language>SFX</Language>
+											<AudioFile>walk grass night 1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="297182579"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="walk grass night 1" ID="{50BAE83F-E4D1-4665-A185-4B2403D70090}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="walk grass night 2" ID="{DFC01720-EEEB-4003-B1D5-0EEB1C34DD61}" ShortID="183545288">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>6</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="walk grass night 2" ID="{7161B710-23A3-4D45-8C28-2E2EB7746039}">
+											<Language>SFX</Language>
+											<AudioFile>walk grass night 2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="953919205"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="walk grass night 2" ID="{7161B710-23A3-4D45-8C28-2E2EB7746039}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="walk grass night 3" ID="{1139D7E4-6085-4458-8C2B-FA6F2CF6EE48}" ShortID="420179858">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="walk grass night 3" ID="{C3963347-94CF-41EA-8088-064636C0BA98}">
+											<Language>SFX</Language>
+											<AudioFile>walk grass night 3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="809632719"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="walk grass night 3" ID="{C3963347-94CF-41EA-8088-064636C0BA98}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Footstep_Wood" ID="{F2C5BEF5-E3FF-4F08-B23C-BBD413826BDF}" ShortID="732433764">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Footsteps while running on wood" ID="{38636EA7-5042-4A29-B8AD-37E7CB86A9B0}" ShortID="219892779">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Footsteps while running on wood" ID="{B6F98949-5B7A-4336-9E60-8A92ABE5CB57}">
+											<Language>SFX</Language>
+											<AudioFile>Footsteps while running on wood.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="263984777"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Footsteps while running on wood" ID="{B6F98949-5B7A-4336-9E60-8A92ABE5CB57}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Footsteps while running on wood(2)" ID="{B5D26D7E-1CA5-4B3C-99CE-DAE67124D43E}" ShortID="43317194">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Footsteps while running on wood(2)" ID="{37CC3778-0F30-445A-A428-E95C06E6EF4D}">
+											<Language>SFX</Language>
+											<AudioFile>Footsteps while running on wood(2).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1050348954"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Footsteps while running on wood(2)" ID="{37CC3778-0F30-445A-A428-E95C06E6EF4D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Footsteps while running on wood(3)" ID="{BFCC9638-CDF8-43E5-8D67-FC3EEEAD0760}" ShortID="296260166">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Footsteps while running on wood(3)" ID="{C3293A53-CD34-4DD8-8BA7-80827583F8AA}">
+											<Language>SFX</Language>
+											<AudioFile>Footsteps while running on wood(3).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="536428748"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Footsteps while running on wood(3)" ID="{C3293A53-CD34-4DD8-8BA7-80827583F8AA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Footsteps while running on wood(4)" ID="{38B086E8-FDB0-47DF-B78B-275F17409DE4}" ShortID="986237307">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Footsteps while running on wood(4)" ID="{5F7D948A-BAC9-4646-BBC6-1B252D52EF9D}">
+											<Language>SFX</Language>
+											<AudioFile>Footsteps while running on wood(4).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="906190129"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Footsteps while running on wood(4)" ID="{5F7D948A-BAC9-4646-BBC6-1B252D52EF9D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Footsteps while running on wood(5)" ID="{F7FA29CF-2801-41CA-8FA7-6CB35EBA5326}" ShortID="137047098">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Footsteps while running on wood(5)" ID="{944B0965-9FD0-4F20-8031-EB25A2008042}">
+											<Language>SFX</Language>
+											<AudioFile>Footsteps while running on wood(5).wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="477687770"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Footsteps while running on wood(5)" ID="{944B0965-9FD0-4F20-8031-EB25A2008042}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 					<GroupingInfo>
 						<GroupingBehaviorList>
@@ -345,18 +708,24 @@
 							<GroupingBehavior>
 								<ItemRef Name="Sequence_Footstep_Grass" ID="{2DBDC67B-B939-4260-BEFD-B61FD9FB72BD}"/>
 							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Footstep_Grass" ID="{EED9DE9A-BB37-4520-97DD-DEF84B7518AE}"/>
+							</GroupingBehavior>
+							<GroupingBehavior>
+								<ItemRef Name="Footstep_Wood" ID="{F2C5BEF5-E3FF-4F08-B23C-BBD413826BDF}"/>
+							</GroupingBehavior>
 						</GroupingBehaviorList>
 						<GroupingList>
 							<Grouping>
 								<SwitchRef Name="Wood" ID="{67861629-0774-402E-B938-4FC57AD32C93}"/>
 								<ItemList>
-									<ItemRef Name="Sequence_Footstep_Wood" ID="{B8B0E34C-3D41-47EC-B31A-C28243C8A97B}"/>
+									<ItemRef Name="Footstep_Wood" ID="{F2C5BEF5-E3FF-4F08-B23C-BBD413826BDF}"/>
 								</ItemList>
 							</Grouping>
 							<Grouping>
 								<SwitchRef Name="Grass" ID="{3440B1E0-2BAD-4732-A535-5BBBC3B52FB3}"/>
 								<ItemList>
-									<ItemRef Name="Sequence_Footstep_Grass" ID="{2DBDC67B-B939-4260-BEFD-B61FD9FB72BD}"/>
+									<ItemRef Name="Footstep_Grass" ID="{EED9DE9A-BB37-4520-97DD-DEF84B7518AE}"/>
 								</ItemList>
 							</Grouping>
 						</GroupingList>
@@ -364,6 +733,16 @@
 				</SwitchContainer>
 				<Sound Name="Canon_Shoot" ID="{230F7D48-72E5-4BD9-BBC6-836EE58F1550}" ShortID="842510223">
 					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>17</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>48</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Pitch" Type="int32">
 							<ValueList>
 								<Value>30</Value>
@@ -371,7 +750,7 @@
 						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-7</Value>
+								<Value>-11</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -421,7 +800,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-22</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -475,6 +854,13 @@
 					</Playlist>
 				</RandomSequenceContainer>
 				<RandomSequenceContainer Name="Player_Hurt" ID="{BE06FCB8-91AB-477F-83FB-6B9E1FEA76D1}" ShortID="889326253">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-3</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
@@ -703,6 +1089,405 @@
 						</Sound>
 					</ChildrenList>
 				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Robot_Initiate" ID="{CF83C379-5EA2-4D30-B23F-B2A6902869EC}" ShortID="887909062">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-14</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Requested Robot2(2)" ID="{D8782642-B40E-45AA-9C22-A1CE01D0C5C8}" ShortID="991255205">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Requested Robot2(2)" ID="{46913EF6-7B8F-4316-A271-1EF949A15BA7}">
+									<Language>SFX</Language>
+									<AudioFile>Requested Robot2(2).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1032205348"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Requested Robot2(2)" ID="{46913EF6-7B8F-4316-A271-1EF949A15BA7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Requested Robot2" ID="{FC77AC3E-7C0A-4ACD-BC97-91FE7E0D5CB5}" ShortID="718334631">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Requested Robot2" ID="{61540440-870A-40D2-9BEF-074F491A82AA}">
+									<Language>SFX</Language>
+									<AudioFile>Requested Robot2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="225943432"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Requested Robot2" ID="{61540440-870A-40D2-9BEF-074F491A82AA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Robot_Footsteps" ID="{72BD1607-BA3E-40F5-AA5A-B82A8DDB9ECA}" ShortID="364907354">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Robot walk, looped" ID="{DAFF923F-448A-4351-9CB3-DFE49557EDC1}" ShortID="621383734">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Robot walk, looped" ID="{B5CDC344-FB80-472F-B4F6-254E1CF4AB59}">
+									<Language>SFX</Language>
+									<AudioFile>Robot walk, looped.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="806088014"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Robot walk, looped" ID="{B5CDC344-FB80-472F-B4F6-254E1CF4AB59}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Robot walk, looped(2)" ID="{88930F2D-3423-4506-8847-6EE2F83EAB4C}" ShortID="454514425">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Robot walk, looped(2)" ID="{A45C3F07-47AC-4897-BCFD-55CCC53CE488}">
+									<Language>SFX</Language>
+									<AudioFile>Robot walk, looped(2).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="667953439"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Robot walk, looped(2)" ID="{A45C3F07-47AC-4897-BCFD-55CCC53CE488}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<Sound Name="Robot_Hit" ID="{E0C94F13-3ACD-41E6-B6BD-84BB568616E0}" ShortID="150593077">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Computer Breaking Sound" ID="{9E444E11-21DB-471E-AAEF-1AD9648893E7}">
+							<Language>SFX</Language>
+							<AudioFile>Computer Breaking Sound.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="763322774"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Computer Breaking Sound" ID="{9E444E11-21DB-471E-AAEF-1AD9648893E7}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Robot_Dead" ID="{A63A407F-4435-4715-AD4F-4BFA7032A0CB}" ShortID="467506870">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Glitchy Robot Scream - 10" ID="{F1783476-1213-4E54-BFEA-0575B391F3CC}">
+							<Language>SFX</Language>
+							<AudioFile>Glitchy Robot Scream - 10.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="497086199"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Glitchy Robot Scream - 10" ID="{F1783476-1213-4E54-BFEA-0575B391F3CC}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<RandomSequenceContainer Name="Banjo_Damage" ID="{9DA5ADF1-F62D-47E6-B4BD-A1EA5E5EECF3}" ShortID="40778120">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="human grunts 2(2)" ID="{920A1E3C-681D-4750-B834-DC17EDE8429F}" ShortID="420642000">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="human grunts 2(2)" ID="{3FF3A152-DBC8-40D5-A304-740636767ADC}">
+									<Language>SFX</Language>
+									<AudioFile>human grunts 2(2).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="994379592"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="human grunts 2(2)" ID="{3FF3A152-DBC8-40D5-A304-740636767ADC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="human grunts 2(3)" ID="{7336CD49-9869-47A7-B3F6-11863083EA90}" ShortID="365591430">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="human grunts 2(3)" ID="{580352F0-635C-46ED-883C-A4CAEC09352F}">
+									<Language>SFX</Language>
+									<AudioFile>human grunts 2(3).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="377958087"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="human grunts 2(3)" ID="{580352F0-635C-46ED-883C-A4CAEC09352F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="human grunts 2" ID="{C7819404-587A-4A8F-9128-EA0C86CFD066}" ShortID="841068759">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="human grunts 2" ID="{A221E023-B72F-4FEE-8D2B-E2F74299E562}">
+									<Language>SFX</Language>
+									<AudioFile>human grunts 2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="592948970"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="human grunts 2" ID="{A221E023-B72F-4FEE-8D2B-E2F74299E562}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<RandomSequenceContainer Name="Banjo_Walk" ID="{43C0BDB0-9177-4EE4-B944-C72ED6C37FB4}" ShortID="48009089">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="Loud Walking on carpet(2)" ID="{7574977D-2DBC-4B29-833F-A1CDC8669BF6}" ShortID="294070675">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Loud Walking on carpet(2)" ID="{72666A46-8929-4446-A113-8D2C827F2BB9}">
+									<Language>SFX</Language>
+									<AudioFile>Loud Walking on carpet(2).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="338579759"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Loud Walking on carpet(2)" ID="{72666A46-8929-4446-A113-8D2C827F2BB9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Loud Walking on carpet(3)" ID="{6623B4C0-DA9B-4A06-A41C-EA0BB6D42064}" ShortID="105737855">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Loud Walking on carpet(3)" ID="{92044B90-3309-4B01-89BE-EAF8E869C7E6}">
+									<Language>SFX</Language>
+									<AudioFile>Loud Walking on carpet(3).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="963509219"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Loud Walking on carpet(3)" ID="{92044B90-3309-4B01-89BE-EAF8E869C7E6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Loud Walking on carpet(4)" ID="{DDF0F303-5F39-4E57-AFCB-AAFE19D07529}" ShortID="46197186">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Loud Walking on carpet(4)" ID="{49CBB46C-0D2A-4B2A-9D15-DE9DC6D6D99A}">
+									<Language>SFX</Language>
+									<AudioFile>Loud Walking on carpet(4).wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="327376428"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Loud Walking on carpet(4)" ID="{49CBB46C-0D2A-4B2A-9D15-DE9DC6D6D99A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Loud Walking on carpet" ID="{F3AEE248-ED6D-4202-A2F0-B883531614FA}" ShortID="702195270">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Loud Walking on carpet" ID="{2298B9BE-2D4E-4EDB-87BF-65963D1BCA9A}">
+									<Language>SFX</Language>
+									<AudioFile>Loud Walking on carpet.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="873487999"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Loud Walking on carpet" ID="{2298B9BE-2D4E-4EDB-87BF-65963D1BCA9A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</RandomSequenceContainer>
+				<Sound Name="Banjo_Attack" ID="{59F9A3A1-D4FD-4421-8C57-C623AC266A2A}" ShortID="973477104">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Male Grunt 8 - WITHOUT reverb" ID="{DC5D1E2D-2FED-4658-8C50-981B7C957448}">
+							<Language>SFX</Language>
+							<AudioFile>Male Grunt 8 - WITHOUT reverb.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="917995207"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Male Grunt 8 - WITHOUT reverb" ID="{DC5D1E2D-2FED-4658-8C50-981B7C957448}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Little_Attack" ID="{7BC326E5-B8C4-4947-B062-ACC44EAD894B}" ShortID="996699040">
+					<PropertyList>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>910</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="LittleAttack" ID="{50748C9B-332F-404B-B5A5-C36B52C77203}">
+							<Language>SFX</Language>
+							<AudioFile>LittleAttack.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="335229892"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="LittleAttack" ID="{50748C9B-332F-404B-B5A5-C36B52C77203}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

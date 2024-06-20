@@ -140,6 +140,7 @@ public class BanjoAI : MonoBehaviour
     {
         // Attack only once
         _alreadyAttacked = true;
+        PlayAttack();
 
         // Visuals
         _animator.SetBool("isIdle", false);
@@ -221,7 +222,7 @@ public class BanjoAI : MonoBehaviour
     }
 
     void PlayAttack(){
-        //AkSoundEngine.PostEvent("Play_Banjo_Attack", gameObject);
+        AkSoundEngine.PostEvent("Play_BanjoAttack", gameObject);
         Debug.Log("Playing Banjo attack sound");
     }
 

@@ -80,6 +80,108 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="Stop_RobotInitiate" ID="{2A72335C-9FDD-4BFF-8147-56C2DA16D5ED}">
+					<ChildrenList>
+						<Action Name="" ID="{455A1AC2-54A7-4B02-BE3A-8DA138F74F75}" ShortID="914984150">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Robot_Initiate" ID="{CF83C379-5EA2-4D30-B23F-B2A6902869EC}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_RobotWalk" ID="{2719B886-4D3F-4EAA-A9FD-1D095F0801B6}">
+					<ChildrenList>
+						<Action Name="" ID="{026F2D9A-8553-4A8C-87AD-FF0AD400239E}" ShortID="35415367">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Robot_Footsteps" ID="{72BD1607-BA3E-40F5-AA5A-B82A8DDB9ECA}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_RobotInitiate" ID="{32169300-9F9E-42D2-A438-71A769F93CDF}">
+					<ChildrenList>
+						<Action Name="" ID="{9A862C32-5443-4C1F-9D89-DDB8B42DB3E5}" ShortID="473180500">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Robot_Initiate" ID="{CF83C379-5EA2-4D30-B23F-B2A6902869EC}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_RobotHit" ID="{F8E5F1BC-38A2-4CA2-A36B-0A926AB7AFFB}">
+					<ChildrenList>
+						<Action Name="" ID="{2288C975-F975-4C95-8463-E4AF5E6C372C}" ShortID="584292041">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Robot_Hit" ID="{E0C94F13-3ACD-41E6-B6BD-84BB568616E0}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_RobotDead" ID="{EB04FDF0-7DB7-41A0-8CBE-69510216213B}">
+					<ChildrenList>
+						<Action Name="" ID="{C70DFD96-23B4-4828-9FCD-35C77BD3A741}" ShortID="264994785">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Robot_Dead" ID="{A63A407F-4435-4715-AD4F-4BFA7032A0CB}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_BanjoAttack" ID="{0F7F139E-1482-40A9-9403-348D0334BBBD}">
+					<ChildrenList>
+						<Action Name="" ID="{9BAB54D9-F240-4726-BC21-72F4C98F9ED5}" ShortID="180782643">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Banjo_Attack" ID="{59F9A3A1-D4FD-4421-8C57-C623AC266A2A}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_BanjoHurt" ID="{6C8472D0-9744-4804-B4E4-C6111055C509}">
+					<ChildrenList>
+						<Action Name="" ID="{6A3873A8-E2E4-4FD6-BD45-DED976C5672A}" ShortID="275674674">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Banjo_Damage" ID="{9DA5ADF1-F62D-47E6-B4BD-A1EA5E5EECF3}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_BanjoWalk" ID="{C0E8963E-EFB3-4B0F-886E-F2724CEC05A2}">
+					<ChildrenList>
+						<Action Name="" ID="{2EEC8185-23FA-40B8-B330-978A573DEC28}" ShortID="178909944">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Banjo_Walk" ID="{43C0BDB0-9177-4EE4-B944-C72ED6C37FB4}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_LittleAttack" ID="{F00ECC1A-11AA-42E5-A00C-4C80BDD62BA0}">
+					<ChildrenList>
+						<Action Name="" ID="{D36F0421-F427-4816-BAD9-6C36F2C2D6AB}" ShortID="656295015">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Little_Attack" ID="{7BC326E5-B8C4-4947-B062-ACC44EAD894B}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

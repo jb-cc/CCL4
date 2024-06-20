@@ -23,6 +23,8 @@ public class SmallBoiAI : MonoBehaviour
     private Animator _animator;
     private GameManager _gameManager;
     private bool _alreadyAttacked = false;
+    private bool _hasPlayedAttack = false;
+
     private void Awake()
     {
         _gameManager = FindObjectOfType<GameManager>();
@@ -39,21 +41,28 @@ public class SmallBoiAI : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        // Check for sight and attack range
+        // Check for sight range
         _isPlayerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         
         if (!_isPlayerInSightRange)
             Patroling();
         
         if (_isPlayerInSightRange)
+        {
             if (!_alreadyAttacked)
             {
                 ChasePlayer();
+                if (!_hasPlayedAttack)
+                {
+                    PlayAttack();
+                    _hasPlayedAttack = true;
+                }
             }
             else
             {
                 Patroling();
             }
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -114,7 +123,7 @@ public class SmallBoiAI : MonoBehaviour
     private void ResetAttack()
     {
         _alreadyAttacked = false;
-        
+        _hasPlayedAttack = false;
     }
     
     private void OnDrawGizmosSelected()
@@ -123,4 +132,10 @@ public class SmallBoiAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
     
+    void PlayAttack()
+    {
+        // Play attack sound
+        Debug.Log("Attack sound played");
+        AkSoundEngine.PostEvent("Play_LittleAttack", gameObject);
+    }
 }

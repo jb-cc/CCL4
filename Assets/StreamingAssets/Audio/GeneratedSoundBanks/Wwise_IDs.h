@@ -17,16 +17,20 @@ namespace AK
         static const AkUniqueID PLAY_BANJOHURT = 3826790247U;
         static const AkUniqueID PLAY_BANJOWALK = 958343367U;
         static const AkUniqueID PLAY_CANONSHOT = 3450844999U;
+        static const AkUniqueID PLAY_CLICK = 311910498U;
         static const AkUniqueID PLAY_ENVIRONMENTAMBIENT = 437902151U;
         static const AkUniqueID PLAY_FOOTSTEP = 1602358412U;
         static const AkUniqueID PLAY_HEAL = 2639148008U;
         static const AkUniqueID PLAY_HURT = 2955259529U;
         static const AkUniqueID PLAY_JUMP = 3689126666U;
         static const AkUniqueID PLAY_LITTLEATTACK = 1417415922U;
+        static const AkUniqueID PLAY_PICKUP_ITEM = 3128913152U;
+        static const AkUniqueID PLAY_PORTALENTER = 4016738326U;
         static const AkUniqueID PLAY_ROBOTDEAD = 356695360U;
         static const AkUniqueID PLAY_ROBOTHIT = 1266153785U;
         static const AkUniqueID PLAY_ROBOTINITIATE = 1061019819U;
         static const AkUniqueID PLAY_ROBOTWALK = 3525237377U;
+        static const AkUniqueID PLAY_TOGGLE = 1943693866U;
         static const AkUniqueID STOP_ROBOTINITIATE = 2444495705U;
     } // namespace EVENTS
 

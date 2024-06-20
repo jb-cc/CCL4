@@ -17,30 +17,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_1_Audio.unity
     guid: cb7f4d7405670d94f8026c99ea244027
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Audio_Scenes/START_GA.unity
     guid: a4c6b09625fd849468dfe460ab0a1c8b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Audio_Scenes/FirstLevel_GA.unity
     guid: 4652a699b4e9bb34e819917377c79d68
-    path: Assets/Scenes/TutorialLevel.unity
-    guid: 90d8925ce57db3c4b800e36d111d16ef
   - enabled: 1
-    path: Assets/Scenes/FirstLevel.unity
-    guid: 5e8903e69164bdd439fcf69bab407fa3
+    path: Assets/Scenes/Audio_Levels/FirstLevel_GA.unity
+    guid: ad882f9ad924dac43adbd6d181a7e1ca
   - enabled: 1
-    path: Assets/Scenes/SecondLevel.unity
+    path: Assets/Scenes/Audio_Levels/SecondLevel_GA.unity
     guid: 63ee639be201a46468d64b03bfd56ff9
   - enabled: 1
-    path: Assets/Scenes/ThirdLevel.unity
+    path: Assets/Scenes/Audio_Levels/ThirdLevel_GA.unity
     guid: e4f0ab2465e0df64d807587a2057e9e4
   - enabled: 1
     path: Assets/Scenes/WinScene.unity
     guid: 5f49801e5cefc374d9a9a8fb23f6626e
   - enabled: 1
-    path: Assets/Scenes/EndLevel.unity
-    guid: 5d05870cf07b6af4aa1fcad093a3d67e
+    path: Assets/Scenes/Audio_Levels/EndLevel_GA.unity
+    guid: dc4caa79327c22a4aa6a015852722c8e
   - enabled: 1
-    path: Assets/Scenes/IntroScene.unity
-    guid: e671f09ad602a7e4e9d08732fb27df1c
+    path: Assets/Scenes/Audio_Levels/IntroScene_GA.unity
+    guid: 8d740cbe034def842bc70ae141978092
+  - enabled: 1
+    path: Assets/Scenes/Audio_Levels/TutorialLevel_GA.unity
+    guid: 90d8925ce57db3c4b800e36d111d16ef
   m_configObjects: {}

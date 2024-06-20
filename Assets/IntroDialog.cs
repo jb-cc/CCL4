@@ -49,7 +49,7 @@ public class IntroDialog : MonoBehaviour
         } else {
             healthBar.SetActive(true);            
             EntireIntroDialog.SetActive(false);
-            SceneManager.LoadScene("TutorialLevel");
+            SceneManager.LoadScene("TutorialLevel_GA");
         }
     }
 }

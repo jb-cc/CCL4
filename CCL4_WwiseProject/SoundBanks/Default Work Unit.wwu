@@ -9,8 +9,10 @@
 						<ObjectRef Name="Play_RobotDead" ID="{EB04FDF0-7DB7-41A0-8CBE-69510216213B}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_EnvironmentAmbient" ID="{E475E032-B78D-426F-811B-D571845DDB04}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_RobotInitiate" ID="{32169300-9F9E-42D2-A438-71A769F93CDF}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Click" ID="{E97F8835-9A14-45C8-A3DC-986C13D83A10}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_Footstep" ID="{F6FFBD28-D206-47C5-A177-57F7CD906B0B}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BanjoHurt" ID="{6C8472D0-9744-4804-B4E4-C6111055C509}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_PickUp_Item" ID="{C33D01C6-1011-48C0-9835-18B354398655}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Little_Attack" ID="{7BC326E5-B8C4-4947-B062-ACC44EAD894B}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_CanonShot" ID="{45858508-31E3-4AB0-9164-434AAF73BC13}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Play_BanjoWalk" ID="{C0E8963E-EFB3-4B0F-886E-F2724CEC05A2}" WorkUnitID="{BA29685A-19F6-423B-BDE3-B4DA12467A7C}" Origin="Manual" Filter="7"/>

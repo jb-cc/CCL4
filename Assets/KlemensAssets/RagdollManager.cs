@@ -174,6 +174,7 @@ public class RagdollManager : MonoBehaviour
         {
             if (triesToGrab)
             {
+                PlayKeyPickup();
                 hasKey = true;
 
                 lockedObject = otherObj;
@@ -217,6 +218,12 @@ public class RagdollManager : MonoBehaviour
     }
     */
 
+    void PlayKeyPickup()
+    {
+        // Play the sound of the key being picked up
+        //Debug.Log("Key picked up");
+        AkSoundEngine.PostEvent("Play_PickUp_Item", gameObject);
+    }
 
 
 

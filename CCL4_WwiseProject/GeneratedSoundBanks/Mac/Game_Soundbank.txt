@@ -1,4 +1,5 @@
 Event	ID	Name			Wwise Object Path	Notes
+	311910498	Play_Click			\Default Work Unit\UI\Play_Click	
 	356695360	Play_RobotDead			\Default Work Unit\Play_RobotDead	
 	437902151	Play_EnvironmentAmbient			\Default Work Unit\Play_EnvironmentAmbient	
 	958343367	Play_BanjoWalk			\Default Work Unit\Play_BanjoWalk	
@@ -6,14 +7,17 @@ Event	ID	Name			Wwise Object Path	Notes
 	1266153785	Play_RobotHit			\Default Work Unit\Play_RobotHit	
 	1417415922	Play_LittleAttack			\Default Work Unit\Play_LittleAttack	
 	1602358412	Play_Footstep			\Default Work Unit\Play_Footstep	
+	1943693866	Play_Toggle			\Default Work Unit\UI\Play_Toggle	
 	2444495705	Stop_RobotInitiate			\Default Work Unit\Stop_RobotInitiate	
 	2608022528	Play_BanjoAttack			\Default Work Unit\Play_BanjoAttack	
 	2639148008	Play_Heal			\Default Work Unit\Play_Heal	
 	2955259529	Play_Hurt			\Default Work Unit\Play_Hurt	
+	3128913152	Play_PickUp_Item			\Default Work Unit\Play_PickUp_Item	
 	3450844999	Play_CanonShot			\Default Work Unit\Play_CanonShot	
 	3525237377	Play_RobotWalk			\Default Work Unit\Play_RobotWalk	
 	3689126666	Play_Jump			\Default Work Unit\Play_Jump	
 	3826790247	Play_BanjoHurt			\Default Work Unit\Play_BanjoHurt	
+	4016738326	Play_PortalEnter			\Default Work Unit\Play_PortalEnter	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	63790334	SurfaceType			\Default Work Unit\SurfaceType	
@@ -23,6 +27,7 @@ Switch	ID	Name	Switch Group			Notes
 	4248645337	Grass	SurfaceType			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	73474133	click_002	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\click_002_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_Click\click_002		1120
 	183220283	Hurt2	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Hurt2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Hurt\Hurt2		39324
 	212462516	Hurt3	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Hurt3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Hurt\Hurt3		27416
 	225943432	Requested Robot2	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Requested Robot2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot_Initiate\Requested Robot2		174036
@@ -31,21 +36,30 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	297182579	walk grass night 1	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\walk grass night 1_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Footstep_Grass\walk grass night 1		64260
 	327376428	Loud Walking on carpet(4)	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Loud Walking on carpet(4)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Banjo_Walk\Loud Walking on carpet(4)		30764
 	335229892	Little_Attack	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\LittleAttack_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Little_Attack		243404
+	336815361	Game Pickup2	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Game Pickup2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pickup_Item\Game Pickup2		161432
 	338579759	Loud Walking on carpet(2)	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Loud Walking on carpet(2)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Banjo_Walk\Loud Walking on carpet(2)		29382
 	377958087	human grunts 2(3)	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\human grunts 2(3)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Banjo_Damage\human grunts 2(3)		63358
 	401105733	bird chirps	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\bird chirps_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Random_Ambients\bird chirps		7278376
+	459037343	click_004	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\click_004_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_Click\click_004		2016
 	477687770	Footsteps while running on wood(5)	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Footsteps while running on wood(5)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Footstep_Wood\Footsteps while running on wood(5)		30372
 	497086199	Robot_Dead	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Glitchy Robot Scream - 10_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot_Dead		187820
 	499709267	Hurt5	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Hurt5_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Hurt\Hurt5		33488
 	536428748	Footsteps while running on wood(3)	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Footsteps while running on wood(3)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Footstep_Wood\Footsteps while running on wood(3)		34156
 	586493654	Hurt4	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Hurt4_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Hurt\Hurt4		31970
 	592948970	human grunts 2	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\human grunts 2_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Banjo_Damage\human grunts 2		50314
+	602098969	click_003	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\click_003_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_Click\click_003		724
+	627820028	Game Pickup	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Game Pickup_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pickup_Item\Game Pickup		167928
 	667953439	Robot walk, looped(2)	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Robot walk, looped(2)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot_Footsteps\Robot walk, looped(2)		51872
 	709940732	Hurt	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Hurt_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Player_Hurt\Hurt		51704
+	717005304	click_005	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\click_005_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_Click\click_005		724
+	726163291	toggle_002	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\toggle_002_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\toggle_002		12128
 	763322774	Robot_Hit	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Computer Breaking Sound_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot_Hit		92090
+	805537300	Portal_Enter	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Fast Warp In_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Portal_Enter		235372
 	806088014	Robot walk, looped	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Robot walk, looped_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Robot_Footsteps\Robot walk, looped		44810
 	809632719	walk grass night 3	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\walk grass night 3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Footstep_Grass\walk grass night 3		98204
+	814848607	Game Pickup3	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Game Pickup3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Pickup_Item\Game Pickup3		138692
 	873487999	Loud Walking on carpet	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Loud Walking on carpet_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Banjo_Walk\Loud Walking on carpet		17226
+	905076452	click_001	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\click_001_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UI_Click\click_001		8662
 	906190129	Footsteps while running on wood(4)	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Footsteps while running on wood(4)_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Footsteps_Switch\Footstep_Wood\Footsteps while running on wood(4)		29952
 	908925036	bird chirps3	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\bird chirps3_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Random_Ambients\bird chirps3		5740856
 	917995207	Banjo_Attack	G:\Sem4\CCL4\CCL4\CCL4_WwiseProject\.cache\Mac\SFX\Male Grunt 8 - WITHOUT reverb_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\Banjo_Attack		45328

@@ -182,6 +182,32 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Folder Name="UI" ID="{354F8EA3-BFCF-40EE-81D9-2ADA27869867}" ShortID="301537159">
+					<ChildrenList>
+						<Event Name="Play_Click" ID="{E97F8835-9A14-45C8-A3DC-986C13D83A10}">
+							<ChildrenList>
+								<Action Name="" ID="{28F69B27-4ABD-4A5D-8567-B2E108D23905}" ShortID="249457744">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="UI_Click" ID="{FDD224B5-049F-4127-B576-B825C7968D6C}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Toggle" ID="{4B55576C-6C6C-4672-A362-11ABC5C1D63C}">
+							<ChildrenList>
+								<Action Name="" ID="{D74A77B2-D22A-4123-B35B-59E8A2EC97D4}" ShortID="600610799">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="toggle_002" ID="{9C40DAC3-86DE-4DA2-A646-942E4F6E31C1}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

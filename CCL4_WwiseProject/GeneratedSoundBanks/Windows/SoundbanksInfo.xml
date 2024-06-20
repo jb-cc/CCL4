@@ -33,10 +33,14 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3626155605" Type="User" Language="SFX" Hash="{33B55F77-A2E1-E549-8FCB-7B755D8B6BF2}">
+		<SoundBank Id="3626155605" Type="User" Language="SFX" Hash="{27F22E58-BD0A-81CD-FB8F-ABFD3FE237C6}">
 			<ShortName>Game_Soundbank</ShortName>
 			<Path>Game_Soundbank.bnk</Path>
 			<Media>
+				<File Id="73474133" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>click_002.wav</ShortName>
+					<CachePath>SFX/click_002_10C4C929.wem</CachePath>
+				</File>
 				<File Id="183220283" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Hurt2.wav</ShortName>
 					<CachePath>SFX/Hurt2_10C4C929.wem</CachePath>
@@ -69,6 +73,10 @@
 					<ShortName>LittleAttack.wav</ShortName>
 					<CachePath>SFX/LittleAttack_10C4C929.wem</CachePath>
 				</File>
+				<File Id="336815361" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Game Pickup2.wav</ShortName>
+					<CachePath>SFX/Game Pickup2_10C4C929.wem</CachePath>
+				</File>
 				<File Id="338579759" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Loud Walking on carpet(2).wav</ShortName>
 					<CachePath>SFX/Loud Walking on carpet(2)_10C4C929.wem</CachePath>
@@ -80,6 +88,10 @@
 				<File Id="401105733" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>bird chirps.wav</ShortName>
 					<CachePath>SFX/bird chirps_10C4C929.wem</CachePath>
+				</File>
+				<File Id="459037343" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>click_004.wav</ShortName>
+					<CachePath>SFX/click_004_10C4C929.wem</CachePath>
 				</File>
 				<File Id="477687770" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Footsteps while running on wood(5).wav</ShortName>
@@ -105,6 +117,14 @@
 					<ShortName>human grunts 2.wav</ShortName>
 					<CachePath>SFX/human grunts 2_10C4C929.wem</CachePath>
 				</File>
+				<File Id="602098969" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>click_003.wav</ShortName>
+					<CachePath>SFX/click_003_10C4C929.wem</CachePath>
+				</File>
+				<File Id="627820028" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Game Pickup.wav</ShortName>
+					<CachePath>SFX/Game Pickup_10C4C929.wem</CachePath>
+				</File>
 				<File Id="667953439" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Robot walk, looped(2).wav</ShortName>
 					<CachePath>SFX/Robot walk, looped(2)_10C4C929.wem</CachePath>
@@ -113,9 +133,21 @@
 					<ShortName>Hurt.wav</ShortName>
 					<CachePath>SFX/Hurt_10C4C929.wem</CachePath>
 				</File>
+				<File Id="717005304" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>click_005.wav</ShortName>
+					<CachePath>SFX/click_005_10C4C929.wem</CachePath>
+				</File>
+				<File Id="726163291" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>toggle_002.wav</ShortName>
+					<CachePath>SFX/toggle_002_10C4C929.wem</CachePath>
+				</File>
 				<File Id="763322774" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Computer Breaking Sound.wav</ShortName>
 					<CachePath>SFX/Computer Breaking Sound_10C4C929.wem</CachePath>
+				</File>
+				<File Id="805537300" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Fast Warp In.wav</ShortName>
+					<CachePath>SFX/Fast Warp In_10C4C929.wem</CachePath>
 				</File>
 				<File Id="806088014" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Robot walk, looped.wav</ShortName>
@@ -125,9 +157,17 @@
 					<ShortName>walk grass night 3.wav</ShortName>
 					<CachePath>SFX/walk grass night 3_10C4C929.wem</CachePath>
 				</File>
+				<File Id="814848607" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Game Pickup3.wav</ShortName>
+					<CachePath>SFX/Game Pickup3_10C4C929.wem</CachePath>
+				</File>
 				<File Id="873487999" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Loud Walking on carpet.wav</ShortName>
 					<CachePath>SFX/Loud Walking on carpet_10C4C929.wem</CachePath>
+				</File>
+				<File Id="905076452" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>click_001.wav</ShortName>
+					<CachePath>SFX/click_001_10C4C929.wem</CachePath>
 				</File>
 				<File Id="906190129" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Footsteps while running on wood(4).wav</ShortName>
@@ -208,6 +248,15 @@
 						<MediaRef Id="996085023"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="311910498" Name="Play_Click" DurationType="OneShot" DurationMin="0.0071201813" DurationMax="0.09712018">
+					<MediaRefs>
+						<MediaRef Id="73474133"/>
+						<MediaRef Id="459037343"/>
+						<MediaRef Id="602098969"/>
+						<MediaRef Id="717005304"/>
+						<MediaRef Id="905076452"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="437902151" Name="Play_EnvironmentAmbient" DurationType="OneShot" DurationMin="16.271996" DurationMax="162.43399">
 					<MediaRefs>
 						<MediaRef Id="401105733"/>
@@ -263,6 +312,18 @@
 						<MediaRef Id="335229892"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3128913152" Name="Play_PickUp_Item" DurationType="OneShot" DurationMin="0.7856916" DurationMax="0.9514286">
+					<MediaRefs>
+						<MediaRef Id="336815361"/>
+						<MediaRef Id="627820028"/>
+						<MediaRef Id="814848607"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4016738326" Name="Play_PortalEnter" DurationType="OneShot" DurationMin="1.2253958" DurationMax="1.2253958">
+					<MediaRefs>
+						<MediaRef Id="805537300"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="356695360" Name="Play_RobotDead" DurationType="OneShot" DurationMin="1.064195" DurationMax="1.064195">
 					<MediaRefs>
 						<MediaRef Id="497086199"/>
@@ -285,6 +346,11 @@
 						<MediaRef Id="806088014"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="1943693866" Name="Play_Toggle" DurationType="OneShot" DurationMin="0.13641724" DurationMax="0.13641724">
+					<MediaRefs>
+						<MediaRef Id="726163291"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="2444495705" Name="Stop_RobotInitiate" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 			</Events>
 			<GameParameters>
@@ -300,5 +366,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{290EE1AD-FB8D-AF9E-C301-D3FB7B1023C5}</FileHash>
+	<FileHash>{0999BB0B-832D-64BD-CE75-38E16379B653}</FileHash>
 </SoundBanksInfo>

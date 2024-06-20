@@ -1488,6 +1488,154 @@
 						<ActiveSource Name="LittleAttack" ID="{50748C9B-332F-404B-B5A5-C36B52C77203}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+				<Folder Name="UI" ID="{02EFC5BD-CED6-46D2-A3E5-E9145E15CAB4}" ShortID="449416535">
+					<ChildrenList>
+						<RandomSequenceContainer Name="UI_Click" ID="{FDD224B5-049F-4127-B576-B825C7968D6C}" ShortID="692245121">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="click_001" ID="{835C2B14-3C5E-4A67-B0B3-AA2C42A6682D}" ShortID="830368987">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="click_001" ID="{F9859954-145C-4611-884D-E4EB4F3C688B}">
+											<Language>SFX</Language>
+											<AudioFile>click_001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="905076452"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="click_001" ID="{F9859954-145C-4611-884D-E4EB4F3C688B}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="click_002" ID="{FF1C0134-8F4C-4215-B585-C32E694E6E38}" ShortID="133222081">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="click_002" ID="{34B65DB1-155E-4ACB-A9DC-78972167F1A6}">
+											<Language>SFX</Language>
+											<AudioFile>click_002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="73474133"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="click_002" ID="{34B65DB1-155E-4ACB-A9DC-78972167F1A6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="click_003" ID="{B91EA60A-9BAD-49E0-B7FB-D2A4B0F1DE29}" ShortID="531502010">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="click_003" ID="{87AB6D27-4356-4CC1-9D9F-E06161CA30DA}">
+											<Language>SFX</Language>
+											<AudioFile>click_003.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="602098969"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="click_003" ID="{87AB6D27-4356-4CC1-9D9F-E06161CA30DA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="click_004" ID="{1650EE9C-4ADF-4BFA-A779-10C0180F58DC}" ShortID="823498850">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="click_004" ID="{3CDBABBB-678D-4973-916C-C966E1E651E2}">
+											<Language>SFX</Language>
+											<AudioFile>click_004.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="459037343"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="click_004" ID="{3CDBABBB-678D-4973-916C-C966E1E651E2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="click_005" ID="{1A0E2026-964D-433F-B0CC-D7E62FA80122}" ShortID="880607821">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="click_005" ID="{4AC4321B-D22F-4D6D-88C6-42002A17F3D6}">
+											<Language>SFX</Language>
+											<AudioFile>click_005.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="717005304"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="click_005" ID="{4AC4321B-D22F-4D6D-88C6-42002A17F3D6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<Sound Name="toggle_002" ID="{9C40DAC3-86DE-4DA2-A646-942E4F6E31C1}" ShortID="919523331">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="toggle_002" ID="{2845C1E2-2D30-4DE1-83B8-C92B571F2C12}">
+									<Language>SFX</Language>
+									<AudioFile>toggle_002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="726163291"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="toggle_002" ID="{2845C1E2-2D30-4DE1-83B8-C92B571F2C12}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

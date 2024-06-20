@@ -17,6 +17,7 @@ public class SceneLoader : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            AkSoundEngine.PostEvent("Play_PortalEnter", gameObject);
             // Save player data with new level as current level, then load scene
             _gameManager.SavePlayerData(sceneToLoad);
             SceneManager.LoadScene(sceneToLoad);

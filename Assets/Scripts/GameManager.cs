@@ -298,5 +298,17 @@ public class GameManager : MonoBehaviour
     public void ToggleMute()
     {
         muted = !muted;
+
+    }
+
+    public void playClickSound()
+    {
+        AkSoundEngine.PostEvent("Play_Click", gameObject);
+    }
+
+    public void playToggle()
+    {
+        AkSoundEngine.PostEvent("Play_Toggle", gameObject);
     }
 }
+

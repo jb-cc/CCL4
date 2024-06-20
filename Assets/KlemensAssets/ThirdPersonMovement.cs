@@ -105,7 +105,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
             if(Input.GetMouseButtonDown(0))
             {
-                PlayJump();
+                
                 downVelocity.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
                 animator.SetTrigger("punchTrigger");
             }
@@ -168,6 +168,7 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     private void Jump()
     {
+        PlayJump();
         _player.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
     }
 

@@ -38,7 +38,7 @@ public class IntroDialog : MonoBehaviour
 
     public void NextDialog()
     {  
-        if (currentDialog < dialogs.Length)
+        if (currentDialog < dialogs.Length-1)
         {
             dialogs[currentDialog].SetActive(false);
             currentDialog++;

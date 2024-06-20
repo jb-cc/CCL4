@@ -28,8 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public int maxHealth { get; private set; } = 50;
     
-    // a flag to check if the game has been won, not used yet
-    private bool _gameWon = false;
+    public bool gameWon = false;
     
     // Muted Flag
     public bool muted = false;
@@ -59,8 +58,12 @@ public class GameManager : MonoBehaviour
     private GameObject gameOverScreen;
     [SerializeField]
     private GameObject pauseMenu;
+    [SerializeField] 
+    private GameObject winScreen;
     [SerializeField]
     private GameObject continueButton;
+    [SerializeField] 
+    private GameObject soundBank;
     private EventSystem _eventSystem;
     
     // ================== METHODS ==================
@@ -70,6 +73,8 @@ public class GameManager : MonoBehaviour
         gameOverScreen.gameObject.SetActive(false);
         healthBar.gameObject.SetActive(false);
         mainMenu.gameObject.SetActive(true);
+        pauseMenu.SetActive(false);
+        winScreen.SetActive(false);
         SceneManager.LoadScene("MainMenu");
     }
     private void Awake()
@@ -82,6 +87,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(canvas.gameObject);
         DontDestroyOnLoad(_eventSystem.gameObject);
+        DontDestroyOnLoad(soundBank.gameObject);
         
         // Load the player data into the playerData variable
         playerData = LoadPlayerData();
@@ -105,7 +111,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!mainMenu.gameObject.activeSelf && !gameOverScreen.gameObject.activeSelf){
+        if (!mainMenu.gameObject.activeSelf && !gameOverScreen.gameObject.activeSelf && !winScreen.gameObject.activeSelf){
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Debug.Log("Esc key was pressed");
@@ -118,6 +124,13 @@ public class GameManager : MonoBehaviour
                     PauseGame();
                 }
             }
+        }
+        
+        if (gameWon)
+        {
+            winScreen.SetActive(true);
+            healthBar.gameObject.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 
@@ -185,6 +198,7 @@ public class GameManager : MonoBehaviour
         healthBar.gameObject.SetActive(true);
         gameOverScreen.gameObject.SetActive(false);
         mainMenu.gameObject.SetActive(false);
+        winScreen.SetActive(false);
         healthBar.UpdateHealthBar();
         
         // Load the first level
@@ -232,8 +246,8 @@ public class GameManager : MonoBehaviour
         healthBar.gameObject.SetActive(false);
         mainMenu.gameObject.SetActive(true);
         pauseMenu.SetActive(false);
+        winScreen.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
-
         SceneManager.LoadScene("MainMenu");
         AdjustContinueButton();
     }

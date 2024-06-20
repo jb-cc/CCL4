@@ -10326,11 +10326,60 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 8664520977517122763, guid: 133065d958e4c934287241ed16e2a291, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 553167457746123805, guid: 133065d958e4c934287241ed16e2a291, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6555903706970751995}
+    - targetCorrespondingSourceObject: {fileID: 553167457746123805, guid: 133065d958e4c934287241ed16e2a291, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6555903706970751994}
   m_SourcePrefab: {fileID: 100100000, guid: 133065d958e4c934287241ed16e2a291, type: 3}
+--- !u!1 &6555903706970751993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 553167457746123805, guid: 133065d958e4c934287241ed16e2a291, type: 3}
+  m_PrefabInstance: {fileID: 6555903706970751992}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6555903706970751994
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6555903706970751993}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.99999994, z: 1}
+  m_Center: {x: 0.0000019073486, y: 0, z: 0}
+--- !u!114 &6555903706970751995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6555903706970751993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50017523bef396c45aaf45de2f8c5976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: SecondLevel
 --- !u!1001 &7134992149572227934
 PrefabInstance:
   m_ObjectHideFlags: 0

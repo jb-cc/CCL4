@@ -1,17 +1,33 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class RagdollManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] ragdollGameObjects;
-    [SerializeField] private GameObject hipObj;
+    [SerializeField] public GameObject hipObj;
+    [SerializeField] private GameObject leftArmTarget;
+    [SerializeField] private GameObject rightArmTarget;
+    [SerializeField] private GameObject leftLowerArmEnd;
+    [SerializeField] private GameObject _rig;
 
+    private GameObject lockedObject;
+
+    private bool triesToGrab = false;
+    public bool hasKey = false;
     private float[] _previousJointSprings;
     private bool _isActiveRagdoll;
     private Rigidbody _hipRigid;
     private int _hitsTaken = 0;
     private ThirdPersonMovement thirdPersonMovement;
+    
+    
+    private bool isAttached = false;
+    private float raycastDistance = 1.0f;
+    public LayerMask touchObjectLayerMask;
+
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,10 +38,33 @@ public class RagdollManager : MonoBehaviour
         thirdPersonMovement = hipObj.GetComponent<ThirdPersonMovement>();
 
     }
+    public void Update()
+    {
+        if (Input.GetKey(KeyCode.E))
+        {
+            triesToGrab = true;
+            
+        }
+        else
+        {
+            triesToGrab = false;
+        }
+
+        if (Input.GetKey(KeyCode.G))
+        {
+            if (hasKey)
+            {
+                ReleaseFromHand();
+            }
+        }
+
+    }
 
     public void turnRagdoll()
     {
         //Debug.Log(ragdollGameObjects[0].gameObject.GetComponent<ConfigurableJoint>().slerpDrive.positionSpring);
+        
+        ReleaseFromHand();
         _hitsTaken++;
         if (_hitsTaken > 2)
         {
@@ -88,6 +127,95 @@ public class RagdollManager : MonoBehaviour
         hipObj.transform.rotation = Quaternion.Euler(12.136f, hipObj.transform.eulerAngles.y, 0f);
         _hipRigid.freezeRotation = true;
     }
+    public void AttachHands(GameObject otherObj)
+    {
+
+        
+        
+        if (!isAttached)
+        {
+            isAttached = true;
+            _rig.GetComponent<Rig>().weight = 1f;
+            //Debug.Log("Testing");
+
+
+            //SetHandPosition(otherObj, rightArmTarget.transform);
+            //SetHandPosition(otherObj, leftArmTarget.transform);
+
+            //leftLowerArmEnd.transform.SetParent(otherObj.transform, true);
+            //otherObj.transform.SetParent(leftLowerArmEnd.transform);
+            //otherObj.GetComponent<Rigidbody>().isKinematic = true;
+
+            //FixedJoint grabJoint = leftLowerArmEnd.AddComponent<FixedJoint>();
+            //grabJoint.connectedBody = otherObj.GetComponent<Rigidbody>();
+            //grabJoint.anchor = leftLowerArmEnd.transform.position;
+
+
+        }
+        
+        
+    }
+
+    public void DetachHands(GameObject otherObj)
+    {
+        
+        if (isAttached)
+        {
+            isAttached = false;
+            _rig.GetComponent<Rig>().weight = 0f;
+        }
+
+
+    }
+
+    public void LockToHand(GameObject otherObj)
+    {
+        if (!hasKey)
+        {
+            if (triesToGrab)
+            {
+                hasKey = true;
+
+                lockedObject = otherObj;
+                otherObj.GetComponent<Rigidbody>().isKinematic = true;
+                otherObj.GetComponent<BoxCollider>().enabled = false;
+                otherObj.transform.rotation = Quaternion.Euler(leftLowerArmEnd.transform.rotation.eulerAngles.x - 90, leftLowerArmEnd.transform.rotation.eulerAngles.y, leftLowerArmEnd.transform.rotation.eulerAngles.z);
+
+                otherObj.transform.position = new Vector3(leftLowerArmEnd.transform.position.x, leftLowerArmEnd.transform.position.y, leftLowerArmEnd.transform.position.z);
+                otherObj.transform.position = new Vector3(otherObj.transform.position.x-0.4f, otherObj.transform.position.y+0.3f, otherObj.transform.position.z);
+                otherObj.transform.SetParent(leftLowerArmEnd.transform);
+            }
+        }
+        
+    }
+
+    public void ReleaseFromHand()
+    {
+        if(hasKey)
+        {
+            hasKey = false;
+
+            lockedObject.GetComponent<Rigidbody>().isKinematic = false;
+            lockedObject.GetComponent<BoxCollider>().enabled = true;
+            lockedObject.transform.SetParent(null);
+        }
+        
+
+
+
+    }
+    /*
+    public void SetHandPosition(GameObject otherObj, Transform handTransform)
+    {
+        Ray ray = new Ray(handTransform.position, handTransform.forward);
+        RaycastHit hit;
+        if(Physics.Raycast(ray, out hit, raycastDistance, touchObjectLayerMask))
+        {
+            handTransform.position = new Vector3(hit.point.x, hit.point.y + 1.5f, hit.point.z);
+            //handTransform.rotation = Quaternion.LookRotation(hit.normal);
+        }
+    }
+    */
 
 
 

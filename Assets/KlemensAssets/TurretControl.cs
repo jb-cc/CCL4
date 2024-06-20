@@ -9,6 +9,8 @@ public class TurretControl : MonoBehaviour
     [SerializeField]
     private Transform _player;
 
+    [SerializeField] private GameObject _canonierEnemy;
+
     [SerializeField]
     private Transform _canonHead, _shootBarrel;
 
@@ -41,6 +43,7 @@ public class TurretControl : MonoBehaviour
         if(distance <= _activeDistance) 
         {
             _canonHead.LookAt(_player);
+            _canonierEnemy.transform.LookAt(_player);
             LimitRotation();
 
             if(Time.time >= _nextShoot) {

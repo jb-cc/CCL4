@@ -20,6 +20,8 @@ public class Heart : MonoBehaviour
 
             // Wwise Event auslösen
             
+            Debug.Log("ik habe dein hearz gebobben!");
+            _gameManager.IncreasePlayerHealth(15);
             Destroy(gameObject);
             AkSoundEngine.PostEvent("Play_Heal", gameObject);
             //_gameManager.IncreasePlayerHealth(1);

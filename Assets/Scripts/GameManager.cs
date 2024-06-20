@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject introDialog;
     [SerializeField]
+    private IntroDialog nextDialogButton;
+    [SerializeField]
     private GameObject continueButton;
     [SerializeField] 
     private GameObject soundBank;
@@ -134,6 +136,7 @@ public class GameManager : MonoBehaviour
             winScreen.SetActive(true);
             healthBar.gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
+            Debug.Log("Cursor State: " + Cursor.lockState);
         }
     }
 
@@ -190,6 +193,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        nextDialogButton.ResetDialogs();
+        gameWon = false;
         SceneManager.LoadScene(firstLevel);
         Debug.Log("is in start game");
         // Set the player data to the first level and max health, then save it
@@ -217,6 +222,12 @@ public class GameManager : MonoBehaviour
     
     public void ContinueGame()
     {
+        if (playerData.level == "IntroScene")
+        {
+            StartGame();
+            return;
+        }
+        nextDialogButton.ResetDialogs();
         // Load the level and health stored in the player data
         playerData = LoadPlayerData();
         
@@ -248,6 +259,7 @@ public class GameManager : MonoBehaviour
     // called on clicking the main menu button in the game over screen
     public void ReturnToMainMenu()
     {
+        gameWon = false;
         // Update the active UI Elements
         gameOverScreen.gameObject.SetActive(false);
         healthBar.gameObject.SetActive(false);

@@ -475,6 +475,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: barrel (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5034431504587143022, guid: e545f16f9892c2141875b4cee3d9d545, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5662771216675761620, guid: e545f16f9892c2141875b4cee3d9d545, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -6020,7 +6024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084069330881354234, guid: 0c5002e31980c9e43ad8896329c0218a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.63
+      value: 10.42
       objectReference: {fileID: 0}
     - target: {fileID: 4084069330881354234, guid: 0c5002e31980c9e43ad8896329c0218a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9295,6 +9299,10 @@ PrefabInstance:
     - target: {fileID: 1704913577010202, guid: 8aa5390f31df8524ab5e28ae2346ba7e, type: 3}
       propertyPath: m_Name
       value: RockPlainGrey1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704913577010202, guid: 8aa5390f31df8524ab5e28ae2346ba7e, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4734208427753802, guid: 8aa5390f31df8524ab5e28ae2346ba7e, type: 3}
       propertyPath: m_RootOrder

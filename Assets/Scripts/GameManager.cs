@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public bool saveExists {get; private set;}
     
     // the name of first level to be loaded, accessible from other scripts and in the Unity Editor
-    public string firstLevel = "Level 1";
+    public string firstLevel = "IntroScene";
 
     // a flag to check if the game is paused
     private bool _pauseGame = false;
@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
     private GameObject pauseMenu;
     [SerializeField] 
     private GameObject winScreen;
+    [SerializeField]
+    private GameObject introDialog;
     [SerializeField]
     private GameObject continueButton;
     [SerializeField] 
@@ -195,10 +197,12 @@ public class GameManager : MonoBehaviour
         
         
         // Update the active UI Elements
-        healthBar.gameObject.SetActive(true);
+        healthBar.gameObject.SetActive(false);
         gameOverScreen.gameObject.SetActive(false);
         mainMenu.gameObject.SetActive(false);
         winScreen.SetActive(false);
+        introDialog.SetActive(true);
+        
         healthBar.UpdateHealthBar();
         
         // Load the first level

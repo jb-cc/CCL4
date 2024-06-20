@@ -62,7 +62,7 @@ public class RagdollManager : MonoBehaviour
                     confJoint.slerpDrive = jDrive;
 
                 }
-                //vllt doch lieber GameObj als Rigidbody damit man rotation wieder richtig setzen könnte
+                //vllt doch lieber GameObj als Rigidbody damit man rotation wieder richtig setzen kÃ¶nnte
                 _hipRigid.freezeRotation = false;
                 _hitsTaken = 0;
                 _isActiveRagdoll = false;

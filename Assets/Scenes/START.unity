@@ -3579,7 +3579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muted: 0
-  firstLevel: Level 1
+  firstLevel: FirstLevel
   canvas: {fileID: 313796612}
   mainMenu: {fileID: 1143306647}
   healthBar: {fileID: 1671507272}

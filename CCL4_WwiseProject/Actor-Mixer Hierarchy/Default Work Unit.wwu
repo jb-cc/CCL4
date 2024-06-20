@@ -1636,6 +1636,28 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
+				<Sound Name="Portal_Enter" ID="{D704DAF4-48E1-4ED2-8B7B-4024EC8CCAB6}" ShortID="304926888">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{C111F695-1914-482D-AA06-7D6B0B87FBF9}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Fast Warp In" ID="{8E108CFE-A945-40BE-833F-6DBEAA46007F}">
+							<Language>SFX</Language>
+							<AudioFile>Fast Warp In.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="805537300"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Fast Warp In" ID="{8E108CFE-A945-40BE-833F-6DBEAA46007F}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

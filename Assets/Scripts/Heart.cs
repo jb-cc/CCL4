@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Heart : MonoBehaviour
 {
-    //private GameManager _gameManager;
+    private GameManager _gameManager;
 
     void Awake()
     {
-       // _gameManager = FindObjectOfType<GameManager>();
+       _gameManager = FindObjectOfType<GameManager>();
     }
 
     void OnTriggerEnter(Collider other)

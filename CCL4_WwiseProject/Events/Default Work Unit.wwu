@@ -69,17 +69,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Play_EnvironmentAmbient" ID="{E475E032-B78D-426F-811B-D571845DDB04}">
-					<ChildrenList>
-						<Action Name="" ID="{9D6692AC-B8B5-494C-98FF-323F9EACE5CB}" ShortID="56983676">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Random_Ambients" ID="{4DA2882B-F4B1-4801-8C5F-85F4C34963BF}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Event Name="Stop_RobotInitiate" ID="{2A72335C-9FDD-4BFF-8147-56C2DA16D5ED}">
 					<ChildrenList>
 						<Action Name="" ID="{455A1AC2-54A7-4B02-BE3A-8DA138F74F75}" ShortID="914984150">
@@ -201,6 +190,32 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="toggle_002" ID="{9C40DAC3-86DE-4DA2-A646-942E4F6E31C1}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Event Name="Play_PortalEnter" ID="{E5ED7B97-FBC1-4277-94FB-907544CBEBC2}">
+					<ChildrenList>
+						<Action Name="" ID="{969AB5BB-791E-4147-AFA2-D436E618DEFE}" ShortID="694583710">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Portal_Enter" ID="{D704DAF4-48E1-4ED2-8B7B-4024EC8CCAB6}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Folder Name="BGMusic" ID="{8D73D6D9-504A-4F42-8716-2A1616993A57}" ShortID="575959423">
+					<ChildrenList>
+						<Event Name="Play_EnvironmentAmbient" ID="{E475E032-B78D-426F-811B-D571845DDB04}">
+							<ChildrenList>
+								<Action Name="" ID="{9D6692AC-B8B5-494C-98FF-323F9EACE5CB}" ShortID="56983676">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Random_Ambients" ID="{4DA2882B-F4B1-4801-8C5F-85F4C34963BF}" WorkUnitID="{4E27B2D6-922E-47C2-BFB6-D96E6FEF60C8}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

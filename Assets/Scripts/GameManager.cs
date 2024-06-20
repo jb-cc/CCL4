@@ -89,7 +89,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         DontDestroyOnLoad(canvas.gameObject);
         DontDestroyOnLoad(_eventSystem.gameObject);
-        DontDestroyOnLoad(soundBank.gameObject);
+        if (soundBank != null)
+            DontDestroyOnLoad(soundBank.gameObject);
         
         // Load the player data into the playerData variable
         playerData = LoadPlayerData();

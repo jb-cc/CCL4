@@ -83,7 +83,8 @@ public class BanjoAI : MonoBehaviour
         _animator.SetBool("isIdle", false);
         _animator.SetBool("isWalking", true);
    
-        
+        //Sound 
+        PlayWalk();
         
         // When patrolling, the enemy should walk at standard speed
         agent.speed = _standardSpeed;
@@ -213,4 +214,20 @@ public class BanjoAI : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
+
+    void PlayWalk(){
+        //AkSoundEngine.PostEvent("Play_Banjo_Walk", gameObject);
+        Debug.Log("Playing Banjo walk sound");
+    }
+
+    void PlayAttack(){
+        //AkSoundEngine.PostEvent("Play_Banjo_Attack", gameObject);
+        Debug.Log("Playing Banjo attack sound");
+    }
+
+    void PlayDamage(){
+        //AkSoundEngine.PostEvent("Play_Banjo_Death", gameObject);
+        Debug.Log("Playing Banjo death sound");
+    }
+
 }

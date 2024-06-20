@@ -1,17 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class RagdollManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] ragdollGameObjects;
-    [SerializeField] private GameObject hipObj;
+    [SerializeField] public GameObject hipObj;
+    [SerializeField] private GameObject leftArmTarget;
+    [SerializeField] private GameObject rightArmTarget;
+    [SerializeField] private GameObject leftLowerArmEnd;
+    [SerializeField] private GameObject _rig;
+
+
 
     private float[] _previousJointSprings;
     private bool _isActiveRagdoll;
     private Rigidbody _hipRigid;
     private int _hitsTaken = 0;
     private ThirdPersonMovement thirdPersonMovement;
+    
+    
+    private bool isAttached = false;
+    private float raycastDistance = 1.0f;
+    public LayerMask touchObjectLayerMask;
+
+
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -87,6 +104,57 @@ public class RagdollManager : MonoBehaviour
         yield return new WaitForSeconds(secs);
         hipObj.transform.rotation = Quaternion.Euler(12.136f, hipObj.transform.eulerAngles.y, 0f);
         _hipRigid.freezeRotation = true;
+    }
+    public void AttachHands(GameObject otherObj)
+    {
+
+        
+        
+        if (!isAttached)
+        {
+            isAttached = true;
+            _rig.GetComponent<Rig>().weight = 1f;
+            //Debug.Log("Testing");
+
+
+            //SetHandPosition(otherObj, rightArmTarget.transform);
+            //SetHandPosition(otherObj, leftArmTarget.transform);
+
+            //leftLowerArmEnd.transform.SetParent(otherObj.transform, true);
+            //otherObj.transform.SetParent(leftLowerArmEnd.transform);
+            //otherObj.GetComponent<Rigidbody>().isKinematic = true;
+
+            //FixedJoint grabJoint = leftLowerArmEnd.AddComponent<FixedJoint>();
+            //grabJoint.connectedBody = otherObj.GetComponent<Rigidbody>();
+            //grabJoint.anchor = leftLowerArmEnd.transform.position;
+
+
+        }
+        
+        
+    }
+
+    public void DetachHands(GameObject otherObj)
+    {
+        
+        if (isAttached)
+        {
+            isAttached = false;
+            _rig.GetComponent<Rig>().weight = 0f;
+        }
+
+
+    }
+
+    public void SetHandPosition(GameObject otherObj, Transform handTransform)
+    {
+        Ray ray = new Ray(handTransform.position, handTransform.forward);
+        RaycastHit hit;
+        if(Physics.Raycast(ray, out hit, raycastDistance, touchObjectLayerMask))
+        {
+            handTransform.position = new Vector3(hit.point.x, hit.point.y + 1.5f, hit.point.z);
+            //handTransform.rotation = Quaternion.LookRotation(hit.normal);
+        }
     }
 
 

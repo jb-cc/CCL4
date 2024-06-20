@@ -9,17 +9,19 @@ public class ThirdPersonMovement : MonoBehaviour
     //[SerializeField] private CharacterController characterController;
 
     [SerializeField] private float speed;
-    [SerializeField] private float jumpSpeed;
-    [SerializeField] private float jumpMultiplier;
+    [SerializeField] private float jumpSpeed = 5f;
+    //[SerializeField] private float jumpMultiplier 
     [SerializeField] private float gravity = -9.81f;
     Vector3 downVelocity;
 
-    [SerializeField]
-    private float jumpingMaxHeight;
-    [SerializeField]
-    private float fallFactor;
-    private bool isOnGround = false;
-    private bool isJumping = false;
+    //[SerializeField] private float jumpingMaxHeight;
+    //[SerializeField] private float fallFactor;
+    
+    [SerializeField] private float fallMultiplier = 2.5f;
+    [SerializeField] private float lowJumpMultiplier = 2f;
+
+    //private bool isOnGround = false;
+    //private bool isJumping = false;
 
     private bool _lockMovement = false;
 
@@ -52,7 +54,7 @@ public class ThirdPersonMovement : MonoBehaviour
         _player = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;
         Physics.gravity = new Vector3(0f, gravity, 0f);
-        StartCoroutine(FallControlFlow());
+        //StartCoroutine(FallControlFlow());
     }
 
     // Update is called once per frame
@@ -65,10 +67,7 @@ public class ThirdPersonMovement : MonoBehaviour
             float horizontal = Input.GetAxisRaw("Horizontal");
             float vertical = Input.GetAxisRaw("Vertical");
 
-            if (isGrounded && downVelocity.y < 0)
-            {
-                //downVelocity.y = -2f;
-            }
+            
 
             Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
             if (direction.magnitude >= 0.1f)
@@ -77,8 +76,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
                 transform.rotation = Quaternion.Euler(transform.eulerAngles.x, angle, transform.eulerAngles.z);
                 balanceObj.rotation = Quaternion.Euler(0, angle, 0);
-                //Quaternion targetRotation = Quaternion.Euler(transform.eulerAngles.x, angle, 0f);
-                //transform.rotation = targetRotation;
+                
 
                 // Move the character using Rigidbody
                 Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
@@ -86,6 +84,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 {
                     _player.AddForce(moveDirection.normalized * speed * Time.deltaTime, _forceMode);
                 }
+                //Physic based is way better for us... so basically artefact
                 else if (movementType == MovementType.TransformBased)
                 {
                     float strength = Vector3.Magnitude(moveDirection);
@@ -96,18 +95,20 @@ public class ThirdPersonMovement : MonoBehaviour
             }
             else
             {
-                //transform.rotation = Quaternion.Euler(12.136f, transform.rotation.y, transform.rotation.z);
+                
                 animator.SetBool("isWalking", false);
             }
 
-            if (Input.GetButtonDown("Jump") && isGrounded) //&& isGrounded
-            {
-                downVelocity.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
 
-                //_player.AddForce(downVelocity * jumpSpeed, ForceMode.Impulse);
-                //wrong _player.AddForce(Vector3.up * jumpSpeed, ForceMode.VelocityChange); wrong
+            if (Input.GetButtonDown("Jump") && isGrounded) 
+            {
                 animator.SetBool("isJumping", true);
-                StartCoroutine(JumpControlFlow());
+                Jump();
+
+                //downVelocity.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
+                //_player.AddForce(downVelocity * jumpSpeed, ForceMode.Impulse);
+                //wrong _player.AddForce(Vector3.up * jumpSpeed, ForceMode.VelocityChange); wrong                
+                //StartCoroutine(JumpControlFlow());
 
 
 
@@ -118,6 +119,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
             }
 
+            /*
             if (!isGrounded)
             {
                 downVelocity.y += gravity * Time.deltaTime;
@@ -126,13 +128,31 @@ public class ThirdPersonMovement : MonoBehaviour
 
                 //characterController.Move(downVelocity * Time.deltaTime);
             }
+            */
+            
         }
-        
-        
-
+        HandleGravity();
 
     }
 
+    private void HandleGravity()
+    {
+        if (_player.velocity.y <= 0)
+        {
+            _player.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if(_player.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            _player.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+
+        }
+    }
+    private void Jump()
+    {
+        _player.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+    }
+
+    /*
     private IEnumerator JumpControlFlow()
     {
         isJumping = true;
@@ -176,6 +196,7 @@ public class ThirdPersonMovement : MonoBehaviour
 
         }
     }
+    */
     public void LockMovement(bool locking)
     {
         _lockMovement = locking;

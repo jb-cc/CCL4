@@ -179,7 +179,8 @@ public class RagdollManager : MonoBehaviour
                 lockedObject = otherObj;
                 otherObj.transform.SetParent(leftLowerArmEnd.transform);
                 otherObj.transform.localPosition = Vector3.zero;
-                otherObj.transform.rotation = Quaternion.Euler(new Vector3(90f,0f,0f));
+                //otherObj.transform.rotation = Quaternion.Euler(Vector3.zero);
+                otherObj.transform.localRotation = Quaternion.Euler(Vector3.zero);
                 //otherObj.transform.localScale = Vector3.one;
 
 
@@ -205,9 +206,9 @@ public class RagdollManager : MonoBehaviour
             lockedObject.GetComponent<Rigidbody>().isKinematic = false;
             lockedObject.GetComponent<BoxCollider>().isTrigger = false;
 
-            lockedObject.GetComponent<Rigidbody>().velocity = _hipRigid.velocity;
+            lockedObject.GetComponent<Rigidbody>().velocity = _hipRigid.velocity/2;
 
-            lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.forward * 5, ForceMode.Impulse);
+            lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.forward * 6, ForceMode.Impulse);
             lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.up * 10, ForceMode.Impulse);
 
             float random = Random.Range(-1f, 1f);

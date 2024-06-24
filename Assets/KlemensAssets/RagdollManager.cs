@@ -11,6 +11,7 @@ public class RagdollManager : MonoBehaviour
     [SerializeField] private GameObject leftLowerArmEnd;
     [SerializeField] private GameObject _rig;
 
+    private GameObject _rigRightHand;
     private GameObject lockedObject;
 
     private bool triesToGrab = false;
@@ -36,6 +37,8 @@ public class RagdollManager : MonoBehaviour
         _previousJointSprings = new float[ragdollGameObjects.Length];
         _hipRigid = hipObj.GetComponent<Rigidbody>();
         thirdPersonMovement = hipObj.GetComponent<ThirdPersonMovement>();
+        _rigRightHand = _rig.transform.Find("RightArm").gameObject;
+
 
     }
     public void Update()
@@ -187,10 +190,9 @@ public class RagdollManager : MonoBehaviour
 
                 otherObj.GetComponent<Rigidbody>().isKinematic = true;
                 otherObj.GetComponent<BoxCollider>().isTrigger = true;
-                //otherObj.transform.rotation = Quaternion.Euler(leftLowerArmEnd.transform.rotation.eulerAngles.x - 90, leftLowerArmEnd.transform.rotation.eulerAngles.y, leftLowerArmEnd.transform.rotation.eulerAngles.z);
+                _rigRightHand.GetComponent<TwoBoneIKConstraint>().weight = 0f;
+                _rig.GetComponent<Rig>().weight = 1f;
 
-                //otherObj.transform.position = new Vector3(leftLowerArmEnd.transform.position.x, leftLowerArmEnd.transform.position.y, leftLowerArmEnd.transform.position.z);
-                //otherObj.transform.position = new Vector3(otherObj.transform.position.x-0.4f, otherObj.transform.position.y+0.3f, otherObj.transform.position.z);
             }
         }
         
@@ -207,13 +209,24 @@ public class RagdollManager : MonoBehaviour
             lockedObject.GetComponent<BoxCollider>().isTrigger = false;
 
             lockedObject.GetComponent<Rigidbody>().velocity = _hipRigid.velocity/2;
-
-            lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.forward * 6, ForceMode.Impulse);
-            lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.up * 10, ForceMode.Impulse);
+            if(lockedObject.GetComponent<Rigidbody>().velocity.y > 0f)
+            {
+                lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.forward * 4, ForceMode.Impulse);
+                lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.up * 6, ForceMode.Impulse);
+            }
+            else
+            {
+                lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.forward * 6, ForceMode.Impulse);
+                lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.up * 7, ForceMode.Impulse);
+            }
+            
 
             float random = Random.Range(-1f, 1f);
 
             lockedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(random,random, random));
+
+            _rigRightHand.GetComponent<TwoBoneIKConstraint>().weight = 1f;
+            _rig.GetComponent<Rig>().weight = 0f;
 
         }
 

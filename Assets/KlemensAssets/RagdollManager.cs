@@ -190,8 +190,8 @@ public class RagdollManager : MonoBehaviour
 
                 otherObj.GetComponent<Rigidbody>().isKinematic = true;
                 otherObj.GetComponent<BoxCollider>().isTrigger = true;
-                _rigRightHand.GetComponent<TwoBoneIKConstraint>().weight = 0f;
-                _rig.GetComponent<Rig>().weight = 1f;
+               // _rigRightHand.GetComponent<TwoBoneIKConstraint>().weight = 0f;
+               // _rig.GetComponent<Rig>().weight = 1f;
 
             }
         }
@@ -225,8 +225,8 @@ public class RagdollManager : MonoBehaviour
 
             lockedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(random,random, random));
 
-            _rigRightHand.GetComponent<TwoBoneIKConstraint>().weight = 1f;
-            _rig.GetComponent<Rig>().weight = 0f;
+           // _rigRightHand.GetComponent<TwoBoneIKConstraint>().weight = 1f;
+           // _rig.GetComponent<Rig>().weight = 0f;
 
         }
 

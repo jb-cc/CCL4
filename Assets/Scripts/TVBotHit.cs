@@ -7,6 +7,7 @@ public class TVBotHit : MonoBehaviour
 {
     private GameManager _gameManager;
     private SphereCollider _collider;
+    private RagdollManager _ragdollManager;
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,6 +19,10 @@ public class TVBotHit : MonoBehaviour
         {
             _gameManager = FindObjectOfType<GameManager>();
         }
+        if (_ragdollManager == null)
+        {
+            _ragdollManager = FindObjectOfType<RagdollManager>();
+        }
     }
     
 
@@ -26,7 +31,8 @@ public class TVBotHit : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         { 
-            _gameManager.DecreasePlayerHealth(1); 
+            _gameManager.DecreasePlayerHealth(1);
+            _ragdollManager.turnRagdoll();
         }
     }
 }

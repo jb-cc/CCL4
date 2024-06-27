@@ -18,9 +18,28 @@ public class PickUpScript : MonoBehaviour
     void Update()
     {
         distance = Vector3.Distance(_player.transform.position, transform.position);
-        if (distance <= 3)
+        if (distance <= 4f)
         {
             ragdollManager.LockToHand(gameObject);
+        }
+
+        HandleGravity();
+        
+    }
+
+    private void HandleGravity()
+    {
+        if (!gameObject.GetComponent<Rigidbody>().isKinematic)
+        {
+            if (gameObject.GetComponent<Rigidbody>().velocity.y <= 0)
+            {
+                gameObject.GetComponent<Rigidbody>().velocity += Vector3.up * Physics.gravity.y * (3f - 1) * Time.deltaTime;
+            }
+            else if (gameObject.GetComponent<Rigidbody>().velocity.y > 0)
+            {
+                gameObject.GetComponent<Rigidbody>().velocity += Vector3.up * Physics.gravity.y * (2f - 1) * Time.deltaTime;
+
+            }
         }
     }
 }

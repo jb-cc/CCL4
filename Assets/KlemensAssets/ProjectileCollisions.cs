@@ -18,7 +18,7 @@ public class ProjectileCollisions : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            _gameManager.DecreasePlayerHealth(1);
+            if(_gameManager != null) _gameManager.DecreasePlayerHealth(1);
         }
         if (collision.gameObject.CompareTag("Player") && collision.gameObject.name == "Head")
         {

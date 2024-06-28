@@ -13,17 +13,26 @@ public class Pause : MonoBehaviour
     
     public void Continue()
     {
+        playClickSound();
         _gameManager.ResumeGame();
     }
 
     public void QuitGame()
     {
+        playClickSound();
         Application.Quit();
         _gameManager.ResumeGame();
     }
 
     public void MainMenu()
     {
+        playClickSound();
         _gameManager.ReturnToMainMenu();
+    }
+
+
+    public void playClickSound()
+    {
+        _gameManager.playClickSound();
     }
 }

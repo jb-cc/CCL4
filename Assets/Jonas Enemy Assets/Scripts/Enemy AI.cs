@@ -9,7 +9,6 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent agent;
     [SerializeField] private Transform player;
 
-    
     [SerializeField]
     private LayerMask whatIsGround, whatIsPlayer;
     private Animator _animator;
@@ -20,6 +19,10 @@ public class EnemyAI : MonoBehaviour
     private GameObject _neutralFace;
     private GameObject _deadFace;
     private int _chosenAttackAnimation = 1;
+
+    //Audio
+    private bool _isAlreadyChasing = false;
+    private bool _hasPlayedInitiate = false;
 
     // Patroling
     [SerializeField]
@@ -80,20 +83,30 @@ public class EnemyAI : MonoBehaviour
         // Check for sight and attack range
         _isPlayerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         bool _isPlayerInSmallAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-        bool _isPlayerInBigAttackRange = Physics.CheckSphere(transform.position, attackRange+ 0.2f, whatIsPlayer);
+        bool _isPlayerInBigAttackRange = Physics.CheckSphere(transform.position, attackRange + 0.2f, whatIsPlayer);
         _isPlayerInAttackRange = _isPlayerInSmallAttackRange | _isPlayerInBigAttackRange;
         
         if (!_isPlayerInSightRange && !_isPlayerInAttackRange)
+        {
             if (endOfAttackAnimation)
+            {
                 Patroling();
-        
-        if (_isPlayerInSightRange && !_isPlayerInAttackRange)
+                _isAlreadyChasing = false;
+                _hasPlayedInitiate = false;
+            }
+        }
+        else if (_isPlayerInSightRange && !_isPlayerInAttackRange)
+        {
             if (endOfAttackAnimation)
+            {
                 ChasePlayer();
-        
-        if (_isPlayerInSightRange && _isPlayerInAttackRange)
-                AttackPlayer();
-            
+            }
+        }
+        else if (_isPlayerInSightRange && _isPlayerInAttackRange)
+        {
+            AttackPlayer();
+            _isAlreadyChasing = false;
+        }
     }
 
     private void Patroling()
@@ -106,19 +119,16 @@ public class EnemyAI : MonoBehaviour
         _neutralFace.SetActive(true);
         _deadFace.SetActive(false);
         
-        
         // When patrolling, the enemy should walk at standard speed
         agent.speed = _standardSpeed;
-        
         
         // Enemy selects a random point to walk to (patroling behaviour)
         if (!_isWalkPointSet) SearchWalkPoint();
         
         if (_isWalkPointSet)
             agent.SetDestination(walkPoint);
-
+            
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
         
         // Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
@@ -176,11 +186,16 @@ public class EnemyAI : MonoBehaviour
         _angryFace.SetActive(true);
         _neutralFace.SetActive(false);
         _deadFace.SetActive(false);
-        
+
+        //Audio
+        if (!_hasPlayedInitiate)
+        {
+            PlayRobotInitiate();
+            _hasPlayedInitiate = true;
+        }
+
         // When chasing, the enemy should walk at double speed
         agent.speed = 2.5f * _standardSpeed;
-        
-        
         agent.SetDestination(player.position);
     }
 
@@ -200,23 +215,18 @@ public class EnemyAI : MonoBehaviour
         _neutralFace.SetActive(false);
         _deadFace.SetActive(false);
         
-        
         // Make the enemy stop moving and reset speed in case the player dies
         agent.SetDestination(transform.position);
         agent.speed = _standardSpeed;
-        
         
         // Calculate direction to look at and look at the player
         Vector3 direction = (player.position - transform.position).normalized;
         direction.y = 0; // Keep the y component zero to avoid tilting up/down
         transform.rotation = Quaternion.LookRotation(direction);
         
-            
         // Visuals again
         // randomize punch animation
         
-        
-            
         // add a delay between attacks
         StartCoroutine(ResetAttack());
     }
@@ -229,6 +239,7 @@ public class EnemyAI : MonoBehaviour
     public void StartOfAttackAnimation()
     {
         endOfAttackAnimation = false;
+        PlayRobotHit();
     }
 
     private IEnumerator ResetAttack()
@@ -277,6 +288,7 @@ public class EnemyAI : MonoBehaviour
     {
         yield return new WaitForSeconds(7f);
         Destroy(gameObject);
+        PlayRobotDead();
     }
     
     private void OnDrawGizmosSelected()
@@ -286,5 +298,16 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
-    
+
+    void PlayRobotHit(){
+        AkSoundEngine.PostEvent("Play_RobotHit", gameObject);
+    }
+
+    void PlayRobotDead(){
+        AkSoundEngine.PostEvent("Play_RobotDead", gameObject);
+    }
+
+    void PlayRobotInitiate(){
+        AkSoundEngine.PostEvent("Play_RobotInitiate", gameObject);
+    }
 }

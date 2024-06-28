@@ -48,6 +48,9 @@ public class ThirdPersonMovement : MonoBehaviour
     [SerializeField] private ForceMode _forceMode;
     [SerializeField] private MovementType movementType;
 
+    //Footsteps
+     [SerializeField] private float footstepInterval = 0.5f; // Intervall zwischen Fußschritten
+    private float footstepTimer;
 
     void Start()
     {
@@ -92,6 +95,7 @@ public class ThirdPersonMovement : MonoBehaviour
                 }
 
                 animator.SetBool("isWalking", true);
+                PlayFootstep();
             }
             else
             {
@@ -101,6 +105,8 @@ public class ThirdPersonMovement : MonoBehaviour
 
             if(Input.GetMouseButtonDown(0))
             {
+                
+                downVelocity.y = Mathf.Sqrt(jumpSpeed * -2f * gravity);
                 animator.SetTrigger("punchTrigger");
             }
 
@@ -162,6 +168,7 @@ public class ThirdPersonMovement : MonoBehaviour
     }
     private void Jump()
     {
+        PlayJump();
         _player.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
     }
 
@@ -213,6 +220,46 @@ public class ThirdPersonMovement : MonoBehaviour
     public void LockMovement(bool locking)
     {
         _lockMovement = locking;
+    }
+
+    void PlayJump()
+    {
+        AkSoundEngine.PostEvent("Play_Jump", gameObject);
+    }
+
+    void PlayFootstep()
+    {
+        if (footstepTimer <= 0f && isGrounded)
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, groundDistance))
+            {
+                string surfaceType = "Default";
+                if (hit.collider.CompareTag("Grass"))
+                {
+                    surfaceType = "Grass";
+                }
+                else if (hit.collider.CompareTag("Wood"))
+                {
+                    surfaceType = "Wood";
+                }
+
+                AkSoundEngine.SetSwitch("SurfaceType", surfaceType, gameObject);
+                AkSoundEngine.PostEvent("Play_Footstep", gameObject);
+            }
+
+            footstepTimer = footstepInterval; // Timer zurücksetzen
+        }
+        else
+        {
+            footstepTimer -= Time.deltaTime;
+        }
+    }
+
+    void PlayDeath()
+    {
+        Debug.Log("Death");
+       // AkSoundEngine.PostEvent("Play_Death", gameObject);
     }
 
 }

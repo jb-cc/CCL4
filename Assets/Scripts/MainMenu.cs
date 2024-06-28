@@ -23,26 +23,40 @@ public class MainMenu : MonoBehaviour
 
     public void ContinueGame()
     {
+        playClickSound();
         _gameManager.ContinueGame();
     }
     
     public void StartGame()
     {
+        playClickSound();
         Debug.Log("Starting game...");
         _gameManager.StartGame();
     }
 
     public void Quit()
     {
+        playClickSound();
         Application.Quit();
     }
 
     public void ToggleMute()
     {
+        playToggle();
         _gameManager.muted = !_gameManager.muted;
         muteButton.SetActive(!_gameManager.muted);
         unmuteButton.SetActive(_gameManager.muted);
         Debug.Log("Muted: " + _gameManager.muted);
     }
     
+    public void playClickSound()
+    {
+        _gameManager.playClickSound();
+    }
+
+    public void playToggle()
+    {
+        _gameManager.playToggle();
+    }
+
 }

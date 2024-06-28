@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e12a4d5c1e4dc4190fa152062cccbb, type: 3}
+  m_Name: 44DBEFCD-20DB-4C87-9815-249E44A4C2D9
+  m_EditorClassIdentifier: 
+  objectName: Play_Heal
+  id: 2639148008
+  guid: 44DBEFCD-20DB-4C87-9815-249E44A4C2D9

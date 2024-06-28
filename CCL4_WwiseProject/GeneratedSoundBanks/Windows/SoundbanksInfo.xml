@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="145">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{8EB291C1-3A80-5913-7F48-1B253408B479}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+			<GameParameters>
+				<GameParameter Id="954629715" Name="MovementSpeed"/>
+			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="63790334" Name="SurfaceType">
+					<Switches>
+						<Switch Id="2058049674" Name="Wood"/>
+						<Switch Id="4248645337" Name="Grass"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+		<SoundBank Id="3626155605" Type="User" Language="SFX" Hash="{E4E707DE-0863-CFBF-C62F-245C87297442}">
+			<ShortName>Game_Soundbank</ShortName>
+			<Path>Game_Soundbank.bnk</Path>
+			<Media>
+				<File Id="73474133" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>click_002.wav</ShortName>
+					<CachePath>SFX/click_002_10C4C929.wem</CachePath>
+				</File>
+				<File Id="183220283" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Hurt2.wav</ShortName>
+					<CachePath>SFX/Hurt2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="212462516" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Hurt3.wav</ShortName>
+					<CachePath>SFX/Hurt3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="225943432" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Requested Robot2.wav</ShortName>
+					<CachePath>SFX/Requested Robot2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="263984777" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Footsteps while running on wood.wav</ShortName>
+					<CachePath>SFX/Footsteps while running on wood_10C4C929.wem</CachePath>
+				</File>
+				<File Id="283539879" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Jump Sound 3(2).wav</ShortName>
+					<CachePath>SFX/Jump Sound 3(2)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="297182579" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>walk grass night 1.wav</ShortName>
+					<CachePath>SFX/walk grass night 1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="327376428" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Loud Walking on carpet(4).wav</ShortName>
+					<CachePath>SFX/Loud Walking on carpet(4)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="335229892" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>LittleAttack.wav</ShortName>
+					<CachePath>SFX/LittleAttack_10C4C929.wem</CachePath>
+				</File>
+				<File Id="336815361" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Game Pickup2.wav</ShortName>
+					<CachePath>SFX/Game Pickup2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="338579759" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Loud Walking on carpet(2).wav</ShortName>
+					<CachePath>SFX/Loud Walking on carpet(2)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="377958087" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>human grunts 2(3).wav</ShortName>
+					<CachePath>SFX/human grunts 2(3)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="401105733" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>bird chirps.wav</ShortName>
+					<CachePath>SFX/bird chirps_10C4C929.wem</CachePath>
+				</File>
+				<File Id="459037343" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>click_004.wav</ShortName>
+					<CachePath>SFX/click_004_10C4C929.wem</CachePath>
+				</File>
+				<File Id="477687770" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Footsteps while running on wood(5).wav</ShortName>
+					<CachePath>SFX/Footsteps while running on wood(5)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="497086199" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Glitchy Robot Scream - 10.wav</ShortName>
+					<CachePath>SFX/Glitchy Robot Scream - 10_10C4C929.wem</CachePath>
+				</File>
+				<File Id="499709267" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Hurt5.wav</ShortName>
+					<CachePath>SFX/Hurt5_10C4C929.wem</CachePath>
+				</File>
+				<File Id="536428748" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Footsteps while running on wood(3).wav</ShortName>
+					<CachePath>SFX/Footsteps while running on wood(3)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="586493654" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Hurt4.wav</ShortName>
+					<CachePath>SFX/Hurt4_10C4C929.wem</CachePath>
+				</File>
+				<File Id="592948970" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>human grunts 2.wav</ShortName>
+					<CachePath>SFX/human grunts 2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="602098969" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>click_003.wav</ShortName>
+					<CachePath>SFX/click_003_10C4C929.wem</CachePath>
+				</File>
+				<File Id="627820028" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Game Pickup.wav</ShortName>
+					<CachePath>SFX/Game Pickup_10C4C929.wem</CachePath>
+				</File>
+				<File Id="667953439" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Robot walk, looped(2).wav</ShortName>
+					<CachePath>SFX/Robot walk, looped(2)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="709940732" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Hurt.wav</ShortName>
+					<CachePath>SFX/Hurt_10C4C929.wem</CachePath>
+				</File>
+				<File Id="717005304" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>click_005.wav</ShortName>
+					<CachePath>SFX/click_005_10C4C929.wem</CachePath>
+				</File>
+				<File Id="726163291" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>toggle_002.wav</ShortName>
+					<CachePath>SFX/toggle_002_10C4C929.wem</CachePath>
+				</File>
+				<File Id="763322774" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Computer Breaking Sound.wav</ShortName>
+					<CachePath>SFX/Computer Breaking Sound_10C4C929.wem</CachePath>
+				</File>
+				<File Id="805537300" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Fast Warp In.wav</ShortName>
+					<CachePath>SFX/Fast Warp In_10C4C929.wem</CachePath>
+				</File>
+				<File Id="806088014" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Robot walk, looped.wav</ShortName>
+					<CachePath>SFX/Robot walk, looped_10C4C929.wem</CachePath>
+				</File>
+				<File Id="809632719" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>walk grass night 3.wav</ShortName>
+					<CachePath>SFX/walk grass night 3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="814848607" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Game Pickup3.wav</ShortName>
+					<CachePath>SFX/Game Pickup3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="873487999" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Loud Walking on carpet.wav</ShortName>
+					<CachePath>SFX/Loud Walking on carpet_10C4C929.wem</CachePath>
+				</File>
+				<File Id="905076452" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>click_001.wav</ShortName>
+					<CachePath>SFX/click_001_10C4C929.wem</CachePath>
+				</File>
+				<File Id="906190129" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Footsteps while running on wood(4).wav</ShortName>
+					<CachePath>SFX/Footsteps while running on wood(4)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="908925036" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>bird chirps3.wav</ShortName>
+					<CachePath>SFX/bird chirps3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="917995207" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Male Grunt 8 - WITHOUT reverb.wav</ShortName>
+					<CachePath>SFX/Male Grunt 8 - WITHOUT reverb_10C4C929.wem</CachePath>
+				</File>
+				<File Id="922791905" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Jump_C_05.wav</ShortName>
+					<CachePath>SFX/Jump_C_05_10C4C929.wem</CachePath>
+				</File>
+				<File Id="944002525" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>bird chirps4.wav</ShortName>
+					<CachePath>SFX/bird chirps4_10C4C929.wem</CachePath>
+				</File>
+				<File Id="947404950" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Heal.wav</ShortName>
+					<CachePath>SFX/Heal_10C4C929.wem</CachePath>
+				</File>
+				<File Id="953919205" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>walk grass night 2.wav</ShortName>
+					<CachePath>SFX/walk grass night 2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="963509219" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Loud Walking on carpet(3).wav</ShortName>
+					<CachePath>SFX/Loud Walking on carpet(3)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="994379592" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>human grunts 2(2).wav</ShortName>
+					<CachePath>SFX/human grunts 2(2)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="996085023" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Huge Explosion.wav</ShortName>
+					<CachePath>SFX/Huge Explosion_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1011564176" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>bird chirps2.wav</ShortName>
+					<CachePath>SFX/bird chirps2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1032205348" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Requested Robot2(2).wav</ShortName>
+					<CachePath>SFX/Requested Robot2(2)_10C4C929.wem</CachePath>
+				</File>
+				<File Id="1050348954" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Footsteps while running on wood(2).wav</ShortName>
+					<CachePath>SFX/Footsteps while running on wood(2)_10C4C929.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="2608022528" Name="Play_BanjoAttack" DurationType="OneShot" DurationMin="0.25641724" DurationMax="0.25641724">
+					<MediaRefs>
+						<MediaRef Id="917995207"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3826790247" Name="Play_BanjoHurt" DurationType="OneShot" DurationMin="0.34752834" DurationMax="0.71725625">
+					<MediaRefs>
+						<MediaRef Id="377958087"/>
+						<MediaRef Id="592948970"/>
+						<MediaRef Id="994379592"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="958343367" Name="Play_BanjoWalk" DurationType="OneShot" DurationMin="0.19421768" DurationMax="0.34770975">
+					<MediaRefs>
+						<MediaRef Id="327376428"/>
+						<MediaRef Id="338579759"/>
+						<MediaRef Id="873487999"/>
+						<MediaRef Id="963509219"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3450844999" Name="Play_CanonShot" DurationType="OneShot" DurationMin="1.5407552" DurationMax="1.5407552">
+					<MediaRefs>
+						<MediaRef Id="996085023"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="311910498" Name="Play_Click" DurationType="OneShot" DurationMin="0.0071201813" DurationMax="0.09712018">
+					<MediaRefs>
+						<MediaRef Id="73474133"/>
+						<MediaRef Id="459037343"/>
+						<MediaRef Id="602098969"/>
+						<MediaRef Id="717005304"/>
+						<MediaRef Id="905076452"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="437902151" Name="Play_EnvironmentAmbient" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="401105733"/>
+						<MediaRef Id="908925036"/>
+						<MediaRef Id="944002525"/>
+						<MediaRef Id="1011564176"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1602358412" Name="Play_Footstep" DurationType="Infinite">
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="63790334" Id="2058049674"/>
+							<MediaRefs>
+								<MediaRef Id="263984777"/>
+								<MediaRef Id="477687770"/>
+								<MediaRef Id="536428748"/>
+								<MediaRef Id="906190129"/>
+								<MediaRef Id="1050348954"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="63790334" Id="4248645337" Default="true"/>
+							<MediaRefs>
+								<MediaRef Id="297182579"/>
+								<MediaRef Id="809632719"/>
+								<MediaRef Id="953919205"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="2639148008" Name="Play_Heal" DurationType="OneShot" DurationMin="0.6939271" DurationMax="0.6939271">
+					<MediaRefs>
+						<MediaRef Id="947404950"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2955259529" Name="Play_Hurt" DurationType="OneShot" DurationMin="0.28458333" DurationMax="0.53758335">
+					<MediaRefs>
+						<MediaRef Id="183220283"/>
+						<MediaRef Id="212462516"/>
+						<MediaRef Id="499709267"/>
+						<MediaRef Id="586493654"/>
+						<MediaRef Id="709940732"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3689126666" Name="Play_Jump" DurationType="OneShot" DurationMin="0.23763537" DurationMax="0.23763537">
+					<MediaRefs>
+						<MediaRef Id="283539879"/>
+						<MediaRef Id="922791905"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1417415922" Name="Play_LittleAttack" DurationType="OneShot" DurationMin="0.81541127" DurationMax="0.81541127">
+					<MediaRefs>
+						<MediaRef Id="335229892"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3128913152" Name="Play_PickUp_Item" DurationType="OneShot" DurationMin="0.7856916" DurationMax="0.9514286">
+					<MediaRefs>
+						<MediaRef Id="336815361"/>
+						<MediaRef Id="627820028"/>
+						<MediaRef Id="814848607"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4016738326" Name="Play_PortalEnter" DurationType="OneShot" DurationMin="1.2253958" DurationMax="1.2253958">
+					<MediaRefs>
+						<MediaRef Id="805537300"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="356695360" Name="Play_RobotDead" DurationType="OneShot" DurationMin="1.064195" DurationMax="1.064195">
+					<MediaRefs>
+						<MediaRef Id="497086199"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1266153785" Name="Play_RobotHit" DurationType="OneShot" DurationMin="1.0430158" DurationMax="1.0430158">
+					<MediaRefs>
+						<MediaRef Id="763322774"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1061019819" Name="Play_RobotInitiate" DurationType="OneShot" DurationMin="0.9860544" DurationMax="1.7098639">
+					<MediaRefs>
+						<MediaRef Id="225943432"/>
+						<MediaRef Id="1032205348"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3525237377" Name="Play_RobotWalk" DurationType="OneShot" DurationMin="0.50696146" DurationMax="0.58702946">
+					<MediaRefs>
+						<MediaRef Id="667953439"/>
+						<MediaRef Id="806088014"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1943693866" Name="Play_Toggle" DurationType="OneShot" DurationMin="0.13641724" DurationMax="0.13641724">
+					<MediaRefs>
+						<MediaRef Id="726163291"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2444495705" Name="Stop_RobotInitiate" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+			</Events>
+			<GameParameters>
+				<GameParameter Id="954629715" Name="MovementSpeed"/>
+			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="63790334" Name="SurfaceType">
+					<Switches>
+						<Switch Id="2058049674" Name="Wood"/>
+						<Switch Id="4248645337" Name="Grass"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{6C427EA3-7E55-7E49-17D8-FD0E08F69784}</FileHash>
+</SoundBanksInfo>

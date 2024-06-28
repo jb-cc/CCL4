@@ -5761,6 +5761,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 503156152}
   winScreen: {fileID: 1275025260}
   introDialog: {fileID: 921685767}
+  nextDialogButton: {fileID: 783630525}
   continueButton: {fileID: 955324647}
   soundBank: {fileID: 0}
 --- !u!4 &1748739835

@@ -11,6 +11,7 @@ public class RagdollManager : MonoBehaviour
     [SerializeField] private GameObject leftLowerArmEnd;
     [SerializeField] private GameObject _rig;
 
+    private GameObject _rigRightHand;
     private GameObject lockedObject;
 
     private bool triesToGrab = false;
@@ -36,6 +37,8 @@ public class RagdollManager : MonoBehaviour
         _previousJointSprings = new float[ragdollGameObjects.Length];
         _hipRigid = hipObj.GetComponent<Rigidbody>();
         thirdPersonMovement = hipObj.GetComponent<ThirdPersonMovement>();
+        _rigRightHand = _rig.transform.Find("RightArm").gameObject;
+
 
     }
     public void Update()
@@ -178,13 +181,19 @@ public class RagdollManager : MonoBehaviour
                 hasKey = true;
 
                 lockedObject = otherObj;
-                otherObj.GetComponent<Rigidbody>().isKinematic = true;
-                otherObj.GetComponent<BoxCollider>().enabled = false;
-                otherObj.transform.rotation = Quaternion.Euler(leftLowerArmEnd.transform.rotation.eulerAngles.x - 90, leftLowerArmEnd.transform.rotation.eulerAngles.y, leftLowerArmEnd.transform.rotation.eulerAngles.z);
-
-                otherObj.transform.position = new Vector3(leftLowerArmEnd.transform.position.x, leftLowerArmEnd.transform.position.y, leftLowerArmEnd.transform.position.z);
-                otherObj.transform.position = new Vector3(otherObj.transform.position.x-0.4f, otherObj.transform.position.y+0.3f, otherObj.transform.position.z);
                 otherObj.transform.SetParent(leftLowerArmEnd.transform);
+                otherObj.transform.localPosition = Vector3.zero;
+                //otherObj.transform.rotation = Quaternion.Euler(Vector3.zero);
+                otherObj.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                //otherObj.transform.localScale = Vector3.one;
+
+
+
+                otherObj.GetComponent<Rigidbody>().isKinematic = true;
+                otherObj.GetComponent<BoxCollider>().isTrigger = true;
+               // _rigRightHand.GetComponent<TwoBoneIKConstraint>().weight = 0f;
+               // _rig.GetComponent<Rig>().weight = 1f;
+
             }
         }
         
@@ -195,12 +204,33 @@ public class RagdollManager : MonoBehaviour
         if(hasKey)
         {
             hasKey = false;
+            lockedObject.transform.SetParent(null);
 
             lockedObject.GetComponent<Rigidbody>().isKinematic = false;
-            lockedObject.GetComponent<BoxCollider>().enabled = true;
-            lockedObject.transform.SetParent(null);
+            lockedObject.GetComponent<BoxCollider>().isTrigger = false;
+
+            lockedObject.GetComponent<Rigidbody>().velocity = _hipRigid.velocity/2;
+            if(lockedObject.GetComponent<Rigidbody>().velocity.y > 0f)
+            {
+                lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.forward * 4, ForceMode.Impulse);
+                lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.up * 6, ForceMode.Impulse);
+            }
+            else
+            {
+                lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.forward * 6, ForceMode.Impulse);
+                lockedObject.GetComponent<Rigidbody>().AddForce(hipObj.transform.up * 7, ForceMode.Impulse);
+            }
+            
+
+            float random = Random.Range(-1f, 1f);
+
+            lockedObject.GetComponent<Rigidbody>().AddTorque(new Vector3(random,random, random));
+
+           // _rigRightHand.GetComponent<TwoBoneIKConstraint>().weight = 1f;
+           // _rig.GetComponent<Rig>().weight = 0f;
+
         }
-        
+
 
 
 

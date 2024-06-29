@@ -92,7 +92,7 @@
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-4</Value>
+								<Value>-12</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -120,6 +120,11 @@
 				<SwitchContainer Name="Footsteps_Switch" ID="{A94EFA9F-3B39-4706-BD94-3FFCA39E5C5E}" ShortID="191843329">
 					<PropertyList>
 						<Property Name="SwitchBehavior" Type="int16" Value="1"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -857,7 +862,7 @@
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-3</Value>
+								<Value>-6</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -1093,7 +1098,7 @@
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-14</Value>
+								<Value>-19</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -1153,6 +1158,13 @@
 					</ChildrenList>
 				</RandomSequenceContainer>
 				<RandomSequenceContainer Name="Robot_Footsteps" ID="{72BD1607-BA3E-40F5-AA5A-B82A8DDB9ECA}" ShortID="364907354">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-8</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
@@ -1212,7 +1224,7 @@
 					<PropertyList>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-5</Value>
+								<Value>-19</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -1238,6 +1250,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Robot_Dead" ID="{A63A407F-4435-4715-AD4F-4BFA7032A0CB}" ShortID="467506870">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-17</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
@@ -1438,6 +1457,13 @@
 					</ChildrenList>
 				</RandomSequenceContainer>
 				<Sound Name="Banjo_Attack" ID="{59F9A3A1-D4FD-4421-8C57-C623AC266A2A}" ShortID="973477104">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-1</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
@@ -1464,6 +1490,11 @@
 						<Property Name="Pitch" Type="int32">
 							<ValueList>
 								<Value>910</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-6</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -1637,6 +1668,13 @@
 					</ChildrenList>
 				</Folder>
 				<Sound Name="Portal_Enter" ID="{D704DAF4-48E1-4ED2-8B7B-4024EC8CCAB6}" ShortID="304926888">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-13</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>

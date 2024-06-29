@@ -4,6 +4,7 @@
 		<WorkUnit Name="Default Work Unit" ID="{8DF72ADD-90C0-436E-A3BB-E1135369684D}" PersistMode="Standalone">
 			<ChildrenList>
 				<GameParameter Name="MovementSpeed" ID="{5A91C5C6-415A-490B-ADB4-E6364D1E2BE0}"/>
+				<GameParameter Name="MasterVolume" ID="{CE85A113-5FB2-43B8-BAA0-0848181487FF}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

@@ -138,6 +138,15 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Debug.Log("Cursor State: " + Cursor.lockState);
         }
+
+        if (muted)
+        {
+            AkSoundEngine.SetRTPCValue("MasterVolume", 0f);
+        }
+        else
+        {
+            AkSoundEngine.SetRTPCValue("MasterVolume", 100f);
+        }
     }
 
     // This method saves the player data to a JSON file
@@ -210,8 +219,6 @@ public class GameManager : MonoBehaviour
         mainMenu.gameObject.SetActive(false);
         winScreen.SetActive(false);
         introDialog.SetActive(true);
-        
-        healthBar.UpdateHealthBar();
         
         // Load the first level
         Debug.Log("Loading first level");
@@ -310,7 +317,14 @@ public class GameManager : MonoBehaviour
     public void ToggleMute()
     {
         muted = !muted;
-
+        if (muted)
+        {
+            AkSoundEngine.SetRTPCValue("MasterVolume", 0f);
+        }
+        else
+        {
+            AkSoundEngine.SetRTPCValue("MasterVolume", 100f);
+        }
     }
 
     public void playClickSound()

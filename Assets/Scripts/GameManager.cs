@@ -211,8 +211,6 @@ public class GameManager : MonoBehaviour
         winScreen.SetActive(false);
         introDialog.SetActive(true);
         
-        healthBar.UpdateHealthBar();
-        
         // Load the first level
         Debug.Log("Loading first level");
 

@@ -15,8 +15,12 @@ public class HealthBar : MonoBehaviour
         {
             _gameManager = FindObjectOfType<GameManager>();
         }
+        if (slider == null)
+        {
+            slider = GetComponent<Slider>();
+        }
         SetMaxHealth(_gameManager.maxHealth);
-        UpdateHealthBar();
+        //UpdateHealthBar();
     }
 
     public void UpdateHealthBar()

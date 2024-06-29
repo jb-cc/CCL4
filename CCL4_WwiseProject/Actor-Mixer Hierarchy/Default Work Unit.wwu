@@ -5,6 +5,7 @@
 			<ChildrenList>
 				<RandomSequenceContainer Name="Pickup_Item" ID="{A70D9345-734E-4529-9EB2-5FB25B7127D8}" ShortID="965746478">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-10</Value>
@@ -87,9 +88,13 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+					<PositioningInfo>
+						<Position Name="" ID="{276C21D4-47E9-4D7C-9E3F-14AE81469CA8}"/>
+					</PositioningInfo>
 				</RandomSequenceContainer>
 				<Sound Name="Player_Heal" ID="{B06935A9-79EC-4CFA-BDC5-57CCEF8E272C}" ShortID="157065688">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-12</Value>
@@ -119,6 +124,7 @@
 				</Sound>
 				<SwitchContainer Name="Footsteps_Switch" ID="{A94EFA9F-3B39-4706-BD94-3FFCA39E5C5E}" ShortID="191843329">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
 						<Property Name="SwitchBehavior" Type="int16" Value="1"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
@@ -738,6 +744,7 @@
 				</SwitchContainer>
 				<Sound Name="Canon_Shoot" ID="{230F7D48-72E5-4BD9-BBC6-836EE58F1550}" ShortID="842510223">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
 						<Property Name="Highpass" Type="int16">
 							<ValueList>
 								<Value>17</Value>
@@ -782,6 +789,7 @@
 				</Sound>
 				<RandomSequenceContainer Name="Jump_Sequence" ID="{3BBBAF40-74E3-4386-8744-0437E5AF73CE}" ShortID="901856977">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
 						<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
 						<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.5"/>
 						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
@@ -989,6 +997,8 @@
 				</RandomSequenceContainer>
 				<RandomSequenceContainer Name="Random_Ambients" ID="{4DA2882B-F4B1-4801-8C5F-85F4C34963BF}" ShortID="289279686">
 					<PropertyList>
+						<Property Name="PlayMechanismLoop" Type="bool" Value="True"/>
+						<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-5</Value>
@@ -1096,6 +1106,7 @@
 				</RandomSequenceContainer>
 				<RandomSequenceContainer Name="Robot_Initiate" ID="{CF83C379-5EA2-4D30-B23F-B2A6902869EC}" ShortID="887909062">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-19</Value>
@@ -1222,6 +1233,7 @@
 				</RandomSequenceContainer>
 				<Sound Name="Robot_Hit" ID="{E0C94F13-3ACD-41E6-B6BD-84BB568616E0}" ShortID="150593077">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-19</Value>
@@ -1458,6 +1470,7 @@
 				</RandomSequenceContainer>
 				<Sound Name="Banjo_Attack" ID="{59F9A3A1-D4FD-4421-8C57-C623AC266A2A}" ShortID="973477104">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-1</Value>
@@ -1481,12 +1494,16 @@
 							</MediaIDList>
 						</AudioFileSource>
 					</ChildrenList>
+					<PositioningInfo>
+						<Position Name="" ID="{5D649B5C-5716-409F-B402-2070E17AC1DB}"/>
+					</PositioningInfo>
 					<ActiveSourceList>
 						<ActiveSource Name="Male Grunt 8 - WITHOUT reverb" ID="{DC5D1E2D-2FED-4658-8C50-981B7C957448}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Little_Attack" ID="{7BC326E5-B8C4-4947-B062-ACC44EAD894B}" ShortID="996699040">
 					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="2"/>
 						<Property Name="Pitch" Type="int32">
 							<ValueList>
 								<Value>910</Value>
@@ -1669,6 +1686,7 @@
 				</Folder>
 				<Sound Name="Portal_Enter" ID="{D704DAF4-48E1-4ED2-8B7B-4024EC8CCAB6}" ShortID="304926888">
 					<PropertyList>
+						<Property Name="EnableAttenuation" Type="bool" Value="False"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-13</Value>
@@ -1676,6 +1694,9 @@
 						</Property>
 					</PropertyList>
 					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Portal Volume" ID="{202961E3-5788-425F-A163-99B3DF7C13D9}" WorkUnitID="{6A2134E9-1417-4C6E-9390-88DCEA7C022A}"/>
+						</Reference>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{D447E579-6159-437D-84F1-9527464DDAEE}"/>
 						</Reference>

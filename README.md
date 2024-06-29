@@ -1,6 +1,6 @@
 ![Ragdoll Game Cover Image](cover-img.png)
 # Ragedoll - The last CodeLab
-
+Task documentation, final thoughts and Requirement List can be found [here](https://jrbeer.notion.site/Ragedoll-Documentation-f8e3f22615bd4565ab3465065003a3c4)
 
 
 made by:
@@ -12,6 +12,7 @@ made by:
 [Helm Finn](https://github.com/nnifHM)
 
 [Meyer Klemens](https://github.com/KlemensCC221011)
+
 
 # About
 The game is designed to be easily understandable, enjoyable, and rage-inducing (as per the name)

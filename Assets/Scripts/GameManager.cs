@@ -138,6 +138,15 @@ public class GameManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Debug.Log("Cursor State: " + Cursor.lockState);
         }
+
+        if (muted)
+        {
+            AkSoundEngine.SetRTPCValue("MasterVolume", 0f);
+        }
+        else
+        {
+            AkSoundEngine.SetRTPCValue("MasterVolume", 100f);
+        }
     }
 
     // This method saves the player data to a JSON file
@@ -308,7 +317,14 @@ public class GameManager : MonoBehaviour
     public void ToggleMute()
     {
         muted = !muted;
-
+        if (muted)
+        {
+            AkSoundEngine.SetRTPCValue("MasterVolume", 0f);
+        }
+        else
+        {
+            AkSoundEngine.SetRTPCValue("MasterVolume", 100f);
+        }
     }
 
     public void playClickSound()

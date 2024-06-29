@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{2D5E7596-B9DB-F3EC-2B39-F206FF63B36D}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{0F897D93-AC28-6D0A-EBF6-A73C54ED031D}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -23,6 +23,7 @@
 			</Busses>
 			<GameParameters>
 				<GameParameter Id="954629715" Name="MovementSpeed"/>
+				<GameParameter Id="2918011349" Name="MasterVolume"/>
 			</GameParameters>
 			<SwitchGroups>
 				<SwitchGroup Id="63790334" Name="SurfaceType">
@@ -33,7 +34,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="3626155605" Type="User" Language="SFX" Hash="{E4E707DE-0863-CFBF-C62F-245C87297442}">
+		<SoundBank Id="3626155605" Type="User" Language="SFX" Hash="{27F22E58-BD0A-81CD-FB8F-ABFD3FE237C6}">
 			<ShortName>Game_Soundbank</ShortName>
 			<Path>Game_Soundbank.bnk</Path>
 			<Media>
@@ -257,7 +258,7 @@
 						<MediaRef Id="905076452"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="437902151" Name="Play_EnvironmentAmbient" DurationType="Infinite">
+				<Event Id="437902151" Name="Play_EnvironmentAmbient" DurationType="OneShot" DurationMin="16.271996" DurationMax="162.43399">
 					<MediaRefs>
 						<MediaRef Id="401105733"/>
 						<MediaRef Id="908925036"/>
@@ -366,5 +367,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{2921000C-177B-5AFE-C509-E18060DE7128}</FileHash>
+	<FileHash>{FF250448-D9FB-E0B8-72C8-5678A4FF87F1}</FileHash>
 </SoundBanksInfo>

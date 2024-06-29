@@ -51,6 +51,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID MASTERVOLUME = 2918011349U;
         static const AkUniqueID MOVEMENTSPEED = 954629715U;
     } // namespace GAME_PARAMETERS
 

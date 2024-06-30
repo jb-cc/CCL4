@@ -41,7 +41,7 @@ RAGEDOLL revolves around a Character, who has ragdoll-based movement, but desire
     7. Scenes/EndLevel_GA
     8. Scenes/WinScene
 
-    ![Screenshot from Build Settings](build-settings.png)
+    ![Screenshot from Build Settings](build-settings-new.png)
 
     
 - Click “Build and run” for windows

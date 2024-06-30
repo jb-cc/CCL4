@@ -34,11 +34,11 @@ RAGEDOLL revolves around a Character, who has ragdoll-based movement, but desire
     0. Scenes/START
     1. Scenes/MainMenu
     2. Scenes/IntroScene
-    3. Scenes/Audio_Levels/TutorialLevel_GA
-    4. Scenes/Audio_Levels/FirstLevel_GA
-    5. Scenes/Audio_Levels/SecondLevel_GA
-    6. Scenes/Audio_Levels/ThirdLevel_GA
-    7. Scenes/Audio_Levels/EndLevel_GA
+    3. Scenes/TutorialLevel_GA
+    4. Scenes/FirstLevel_GA
+    5. Scenes/SecondLevel_GA
+    6. Scenes/ThirdLevel_GA
+    7. Scenes/EndLevel_GA
     8. Scenes/WinScene
 
     ![Screenshot from Build Settings](build-settings.png)
@@ -46,6 +46,15 @@ RAGEDOLL revolves around a Character, who has ragdoll-based movement, but desire
     
 - Click “Build and run” for windows
 - Play the game :)
+
+# Architecture Outline
+- The game is always started from the "START" Scene.
+  - In the start Scene, the GameManager, EventSystem, and the Canvas are initialized. They all are put in DontDestroyOnLoad, meaning they persist while playing the game. There only ever is one instance for each of these Game Objects.
+- Whenever you want to access a script, make sure to edit the right one, as the files are currently not very well organized. You can do so by clicking on the gameobject you want to edit the script of, and opening the script from there.
+  - Same thing for animators.
+- Most of the things that are reused are in the prefabs folder, so it is a good idea to start from there if you want to check how Enemies, Player, etc are working.
+- If you have any questions, **reach out**. This game was created within two weeks, so naturally it isn't the most polished game out there, code wise and structure wise.
+  - If you don't ask, we will not be able to help you.
 
 # What Challenges were found, and how were they solved?
 
